@@ -1,0 +1,36 @@
+name: Verify & Sync CTI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Tự động đồng bộ dữ liệu NVD + EPSS + CISA KEV mỗi ngày lúc 01:00 UTC (08:00 sáng giờ VN)
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+jobs:
+  verify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 24 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.15.0'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Astro, TypeScript & Write-ups schema validation
+        run: npm run check
+
+      - name: Run unit regression tests
+        run: npm test
+
+      - name: Build production static site & verify emitted HTML
+        run: npm run build

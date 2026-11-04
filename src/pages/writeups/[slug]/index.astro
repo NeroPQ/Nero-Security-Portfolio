@@ -1,0 +1,57 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { writeups } from '../../../data/writeups.mjs';
+import { sidebarMarkup } from '../../../data/render.mjs';
+import { platformName, evidenceLabel, unitLabel } from '../../../lib/writeups-ui.mjs';
+
+export function getStaticPaths() {
+  return writeups.map(w => ({
+    params: { slug: w.slug },
+    props: { writeup: w }
+  }));
+}
+
+const { writeup } = Astro.props;
+---
+
+<Base
+  title={`${writeup.title} | Nero Security`}
+  description={writeup.summary}
+>
+  {!writeup.approved && <meta slot="head" name="robots" content="noindex,nofollow" />}
+  <div class="page-shell two-column">
+    <article class="content-column wu-article" data-report={writeup.slug}>
+      <div class="detail-breadcrumb"><a href="/writeups/">← All write-ups</a><span>{platformName(writeup.platform)}</span></div>
+      <header class="wu-article-header">
+        <div class="eyebrow">{writeup.category} / {platformName(writeup.platform)}</div>
+        <h1>{writeup.title}</h1>
+        <p>{writeup.summary}</p>
+        <div class="wu-detail-meta">
+          <span>{unitLabel(writeup)}</span>
+          <span>{writeup.documentationStatus}</span>
+          <span>{writeup.dateVerification === 'verified' ? 'Documented' : 'Source date (unverified)'}: {writeup.date}</span>
+          {writeup.difficulty && <span>Difficulty: {writeup.difficulty}</span>}
+          <span>~{writeup.readingMinutes} min read</span>
+        </div>
+        <p class="wu-evidence-status">{evidenceLabel(writeup.evidenceStatus)}{writeup.evidenceStatus === 'pending' && ' — authentic screenshots are awaiting recovery and verification.'}</p>
+        {!writeup.approved && <p class="wu-draft-notice">Local draft — publication has not been approved.</p>}
+        <div class="wu-tags">{writeup.tags.map(tag => <span>{tag}</span>)}</div>
+        <a class="wu-official" href={writeup.source} target="_blank" rel="noopener noreferrer">Official platform page ↗</a>
+        <a class="wu-start-reading" href="#report-content">Start reading ↓</a>
+      </header>
+      <nav class="wu-toc" aria-label="Table of contents">
+        <details open={writeup.readingMinutes <= 20}>
+          <summary><h2>Contents</h2><span>Expand or collapse</span></summary>
+          <ol>{writeup.headings.filter(h => h.depth <= 3).map(h => <li class:list={{'wu-toc-sub': h.depth === 3}}><a href={`#${h.id}`}>{h.text}</a></li>)}</ol>
+        </details>
+      </nav>
+      <div class="wu-article-body wu-markdown" id="report-content" tabindex="-1" set:html={writeup.html} />
+      <p class="sr-only" role="status" data-copy-status></p>
+      <a class="wu-back" href="/writeups/">← Back to Write-ups</a>
+    </article>
+    <Fragment set:html={sidebarMarkup()} />
+  </div>
+</Base>
+<script>
+  import '../../../scripts/writeups';
+</script>

@@ -1,0 +1,16 @@
+package.json
+package-lock.json
+.node-version
+scripts/astro-local.mjs
+src/lib/writeups-core.mjs
+src/pages/writeups/[slug]/index.astro
+tests/writeups.test.mjs
+tests/browser/writeups.spec.ts
+README.md
+DEPLOY-QUICKSTART-VI.md
+docs/WRITEUPS_WORKFLOW.md
+docs/SOURCE_DATA_UIUX_AUDIT.md
+docs/WRITEUPS_AUDIT.md
+docs/DEPENDENCY_UPGRADE.md
+docs/DEPENDENCY_UPGRADE_VALIDATION.txt
+docs/dependency-audit-current.json

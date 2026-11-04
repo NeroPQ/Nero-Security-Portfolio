@@ -1,0 +1,384 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#11151d"><meta name="description" content="Nero — Cybersecurity research notes, detection engineering, practical labs and documented CVEs."><link rel="icon" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/styles.css"><title>Nero Security — Cybersecurity Portfolio</title></head><body><header class="main-header"><div class="header-inner"><a class="brand" href="/">N<span>ERO.</span><small>SECURITY NOTES</small></a><nav aria-label="Primary navigation"><a href="/">Home</a><a href="/research/">Research</a><a href="/projects/">Projects</a><a href="/writeups/">Write-ups</a><a href="/about/">About</a></nav><a class="header-link" href="https://github.com/NeroPQ" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></header><main>
+    <div class="page-shell two-column">
+      <article class="content-column wu-article">
+
+        <div class="detail-breadcrumb">
+          <a href="/writeups/">← All write-ups</a>
+          <span>Hack The Box Academy</span>
+        </div>
+
+        <header class="wu-article-header">
+          <div class="eyebrow">
+            OFFENSIVE SECURITY / INITIAL ACCESS
+            / HACK THE BOX ACADEMY
+          </div>
+
+          <h1>Shells &amp; Payloads — Windows, Linux and Web Initial Access</h1>
+          <p>Complete 17-section technical module journal covering shell fundamentals, Windows/Linux initial access, Metasploit, web shells, troubleshooting and defensive analysis.</p>
+
+          <div class="wu-detail-meta">
+            <span>17 sections documented · Evidence Pending</span>
+            <span>Documented: 2026-11-02</span>
+          </div>
+
+          <div class="wu-tags">
+            <span>HTB Academy</span><span>17 Sections</span><span>Medium</span><span>Bind Shell</span><span>Reverse Shell</span><span>Metasploit</span><span>MSFvenom</span><span>Web Shells</span>
+          </div>
+
+          <a
+            class="wu-official"
+            href="https://academy.hackthebox.com/app/module/115"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Official platform page ↗
+          </a>
+        </header>
+
+        <div class="wu-article-body">
+
+          <div class="wu-markdown"><h1>Shells &amp; Payloads — Windows, Linux and Web Initial Access</h1>
+<p><strong>Platform:</strong> Hack The Box Academy<br><strong>Module:</strong> Shells &amp; Payloads (Module 115)<br><strong>Difficulty:</strong> Medium<br><strong>Category:</strong> Offensive Security / Initial Access / Post-Exploitation Fundamentals<br><strong>Coverage:</strong> 17 Sections<br><strong>Documentation Status:</strong> Module-level study documented; practical evidence partially verified<br><strong>Publication Status:</strong> Evidence Pending<br><strong>Official Module:</strong> <a href="https://academy.hackthebox.com/app/module/115">https://academy.hackthebox.com/app/module/115</a></p>
+<hr>
+<h2>1. Overview</h2>
+<p>The Shells &amp; Payloads module introduces the technical principles and practical methodologies involved in establishing command execution and interactive shell access on Windows, Linux, and web application environments.</p>
+<p>The training follows a fictional penetration testing engagement involving CAT5 Security. Its emphasis is on understanding how shells operate, selecting appropriate payloads, identifying viable delivery methods, and validating the level of access obtained.</p>
+<p>The module progresses from basic shell concepts to bind and reverse shell communication, Metasploit-assisted exploitation, MSFvenom payload generation, operating-system-specific infiltration, webshell techniques, and defensive detection.</p>
+<p>A final practical engagement combines these techniques into a scenario requiring investigation, exploitation planning, and access verification.</p>
+<p>This write-up consolidates the module&#39;s learning objectives and documented study activities. It distinguishes technical demonstrations from verified hands-on outcomes.</p>
+<h2>2. Learning Objectives</h2>
+<p>The primary learning objectives are to:</p>
+<ul>
+<li>Explain the distinction between local, bind, reverse, and web-based shells.</li>
+<li>Understand the relationship between exploits, payloads, and execution contexts.</li>
+<li>Identify shell communication characteristics and network requirements.</li>
+<li>Use common enumeration techniques to identify potential access vectors.</li>
+<li>Understand how Metasploit automates exploit and payload workflows.</li>
+<li>Explain payload generation and platform-specific execution requirements.</li>
+<li>Investigate Windows and Unix/Linux initial access techniques.</li>
+<li>Recognize the limitations of non-interactive shells.</li>
+<li>Understand webshell delivery through vulnerable upload functionality.</li>
+<li>Apply a systematic methodology to practical exploitation assessments.</li>
+<li>Identify endpoint and network indicators associated with shell activity.</li>
+</ul>
+<h2>3. Technical Background</h2>
+<h3>3.1 Shell Architecture</h3>
+<p>A shell provides an interface between a user or remote operator and the operating system.</p>
+<p>Common shell interpreters include Bash, Zsh, PowerShell, and Windows Command Prompt.</p>
+<p>In a penetration testing context, shell access typically results from successful authentication, exploitation of a vulnerability, or another authorized execution mechanism.</p>
+<p>The permissions available through a shell are determined by the security context of the associated process.</p>
+<p>Obtaining a shell does not necessarily grant administrative privileges.</p>
+<h3>3.2 Bind Shells and Reverse Shells</h3>
+<p>A bind shell exposes a listening service on the target system. The operator initiates the network connection to that listener.</p>
+<p>A reverse shell operates in the opposite direction: the operator starts a listener, and the target initiates an outbound connection.</p>
+<p>These approaches have different network requirements.</p>
+<p>Bind shells require a reachable listening port on the target, while reverse shells depend on an outbound connection path from the target toward the operator.</p>
+<p>Firewalls, network address translation, host routing, and endpoint security can affect either approach.</p>
+<h3>3.3 Payloads and Exploitation</h3>
+<p>An exploit takes advantage of a vulnerability or security weakness.</p>
+<p>A payload defines the action performed once the necessary execution capability has been obtained.</p>
+<p>Payloads may provide command execution, establish a network connection, or initialize a more advanced interactive environment.</p>
+<p>Payload selection must consider the operating system, processor architecture, execution context, and available communication channels.</p>
+<h3>3.4 Web-Based Command Execution</h3>
+<p>A webshell is a server-side script or application component that provides remote command execution through a web interface.</p>
+<p>Examples include PHP webshells on Linux web servers and ASPX webshells on Windows IIS environments.</p>
+<p>The critical security weakness is not the scripting language itself, but an application configuration or vulnerability that permits unauthorized server-side execution.</p>
+<h2>4. Lab Environment</h2>
+<p>The module is designed around intentionally vulnerable Windows and Linux systems available through HTB Academy.</p>
+<p>The relevant tools and technologies include:</p>
+<ul>
+<li>Kali Linux or HTB Pwnbox</li>
+<li>Nmap</li>
+<li>Netcat</li>
+<li>Metasploit Framework</li>
+<li>MSFvenom</li>
+<li>Burp Suite</li>
+<li>HTTP and FTP clients</li>
+<li>Bash, Python, PowerShell, and CMD</li>
+<li>IIS / ASP.NET</li>
+<li>Apache / PHP</li>
+<li>Wireshark and network traffic analysis tools</li>
+</ul>
+<p>The discussions also cover rConfig, Antak, and Laudanum.</p>
+<p><strong>Evidence limitation:</strong> Exact target configurations, tool versions, credentials, and successful execution records have not been verified for every section.</p>
+<h2>5. Investigation Methodology</h2>
+<p>The methodology can be divided into six phases.</p>
+<p><strong>Phase 1 — Engagement Preparation</strong></p>
+<p>Identify the authorized testing scope, accessible systems, network restrictions, and available assessment tools.</p>
+<p><strong>Phase 2 — Enumeration</strong></p>
+<p>Identify accessible services, application technologies, operating systems, and potential weaknesses.</p>
+<p><strong>Phase 3 — Access Vector Selection</strong></p>
+<p>Evaluate whether the environment supports a bind shell, reverse shell, webshell, or framework-assisted exploit.</p>
+<p><strong>Phase 4 — Execution and Validation</strong></p>
+<p>Attempt the selected technique within the authorized environment and validate the resulting access through system information and command execution.</p>
+<p><strong>Phase 5 — Shell Interaction</strong></p>
+<p>Determine the current user, execution permissions, shell capabilities, and limitations.</p>
+<p><strong>Phase 6 — Evidence and Defensive Analysis</strong></p>
+<p>Preserve command output, record unsuccessful attempts, inspect relevant security telemetry, and document remediation opportunities.</p>
+<h2>6. Section-by-Section Technical Walkthrough</h2>
+<h3>01 — Shells Jack Us In, Payloads Deliver Us Shells</h3>
+<p>The introductory section establishes the difference between a shell and a payload.</p>
+<p>A shell is the interface through which instructions are issued to an operating system. A payload is a component that can provide such access following successful execution.</p>
+<p>The distinction is central to later exploitation activities: identifying a vulnerability is not equivalent to obtaining a functional shell.</p>
+<p>The section also introduces why command-line access is valuable during penetration testing, including its flexibility for system investigation and automation.</p>
+<p><strong>Key takeaway:</strong> A shell is an access interface, while a payload is one possible mechanism for obtaining it.</p>
+<h3>02 — CAT5 Security&#39;s Engagement Preparation</h3>
+<p>The module presents an engagement scenario involving CAT5 Security.</p>
+<p>Preparation involves establishing testing objectives, understanding the assessment environment, and selecting tools appropriate to the available systems.</p>
+<p>An effective penetration test requires more than running exploits. The operator must understand authorization boundaries, connectivity, credentials, and evidence-handling responsibilities.</p>
+<p>Technical preparation should include verifying access to the lab network and maintaining a structured activity log.</p>
+<p><strong>Key takeaway:</strong> Engagement preparation establishes the operational and authorization context for subsequent technical work.</p>
+<h3>03 — Anatomy of a Shell</h3>
+<p>This section introduces the components and behavior of command-line shells.</p>
+<p>Shells receive commands, interact with operating-system resources, and return output through standard input, standard output, and standard error.</p>
+<p>The degree of interactivity depends on the environment in which the shell runs.</p>
+<p>A fully interactive terminal differs from a restricted command execution interface or a non-TTY remote shell.</p>
+<p>Understanding this distinction is essential when troubleshooting command execution, terminal control, or authentication utilities.</p>
+<p><strong>Key takeaway:</strong> Having command execution does not automatically mean having a fully interactive terminal.</p>
+<h3>04 — Bind Shells</h3>
+<p>A bind shell listens for an incoming connection on the target system.</p>
+<p>The operator connects to the exposed service and interacts with the shell over the established network channel.</p>
+<p>This architecture may be effective in environments where the target is reachable and inbound connections are allowed.</p>
+<p>However, host firewalls and network segmentation frequently restrict access to unexpected listening ports.</p>
+<p>The documented learning material includes a bind-shell demonstration involving TCP port 4444 and command execution under a non-administrative account.</p>
+<p><strong>Key takeaway:</strong> Bind shells depend on inbound connectivity to the target and should be understood in terms of both operating-system permissions and network exposure.</p>
+<h3>05 — Reverse Shells</h3>
+<p>A reverse shell initiates a connection from the target to a listener controlled by the operator.</p>
+<p>This approach is useful in environments where direct inbound connections to the target are restricted but outbound connections are possible.</p>
+<p>A reverse shell requires the listening address and port to be reachable from the target system.</p>
+<p>Misconfigured listener addresses, firewall restrictions, and routing issues are common sources of failure.</p>
+<p>A successful TCP connection alone is not sufficient evidence of a usable interactive shell.</p>
+<p><strong>Key takeaway:</strong> Reverse shells depend on target-initiated communication, making accurate network configuration essential.</p>
+<h3>06 — Introduction to Payloads</h3>
+<p>Payloads are responsible for performing a defined action after execution becomes possible.</p>
+<p>They may be implemented using native executables, interpreted scripts, shellcode, or other formats.</p>
+<p>A payload&#39;s compatibility depends on characteristics such as operating system, architecture, interpreter support, and runtime conditions.</p>
+<p>The distinction between a payload and its delivery mechanism is particularly important.</p>
+<p>For example, an application upload vulnerability provides a possible delivery mechanism, but successful payload execution depends on additional server-side conditions.</p>
+<p><strong>Key takeaway:</strong> Payload delivery and successful payload execution are separate stages that require independent verification.</p>
+<h3>07 — Automating Payloads &amp; Delivery with Metasploit</h3>
+<p>Metasploit provides modules that automate portions of the exploitation process.</p>
+<p>A typical workflow includes identifying exposed services, researching relevant vulnerabilities, selecting an appropriate module, reviewing required configuration, and executing the module within the lab.</p>
+<p>Important commands include <code>search</code>, <code>use</code>, <code>info</code>, <code>show options</code>, <code>set</code>, <code>check</code>, and <code>run</code>.</p>
+<p>The framework simplifies repetitive tasks and provides mechanisms for handling compatible payload sessions.</p>
+<p>However, exploit success depends on satisfying the module&#39;s assumptions and requirements.</p>
+<p>A failed exploit attempt does not conclusively prove that the target is not vulnerable.</p>
+<p><strong>Key takeaway:</strong> Metasploit supports exploitation workflows, but technical validation remains the operator&#39;s responsibility.</p>
+<h3>08 — Crafting payloads with MSFvenom</h3>
+<p>MSFvenom generates payloads in formats appropriate for different platforms and execution environments.</p>
+<p>Important configuration elements include payload type, local callback address, listening port, output format, and processor architecture.</p>
+<p>The studied examples include generating ASPX-formatted payloads for a compatible Windows IIS environment.</p>
+<p>A generated file is not automatically executable on every system supporting the same operating system.</p>
+<p>The target must provide the necessary runtime, permissions, and execution path.</p>
+<p>A reverse payload also requires an appropriately configured handler.</p>
+<p><strong>Key takeaway:</strong> Payload generation must account for execution compatibility and network communication requirements.</p>
+<h3>09 — Infiltrating Windows</h3>
+<p>Windows initial access requires an understanding of exposed services and the security context of the affected application.</p>
+<p>Potential execution environments include IIS, ASP.NET, Windows services, and other accessible application components.</p>
+<p>The studied material includes an IIS-related scenario involving ASPX execution and a Meterpreter session.</p>
+<p>A session running under an IIS Application Pool identity demonstrates execution within the web application&#39;s security context.</p>
+<p>This does not establish administrative or SYSTEM-level access.</p>
+<p>Post-access investigation should therefore begin by identifying the current account, available privileges, and the host environment.</p>
+<p><strong>Key takeaway:</strong> Initial access on Windows must be assessed independently from privilege escalation.</p>
+<h3>10 — Infiltrating Unix/Linux</h3>
+<p>This section follows an application-focused exploitation methodology.</p>
+<p>The workflow begins with identifying exposed services, determining the web application and its version, and researching known vulnerabilities.</p>
+<p>The supplied learning notes discuss a vulnerable rConfig deployment, including a Metasploit module related to authenticated file-upload remote code execution.</p>
+<p>The resulting execution context may belong to a restricted web service account rather than root.</p>
+<p>After establishing command execution, the operator should inspect the current identity and evaluate shell interactivity.</p>
+<p><strong>Key takeaway:</strong> Linux application exploitation commonly produces restricted initial access that requires further investigation.</p>
+<h3>11 — Spawning Interactive Shells</h3>
+<p>A shell obtained through an application vulnerability may lack full terminal functionality.</p>
+<p>Restricted shells can have difficulty supporting terminal-dependent commands, interactive prompts, and job control.</p>
+<p>On Unix/Linux systems, Python&#39;s <code>pty</code> module can be used in compatible environments to spawn a pseudo-terminal.</p>
+<p>The studied technique includes <code>pty.spawn(&quot;/bin/bash&quot;)</code>.</p>
+<p>Terminal capabilities may also depend on the local listener and environment variables.</p>
+<p>Importantly, upgrading a shell&#39;s interactivity does not increase the account&#39;s privileges.</p>
+<p><strong>Key takeaway:</strong> Shell stabilization improves usability but does not constitute privilege escalation.</p>
+<h3>12 — Introduction to Web Shells</h3>
+<p>A webshell provides an HTTP-accessible mechanism for command execution or filesystem interaction on a web server.</p>
+<p>Webshell access may result from insecure upload functionality, vulnerable application components, or another unauthorized execution path.</p>
+<p>Unlike a traditional reverse shell, a webshell does not necessarily require a persistent outbound socket connection.</p>
+<p>The server may process commands independently for each HTTP request.</p>
+<p>Webshell functionality is constrained by the permissions of the underlying web application process.</p>
+<p><strong>Key takeaway:</strong> Webshells are application-mediated command execution interfaces, not necessarily interactive network shells.</p>
+<h3>13 — Laudanum, One Webshell to Rule Them All</h3>
+<p>Laudanum is a collection of webshell-related resources supporting several server-side technologies.</p>
+<p>The toolkit includes scripts intended for controlled security testing in environments where server-side execution is possible.</p>
+<p>The studied material references the local Kali directory <code>/usr/share/laudanum/</code>.</p>
+<p>The correct file type depends on the target application&#39;s execution environment.</p>
+<p>Using an incompatible script format or placing it in a non-executable directory will prevent the intended behavior.</p>
+<p><strong>Key takeaway:</strong> Webshell selection must match the server-side technology and execution permissions.</p>
+<h3>14 — Antak Webshell</h3>
+<p>Antak is an ASPX-based webshell associated with the Nishang toolkit.</p>
+<p>It provides a browser-based interface for interacting with PowerShell functionality on compatible Windows web servers.</p>
+<p>The studied workflow includes reviewing the ASPX source, configuring access credentials, uploading the file within the lab, and accessing the corresponding application URL.</p>
+<p>The effectiveness of the technique depends on ASP.NET support, server configuration, file accessibility, and the web application&#39;s execution permissions.</p>
+<p>Antak should not be treated as equivalent to an administrative Windows session.</p>
+<p><strong>Key takeaway:</strong> Antak demonstrates how ASP.NET-based server execution can expose Windows command execution through a web interface.</p>
+<h3>15 — PHP Web Shells</h3>
+<p>This section examines file-upload weaknesses involving PHP web applications.</p>
+<p>The provided notes describe a scenario where an upload request is intercepted and the declared MIME type is modified.</p>
+<p>The example changes a PHP file&#39;s <code>Content-Type</code> header to <code>image/gif</code>.</p>
+<p>This illustrates the danger of trusting client-controlled metadata during file validation.</p>
+<p>However, upload acceptance alone does not prove remote code execution.</p>
+<p>The file must be stored in an accessible location and processed by the server as executable PHP.</p>
+<p>The three distinct outcomes are:</p>
+<ol>
+<li>The server accepts the upload.</li>
+<li>The server stores and exposes the uploaded file.</li>
+<li>The server executes the file as PHP.</li>
+</ol>
+<p>Only the third outcome establishes PHP execution capability.</p>
+<p><strong>Key takeaway:</strong> Secure file upload validation must be enforced server-side, and successful execution must be verified separately.</p>
+<h3>16 — The Live Engagement</h3>
+<p>The final practical section combines the module&#39;s concepts into a multi-target assessment.</p>
+<p>The engagement requires evaluating existing reconnaissance information, identifying suitable access methods, and demonstrating shell access against Windows, Linux, and web application targets.</p>
+<p>The documented prior study notes refer to a Linux target running Ubuntu and a Windows host identified as <code>SHELLS-WINBLUE</code>.</p>
+<p>Some lab outcomes were previously recorded, but the available evidence is insufficient to authenticate every objective or confirm that the complete assessment was passed.</p>
+<p>No unverified flags or completed objectives are claimed in this write-up.</p>
+<p><strong>Key takeaway:</strong> Practical exploitation requires independently validated results across multiple target environments, not merely successful use of individual tools.</p>
+<h3>17 — Detection &amp; Prevention</h3>
+<p>The final defensive section examines how shell and payload activity can be detected through host and network telemetry.</p>
+<p>Relevant security data sources include application logs, file creation events, command execution records, authentication events, firewall logs, network flows, and packet captures.</p>
+<p>Important indicators include unexpected executable uploads, web server processes launching command interpreters, unusual outbound connections, and suspicious activities by service accounts.</p>
+<p>The section relates offensive techniques to MITRE ATT&amp;CK concepts, including Initial Access, Execution, and Command and Control.</p>
+<p>Defensive controls include endpoint protection, application hardening, least-privilege policies, segmentation, network monitoring, and appropriate firewall configurations.</p>
+<p>A defense-in-depth approach is essential because no individual protective control can reliably prevent every exploitation technique.</p>
+<p><strong>Key takeaway:</strong> Successful detection depends on correlating host, application, and network evidence rather than relying on a single malicious signature.</p>
+<h2>7. Troubleshooting and Technical Limitations</h2>
+<p>The module introduces several failure conditions that may occur during shell establishment.</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Technical Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No connection to a bind-shell listener</td>
+<td>The listening service may be unavailable or blocked by network controls</td>
+</tr>
+<tr>
+<td>Reverse callback does not arrive</td>
+<td>Callback address, port, routing, or firewall configuration may be incorrect</td>
+</tr>
+<tr>
+<td>Exploit executes without a usable session</td>
+<td>Payload execution or session initialization may have failed</td>
+</tr>
+<tr>
+<td>Webshell upload succeeds without command execution</td>
+<td>The destination may not permit server-side script execution</td>
+</tr>
+<tr>
+<td>Shell commands behave unexpectedly</td>
+<td>The shell may lack terminal capabilities</td>
+</tr>
+<tr>
+<td>Shell is available without administrative access</td>
+<td>Execution occurs under a restricted account</td>
+</tr>
+<tr>
+<td>Security software blocks a payload</td>
+<td>Endpoint or network controls may have identified the activity</td>
+</tr>
+</tbody></table>
+<p>These are general technical troubleshooting categories. They are not all confirmed as failures encountered during the recorded exercises.</p>
+<h2>8. Results and Evidence</h2>
+<h3>8.1 Documented Learning Outcomes</h3>
+<p>The available learning material supports familiarity with the following technical areas:</p>
+<ul>
+<li>Bind-shell and reverse-shell architectures.</li>
+<li>Payload selection and Metasploit-assisted execution.</li>
+<li>Windows and Linux initial access concepts.</li>
+<li>Shell stabilization and pseudo-terminal functionality.</li>
+<li>ASPX and PHP webshell behavior.</li>
+<li>File-upload validation weaknesses.</li>
+<li>Detection and prevention strategies.</li>
+</ul>
+<h3>8.2 Previously Recorded Practical Outcomes</h3>
+<p>Earlier study notes reference a bind-shell interaction, command execution under a restricted account, and selected results from the final multi-target engagement.</p>
+<p>These references require confirmation against their original terminal outputs and screenshots before publication as independently verified findings.</p>
+<h3>8.3 Evidence Limitations</h3>
+<p>The complete set of original screenshots, timestamps, terminal sessions, and assessment results is not currently available for verification.</p>
+<p>Accordingly, this write-up does not claim:</p>
+<ul>
+<li>Full completion of every practical exercise.</li>
+<li>Verified exploitation of every target.</li>
+<li>Administrative access without supporting evidence.</li>
+<li>Successful completion of all final assessment objectives.</li>
+</ul>
+<p><strong>Evidence Status: PENDING</strong></p>
+<h2>9. Security Implications</h2>
+<p>The techniques studied illustrate how software vulnerabilities and insecure application configurations can expose operating-system command execution.</p>
+<p>Several defensive implications are particularly relevant.</p>
+<p><strong>Web Application Security:</strong> File-upload validation should not rely exclusively on client-provided MIME types. Uploaded content should be restricted from server-side execution.</p>
+<p><strong>Endpoint Security:</strong> Unexpected command interpreters, process creation chains, and suspicious memory or network activity should be investigated.</p>
+<p><strong>Network Security:</strong> Outbound connection monitoring and segmentation can reduce the likelihood of unauthorized shell communication.</p>
+<p><strong>Access Control:</strong> Least-privilege execution limits the damage caused by vulnerabilities in public-facing applications.</p>
+<p><strong>Incident Response:</strong> Host and network evidence should be correlated to determine the origin, execution context, and extent of an incident.</p>
+<p>MITRE ATT&amp;CK provides useful mappings for public-facing application exploitation, command execution, webshell activity, and command-and-control communication.</p>
+<h2>10. Lessons Learned</h2>
+<p>The most significant lessons from the module are:</p>
+<ol>
+<li>A shell represents an execution context, not a guaranteed level of privilege.</li>
+<li>Bind and reverse shells have different connectivity requirements.</li>
+<li>Payload compatibility depends on the target operating system and runtime.</li>
+<li>Automated exploitation requires manual interpretation and verification.</li>
+<li>Successful file upload does not automatically establish remote code execution.</li>
+<li>Shell stabilization is separate from privilege escalation.</li>
+<li>Webshell techniques introduce recognizable application and endpoint artifacts.</li>
+<li>Evidence collection is essential for a credible penetration testing report.</li>
+<li>Defensive monitoring should correlate application, process, and network activity.</li>
+<li>A complete assessment requires validation of objectives rather than assuming success from tool output.</li>
+</ol>
+<h2>11. References</h2>
+<ol>
+<li><p>Hack The Box Academy — Shells &amp; Payloads, Module 115.<br><a href="https://academy.hackthebox.com/app/module/115">https://academy.hackthebox.com/app/module/115</a></p>
+</li>
+<li><p>Hack The Box Academy — Shells &amp; Payloads Course Overview.<br><a href="https://academy.hackthebox.com/course/preview/shells--payloads">https://academy.hackthebox.com/course/preview/shells--payloads</a></p>
+</li>
+<li><p>Rapid7 — Metasploit Framework Documentation.<br><a href="https://docs.metasploit.com/">https://docs.metasploit.com/</a></p>
+</li>
+<li><p>MITRE ATT&amp;CK — Exploit Public-Facing Application (T1190).<br><a href="https://attack.mitre.org/techniques/T1190/">https://attack.mitre.org/techniques/T1190/</a></p>
+</li>
+<li><p>MITRE ATT&amp;CK — Web Shell (T1505.003).<br><a href="https://attack.mitre.org/techniques/T1505/003/">https://attack.mitre.org/techniques/T1505/003/</a></p>
+</li>
+<li><p>OWASP — File Upload Cheat Sheet.<br><a href="https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html</a></p>
+</li>
+</ol>
+<hr>
+<p><strong>Assessment Classification:</strong> Authorized cybersecurity training<br><strong>Documentation Classification:</strong> Consolidated module study and partially documented hands-on practice<br><strong>Publication Status:</strong> Evidence Pending</p>
+</div>
+
+          <section class="wu-section wu-evidence">
+            <div class="eyebrow">EVIDENCE</div>
+            <h2>Supporting screenshots</h2>
+
+            
+                <p>
+                  No screenshots have been attached to this entry yet.
+                  Additional evidence will be added only when recovered
+                  and verified.
+                </p>
+              
+
+            <p class="wu-disclaimer">
+              All exercises were performed in authorized educational
+              environments. Sensitive credentials, hashes and flags
+              are intentionally excluded.
+            </p>
+          </section>
+
+        </div>
+      </article>
+
+      <aside class="sidebar" aria-label="Profile and navigation">
+  <section class="side-card identity-card"><div class="avatar-wrap"><div class="avatar">N<span>.</span></div><span class="avatar-orbit">// NERO</span></div><h2>Phan Thien Quang</h2><p class="handle">@NeroPQ · Ho Chi Minh City</p><p class="bio">Information Assurance student passionate about offensive and defensive cybersecurity, with hands-on experience in penetration testing, SOC operations, vulnerability research, and security engineering.</p><div class="profile-actions"><a class="mini-link" href="https://github.com/NeroPQ" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a class="mini-link" href="https://www.linkedin.com/in/phan-quang-nero/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div></section>
+  <section class="side-card"><div class="side-title">FIELD NOTES <span>01</span></div><a class="side-nav" href="/research/"><span>Vulnerability Research</span><b>04</b></a><a class="side-nav" href="/projects/"><span>Engineering & Projects</span><b>06</b></a><a class="side-nav" href="/writeups/"><span>Platform Write-ups</span><b>06</b></a><a class="side-nav" href="/about/"><span>Experience & Milestones</span><b>↗</b></a></section>
+  <section class="side-card"><div class="side-title">PRACTICE PLATFORMS <span>02</span></div><a class="platform-row" href="https://tryhackme.com/p/N3R0PH4N" target="_blank" rel="noopener noreferrer"><span class="platform-initial">THM</span><span class="platform-item-text"><strong>TryHackMe</strong><small>N3R0PH4N · Top 1% (resume)</small></span> <span aria-hidden="true">↗</span></a><a class="platform-row" href="https://app.hackthebox.com/users/3896988?profile-top-tab=machines&amp;ownership-period=1M&amp;profile-bottom-tab=prolabs" target="_blank" rel="noopener noreferrer"><span class="platform-initial">HTB</span><span class="platform-item-text"><strong>Hack The Box</strong><small>User #3896988 · Hands-on labs</small></span> <span aria-hidden="true">↗</span></a><a class="platform-row" href="https://portswigger.net/web-security" target="_blank" rel="noopener noreferrer"><span class="platform-initial">PS</span><span class="platform-item-text"><strong>PortSwigger Academy</strong><small>Web security learning · Public academy</small></span> <span aria-hidden="true">↗</span></a><p class="micro-note">Profile ranks can change. PortSwigger links to the public Academy, not account settings.</p></section>
+  <section class="side-card"><div class="side-title">SELECTED HIGHLIGHTS <span>03</span></div><div class="side-achievement"><strong>Top 1%</strong><span>TryHackMe · resume snapshot</span></div><div class="side-achievement"><strong>Top 15</strong><span>THRYVE CTF 2026</span></div><div class="side-achievement"><strong>46th</strong><span>CSCV 2026 · WannaLoSE</span></div><a href="/about/#achievements" class="side-all">More achievements <span>↗</span></a></section>
+</aside>
+    </div>
+  </main><footer class="main-footer"><div><strong>NERO.SEC</strong><span>Research · Build · Document</span></div><small>© <span id="year">2026</span> Phan Thien Quang · Educational research in authorized labs.</small><a href="#top">Back to top ↑</a></footer><script src="/site.js" defer></script></body></html>

@@ -1,0 +1,41 @@
+{
+  "platform": "HTB Academy",
+  "module_id": 39,
+  "module": "Using the Metasploit Framework",
+  "url": "https://academy.hackthebox.com/app/module/39",
+  "slug": "htb-metasploit",
+  "publication": "EVIDENCE PENDING",
+  "actual_screenshots_verified": 0,
+  "original_terminal_evidence": [
+    {
+      "section": 11,
+      "case": "FortiLogger",
+      "observed": [
+        "FortiLogger version 4.4.2.2 vulnerable",
+        "Payload uploaded",
+        "Payload execution and stage transfer",
+        "Meterpreter session 2 opened",
+        "hashdump failed: Incorrect function"
+      ],
+      "result": "Verified interactive session; hash extraction failed"
+    }
+  ],
+  "pending_screenshots": [
+    "MSFconsole introduction and configuration",
+    "EternalRomance exploitation and verification",
+    "Apache Druid RCE and flag file",
+    "elFinder identification and shell identity",
+    "Sudo Baron Samedit privilege escalation",
+    "FortiLogger Meterpreter session",
+    "FortiLogger hashdump troubleshooting",
+    "Other hands-on exercises where completion is claimed"
+  ],
+  "verified_session_user": null,
+  "verified_ntlm_hash": null,
+  "module_completed": false,
+  "notes": [
+    "Third-party flags and hashes are excluded.",
+    "Original text logs are not screenshots.",
+    "Do not automatically publish this draft."
+  ]
+}

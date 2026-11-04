@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import WriteupCard from '../../components/WriteupCard.astro';
+import { writeups, localReview } from '../../data/writeups.mjs';
+import { sidebarMarkup } from '../../data/render.mjs';
+---
+
+<Base title="Write-ups | Nero Security" description="HTB Academy module journals and TryHackMe room reports, with technical walkthroughs and clearly documented evidence limitations.">
+  {localReview && <meta slot="head" name="robots" content="noindex,nofollow" />}
+  <div class="page-shell two-column" data-writeups-index>
+    <div class="content-column">
+      <section class="feed-section inner-intro wu-index-header">
+        <div class="eyebrow">PLATFORM LAB JOURNAL</div>
+        <h1>Write-ups.</h1>
+        <p>Technical walkthroughs and learning notes from Hack The Box Academy and TryHackMe. Explore CVE case studies in <a href="/research/">Research</a>.</p>
+        {localReview && <p class="wu-draft-notice">Local review — includes drafts with Evidence Pending.</p>}
+      </section>
+      <section class="feed-section">
+        <div class="section-heading"><h2>Lab notes &amp; walkthroughs.</h2><span class="wu-count" data-writeup-count role="status" aria-live="polite">{writeups.length} reports</span></div>
+        {writeups.length > 0 && <div data-writeup-tools hidden>
+          <label class="wu-search-label" for="writeup-search">Search reports</label>
+          <input class="wu-search" id="writeup-search" data-writeup-search type="search" maxlength="160" placeholder="Title, topic, tool or module ID" aria-controls="writeup-grid" />
+          <div class="wu-filters" role="group" aria-label="Filter write-ups by platform">
+            <button type="button" data-writeup-filter="ALL" aria-controls="writeup-grid" aria-pressed="true">All ({writeups.length})</button>
+            <button type="button" data-writeup-filter="HTB" aria-controls="writeup-grid" aria-pressed="false">HTB Academy ({writeups.filter(w => w.platform === 'HTB').length})</button>
+            <button type="button" data-writeup-filter="THM" aria-controls="writeup-grid" aria-pressed="false">TryHackMe ({writeups.filter(w => w.platform === 'THM').length})</button>
+          </div>
+          <button class="wu-reset" type="button" data-writeup-reset hidden>Clear filters</button>
+        </div>}
+        <div class="wu-grid" id="writeup-grid">{writeups.map(w => <WriteupCard report={w} />)}</div>
+        <p class="wu-empty" data-writeup-empty hidden>No reports match your search. Clear the search or choose another platform.</p>
+        {writeups.length === 0 && <div class="wu-empty"><h3>Reports are being prepared.</h3><p>Reviewed write-ups will appear here. In the meantime, explore the <a href="/research/">Research case studies</a>.</p></div>}
+      </section>
+    </div>
+    <Fragment set:html={sidebarMarkup()} />
+  </div>
+</Base>
+<script>
+  import '../../scripts/writeups';
+</script>

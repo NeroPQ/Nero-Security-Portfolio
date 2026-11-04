@@ -1,0 +1,276 @@
+// NERO.SEC — Platform write-ups
+// CVE case studies are intentionally kept in the Research section.
+
+export const writeups = [
+  {
+    slug: 'thm-soc-level-1',
+    platform: 'THM',
+    category: 'SOC / Blue Team',
+    title: 'SOC Level 1 — Investigation & Alert Triage',
+    status: 'Path completed (reported in CV)',
+    kind: 'reported',
+    date: '2026',
+    source: 'https://tryhackme.com/path/outline/blueteam',
+    summary:
+      'A structured overview of SIEM, phishing, endpoint monitoring and incident triage; not a claim that every individual room was independently verified.',
+    tags: [
+      'Splunk', 'Elastic', 'Windows Logs',
+      'Wireshark', 'MITRE ATT&CK'
+    ],
+    sections: [
+      {
+        heading: 'Learning scope',
+        text:
+          'The SOC Level 1 learning path covers alert triage, phishing investigation, SIEM and EDR fundamentals, network monitoring, Windows and Linux log analysis, and escalation. The completion claim comes from my resume; a room-by-room completion export is not available.'
+      },
+      {
+        heading: 'Practical investigation workflow',
+        text:
+          'For each alert, I establish what triggered the detection, the affected host or identity, the activity timeline, and the independent evidence required to reach a verdict. Process, authentication and network records should corroborate one another before escalation.',
+        points: [
+          'Record the alert ID, detection rule and timestamp.',
+          'Correlate accounts, process trees, destinations and host telemetry.',
+          'Determine True Positive, False Positive or Inconclusive based on evidence.',
+          'Recommend containment or escalation only where justified.'
+        ]
+      },
+      {
+        heading: 'Phishing investigation notes',
+        text:
+          'Earlier investigation sessions included phishing alert examples #8815 and #8817, analyzed through sender-domain inspection, suspicious login links and connection evidence. These are documented investigation notes, not verified individual TryHackMe room completions. A blocked network connection must not be reported as a successful compromise.'
+      },
+      {
+        heading: 'Windows event correlation',
+        text:
+          'Windows Event IDs 4624 and 4625 represent successful and failed logons. Event ID 4688 may record process creation when the relevant auditing is enabled. These records require interpretation alongside logon types, users, hosts, process ancestry and network events.'
+      },
+      {
+        heading: 'Defensive takeaway',
+        text:
+          'A good SOC investigation results in a defensible narrative: what was detected, the independent observations supporting or contradicting it, a justified verdict, and an actionable handoff. Tools support the analysis but do not replace it.'
+      }
+    ],
+    images: []
+  },
+  {
+    slug: 'thm-flarevm-arsenal',
+    platform: 'THM',
+    category: 'Malware Analysis',
+    title: 'FlareVM — Arsenal of Tools',
+    status: 'Studied / completion not verified',
+    kind: 'notes',
+    date: '2026',
+    source: 'https://tryhackme.com/room/flarevmarsenaloftools',
+    summary:
+      'Notes on the isolated Windows malware-analysis toolbox, static inspection, triage and safe handling of suspicious files.',
+    tags: [
+      'FlareVM', 'Static Analysis', 'Malware Triage'
+    ],
+    sections: [
+      {
+        heading: 'Room objective',
+        text:
+          'FlareVM is a Windows-based toolkit for incident response, reverse engineering and malware investigation. The room introduces tool categories and safe workflows. My earlier learning notes cover these concepts, but there is no retained evidence that every room task was completed.'
+      },
+      {
+        heading: 'Safe analysis workflow',
+        text:
+          'Start with an isolated virtual machine and an evidence copy. Inspect file type, metadata and readable strings before progressing to deeper static analysis or controlled dynamic execution. Record cryptographic hashes and observations for reproducibility.',
+        points: [
+          'Use an isolated, disposable VM for untrusted samples.',
+          'Record sample provenance and SHA-256.',
+          'Begin with static inspection.',
+          'Perform dynamic analysis only inside a controlled lab.',
+          'Never distribute suspicious samples from the training environment.'
+        ]
+      },
+      {
+        heading: 'Connection to SOC operations',
+        text:
+          'A SOC analyst may receive a suspicious document or executable after alert triage. FlareVM helps examine the artifact and identify potential indicators for further investigation. Static strings or suspicious metadata alone should not be treated as proof that malicious behavior occurred.'
+      }
+    ],
+    images: []
+  },
+  {
+    slug: 'htb-footprinting',
+    platform: 'HTB',
+    category: 'Reconnaissance',
+    title: 'Footprinting — Network Service Enumeration',
+    status: 'Hands-on practice; full module not verified',
+    kind: 'practice',
+    date: '2026-10',
+    source: 'https://academy.hackthebox.com/course/preview/footprinting',
+    summary:
+      'Systematic enumeration of enterprise services including DNS, mail, SMB/NFS, SNMP, databases and remote management.',
+    tags: [
+      'Nmap', 'DNS', 'SMTP / IMAP',
+      'SMB', 'SNMP', 'MSSQL'
+    ],
+    sections: [
+      {
+        heading: 'Objective and methodology',
+        text:
+          'Footprinting focuses on discovering accessible services, identifying their protocols and configurations, and extracting useful information during an authorized assessment. Service enumeration is not equivalent to vulnerability exploitation.'
+      },
+      {
+        heading: 'Sections covered in my practice',
+        text:
+          'The documented exercises and discussions involved FTP, SMB, NFS, DNS, SMTP, IMAP/POP3, SNMP, MySQL, MSSQL, Oracle TNS, IPMI, SSH, RDP and WinRM. The historical conversations support practical exposure to these topics but do not establish completion of the entire HTB Academy module.'
+      },
+      {
+        heading: 'Hard lab — Mail services',
+        text:
+          'Recovered notes describe a training host exposing SSH and several mail-related ports, including POP3/IMAP and their TLS variants. The investigation began with service identification and then focused on the behavior of the identified mail protocols. A final verified flag was not recovered.'
+      },
+      {
+        heading: 'Technical observations',
+        text:
+          'Protocol-specific enumeration is more informative than relying on port numbers alone. SMTP may disclose mail configuration or supported extensions; SMB may reveal shares and access policies; SNMP may expose management information; and database services may reveal version and authentication characteristics.'
+      },
+      {
+        heading: 'Security takeaway',
+        text:
+          'A useful assessment finding includes the service, the observed evidence, the potential security implication and any limitations. Negative results should also be documented; an unsuccessful enumeration attempt does not prove that the service is secure.'
+      }
+    ],
+    images: []
+  },
+  {
+    slug: 'htb-shells-payloads',
+    platform: 'HTB',
+    category: 'Exploitation Fundamentals',
+    title: 'Shells & Payloads — From Foothold to Validation',
+    status: 'Hands-on sections documented',
+    kind: 'practice',
+    date: '2026-10',
+    source: 'https://academy.hackthebox.com/course/preview/shells--payloads',
+    summary:
+      'Bind and reverse shells, web shells and controlled application-lab footholds, including rConfig and file-upload investigation.',
+    tags: [
+      'Linux', 'Reverse Shell', 'Web Shell',
+      'PHP', 'ASPX'
+    ],
+    sections: [
+      {
+        heading: 'Understanding shells',
+        text:
+          'A bind shell listens on the target and waits for a connection, while a reverse shell initiates an outbound connection from the target to the tester. The choice depends on routing, firewall restrictions, available interpreters and the authorized assessment scope.'
+      },
+      {
+        heading: 'Hands-on sections',
+        text:
+          'The documented practice included Anatomy of a Shell, Bind Shells, Reverse Shells, Unix/Linux footholds, Antak ASPX web shells, PHP web shells and payload delivery.'
+      },
+      {
+        heading: 'rConfig file-upload investigation',
+        text:
+          'An rConfig 3.9.6 training target was investigated through a file-upload exploitation exercise. The resulting application investigation identified configuration-related artifacts, including edgerouter-isp.yml and hostnameinfo.txt.'
+      },
+      {
+        heading: 'Validating a foothold',
+        text:
+          'A successful shell requires more than a tool reporting that a payload was delivered. The resulting session must be validated by observing command execution, user context, filesystem permissions and the expected application environment.'
+      },
+      {
+        heading: 'Defensive takeaway',
+        text:
+          'Upload restrictions should be enforced on the server rather than relying on client-provided MIME types. Application owners should monitor unexpected server-side scripts, unusual child processes and outbound connections originating from web application services.'
+      }
+    ],
+    images: []
+  },
+  {
+    slug: 'htb-metasploit',
+    platform: 'HTB',
+    category: 'Exploitation Frameworks',
+    title: 'Using Metasploit — Sessions & Failure Analysis',
+    status: 'Hands-on sections documented',
+    kind: 'practice',
+    date: '2026-10-30',
+    source: 'https://academy.hackthebox.com/course/preview/using-the-metasploit-framework',
+    summary:
+      'Console observations from FortiLogger and other labs, distinguishing successful initial access from post-exploitation failures.',
+    tags: [
+      'Metasploit', 'Meterpreter',
+      'FortiLogger', 'MS17-010'
+    ],
+    sections: [
+      {
+        heading: 'Framework fundamentals',
+        text:
+          'The exercises covered module selection, payloads, target options, reverse handlers, sessions, jobs, Meterpreter and troubleshooting. Exploit checks, established sessions and privilege-dependent post-exploitation actions should be reported as separate outcomes.'
+      },
+      {
+        heading: 'FortiLogger — Successful session',
+        text:
+          'The FortiLogger 4.4.2.2 training target passed the vulnerability check. The payload uploaded and executed, followed by an established Meterpreter session. However, the subsequent SAM hash extraction operation failed.',
+        code:
+          '[+] The target is vulnerable. FortiLogger version 4.4.2.2\n' +
+          '[+] Payload has been uploaded\n' +
+          '[*] Executing payload...\n' +
+          '[*] Meterpreter session opened\n' +
+          '[-] priv_passwd_get_sam_hashes: Operation failed: Incorrect function.'
+      },
+      {
+        heading: 'Interpreting the result',
+        text:
+          'The observed session confirmed initial access within the lab context. The failed hashdump command does not invalidate initial access, but it also does not support a claim that local account hashes were successfully retrieved.'
+      },
+      {
+        heading: 'MS17-010 investigation',
+        text:
+          'A separate training target produced indications of MS17-010 exposure. Later exploitation attempts did not establish a shell in the recovered transcript. A positive vulnerability check must not be presented as proof of successful exploitation.'
+      },
+      {
+        heading: 'Defensive takeaway',
+        text:
+          'Initial exploitation and post-exploitation actions can generate different telemetry. Investigation opportunities include unexpected process relationships, unusual network sessions, privilege-sensitive operations and activity inconsistent with the application service context.'
+      }
+    ],
+    images: []
+  },
+  {
+    slug: 'htb-password-attacks',
+    platform: 'HTB',
+    category: 'Authentication Security',
+    title: 'Password Attacks — SMB & SAM Investigation',
+    status: 'Hands-on sections documented',
+    kind: 'practice',
+    date: '2026-10-31',
+    source: 'https://academy.hackthebox.com/course/preview/password-attacks',
+    summary:
+      'Controlled SMB authentication, authenticated access and Windows local account hash analysis, with sensitive values excluded.',
+    tags: [
+      'SMB', 'Windows', 'SAM',
+      'Authentication', 'Hash Analysis'
+    ],
+    sections: [
+      {
+        heading: 'Scope of investigation',
+        text:
+          'The module covers credential storage, authentication protocols, password attacks and weak credential practices. My recovered activity focuses on network services and Windows SMB. Full completion of every module section is not established.'
+      },
+      {
+        heading: 'SMB laboratory observations',
+        text:
+          'A Windows laboratory target accepted a provided training account. The tool subsequently reported privileged access and retrieved local SAM account hash data. The original password and hash values are intentionally removed from this public version.',
+        code:
+          'SMB  [lab-target]  [+] [lab-user]:[REDACTED] (Pwn3d!)\n' +
+          'SMB  [lab-target]  [*] Dumping SAM hashes\n' +
+          'SMB  [lab-target]  [REDACTED: local account hash output]'
+      },
+      {
+        heading: 'Technical interpretation',
+        text:
+          'Authentication success, administrative authorization and access to stored credentials are distinct conditions. Technical reports should identify precisely which security boundary was crossed and which observed outputs support that conclusion.'
+      },
+      {
+        heading: 'Defensive takeaway',
+        text:
+          'Reduce credential reuse, enforce strong authentication, restrict local administrator permissions, monitor suspicious remote logons and protect credential stores. Sensitive account data should not appear in public screenshots or write-ups.'
+      }
+    ],
+    images: []
+  }
+];

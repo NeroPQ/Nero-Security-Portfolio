@@ -1,0 +1,5 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "src/**/*", "tests/browser/**/*.ts", "playwright.config.ts"],
+  "exclude": ["node_modules", "dist", ".review", "archive", "test-results", ".nero-backups", ".nero-sec-backups", ".nerosec-backup-*"]
+}

@@ -1,0 +1,773 @@
+{
+  "backup": "../nero-writeups-audit-backup-20261102T200921Z",
+  "inventory": [
+    {
+      "source": "notes/writeups/htb-shells-payloads.md",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "full",
+      "words": 3177,
+      "sha256": "eb85a4793fa7ed776d09e5da8e2b2dfe3693fe769d935ee8336b0571b709278e",
+      "retainedAt": "archive/writeups-legacy/notes/writeups/htb-shells-payloads.md"
+    },
+    {
+      "source": "drafts/writeups/htb-metasploit/report.md",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "full",
+      "words": 5931,
+      "sha256": "1dcdf3cdbd8233b6852c5912e70e589f03090854f6061b0f2f4288d79ad4543e",
+      "retainedAt": "archive/writeups-legacy/drafts/writeups/htb-metasploit/report.md"
+    },
+    {
+      "source": "drafts/writeups/htb-metasploit/fortilogger-meterpreter.md",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "full",
+      "words": 2439,
+      "sha256": "87ecda9b0287fd59a1d1f01161b86821b4d37f1ec208f5889ce54834368f235b",
+      "retainedAt": "archive/writeups-legacy/drafts/writeups/htb-metasploit/fortilogger-meterpreter.md"
+    },
+    {
+      "source": "drafts/writeups/htb-academy-password-attacks-module-90/report.md",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "full",
+      "words": 4543,
+      "sha256": "5ebfc442c16dce616887fc575fe7517409f5f951b5fb27d5abf744f13457fb00",
+      "retainedAt": "archive/writeups-legacy/drafts/writeups/htb-academy-password-attacks-module-90/report.md"
+    },
+    {
+      "source": "drafts/writeups/htb-password-attacks-skills-assessment-nexura/report.md",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "full",
+      "words": 2474,
+      "sha256": "20f89014008feb196149d654b83e80fac340762d122b672a9b8a45940f52785b",
+      "retainedAt": "archive/writeups-legacy/drafts/writeups/htb-password-attacks-skills-assessment-nexura/report.md"
+    },
+    {
+      "source": "notes/writeups/htb-metasploit.md",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "unique-block merge",
+      "words": 1115,
+      "sha256": "35d970e0be6473d3c73125eef746120813d606eef6af10124672fda3c47d7d07",
+      "retainedAt": "archive/writeups-legacy/notes/writeups/htb-metasploit.md"
+    },
+    {
+      "source": "src/data/writeups-drafts/htb-using-metasploit-framework-four-section-study-notes/report.md",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "unique-block merge",
+      "words": 1515,
+      "sha256": "c080c906a99fdf6c35ea35f22effd1d912c508edffc70631b6006985c799ca93",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups-drafts/htb-using-metasploit-framework-four-section-study-notes/report.md"
+    },
+    {
+      "source": ".nero-backups/metasploit-module39-20261102T195543Z/writeups.mjs#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": ".nero-backups/metasploit-module39-20261102T195543Z/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/metasploit-module39-20261102T195543Z/writeups.mjs#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": ".nero-backups/metasploit-module39-20261102T195543Z/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/metasploit-module39-20261102T195543Z/writeups.mjs#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": ".nero-backups/metasploit-module39-20261102T195543Z/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/metasploit-module39-20261102T195543Z/writeups.mjs#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "unique-block merge",
+      "uniqueBlocks": 5,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": ".nero-backups/metasploit-module39-20261102T195543Z/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/metasploit-module39-20261102T195543Z/writeups.mjs#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "03f1b5fe69dbfeac2fa862363f39f7f391b97a9b92e6314815511077486c28dd",
+      "retainedAt": ".nero-backups/metasploit-module39-20261102T195543Z/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/metasploit-module39-20261102T195543Z/writeups.mjs#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "unique-block merge",
+      "uniqueBlocks": 5,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": ".nero-backups/metasploit-module39-20261102T195543Z/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-144925/src/data/writeups.mjs#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": ".nero-backups/module-90-20261102-144925/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-144925/src/data/writeups.mjs#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": ".nero-backups/module-90-20261102-144925/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-144925/src/data/writeups.mjs#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": ".nero-backups/module-90-20261102-144925/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-144925/src/data/writeups.mjs#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": ".nero-backups/module-90-20261102-144925/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-144925/src/data/writeups.mjs#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "03f1b5fe69dbfeac2fa862363f39f7f391b97a9b92e6314815511077486c28dd",
+      "retainedAt": ".nero-backups/module-90-20261102-144925/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-144925/src/data/writeups.mjs#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": ".nero-backups/module-90-20261102-144925/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-145121/src/data/writeups.mjs#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": ".nero-backups/module-90-20261102-145121/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-145121/src/data/writeups.mjs#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": ".nero-backups/module-90-20261102-145121/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-145121/src/data/writeups.mjs#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": ".nero-backups/module-90-20261102-145121/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-145121/src/data/writeups.mjs#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": ".nero-backups/module-90-20261102-145121/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-145121/src/data/writeups.mjs#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "03f1b5fe69dbfeac2fa862363f39f7f391b97a9b92e6314815511077486c28dd",
+      "retainedAt": ".nero-backups/module-90-20261102-145121/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-145121/src/data/writeups.mjs#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": ".nero-backups/module-90-20261102-145121/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-145638/src/data/writeups.mjs#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": ".nero-backups/module-90-20261102-145638/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-145638/src/data/writeups.mjs#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": ".nero-backups/module-90-20261102-145638/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-145638/src/data/writeups.mjs#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": ".nero-backups/module-90-20261102-145638/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-145638/src/data/writeups.mjs#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": ".nero-backups/module-90-20261102-145638/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-145638/src/data/writeups.mjs#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "03f1b5fe69dbfeac2fa862363f39f7f391b97a9b92e6314815511077486c28dd",
+      "retainedAt": ".nero-backups/module-90-20261102-145638/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/module-90-20261102-145638/src/data/writeups.mjs#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": ".nero-backups/module-90-20261102-145638/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/nexura-20261102-140412/writeups.mjs#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": ".nero-backups/nexura-20261102-140412/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/nexura-20261102-140412/writeups.mjs#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": ".nero-backups/nexura-20261102-140412/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/nexura-20261102-140412/writeups.mjs#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": ".nero-backups/nexura-20261102-140412/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/nexura-20261102-140412/writeups.mjs#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": ".nero-backups/nexura-20261102-140412/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/nexura-20261102-140412/writeups.mjs#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "03f1b5fe69dbfeac2fa862363f39f7f391b97a9b92e6314815511077486c28dd",
+      "retainedAt": ".nero-backups/nexura-20261102-140412/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/nexura-20261102-140412/writeups.mjs#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": ".nero-backups/nexura-20261102-140412/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/nexura-preview-20261102-141618/src/data/writeups.mjs#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": ".nero-backups/nexura-preview-20261102-141618/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/nexura-preview-20261102-141618/src/data/writeups.mjs#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": ".nero-backups/nexura-preview-20261102-141618/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/nexura-preview-20261102-141618/src/data/writeups.mjs#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": ".nero-backups/nexura-preview-20261102-141618/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/nexura-preview-20261102-141618/src/data/writeups.mjs#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": ".nero-backups/nexura-preview-20261102-141618/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/nexura-preview-20261102-141618/src/data/writeups.mjs#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "03f1b5fe69dbfeac2fa862363f39f7f391b97a9b92e6314815511077486c28dd",
+      "retainedAt": ".nero-backups/nexura-preview-20261102-141618/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/nexura-preview-20261102-141618/src/data/writeups.mjs#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": ".nero-backups/nexura-preview-20261102-141618/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/shells-payloads-20261102-145348/src/data/writeups.mjs#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": ".nero-backups/shells-payloads-20261102-145348/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/shells-payloads-20261102-145348/src/data/writeups.mjs#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": ".nero-backups/shells-payloads-20261102-145348/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/shells-payloads-20261102-145348/src/data/writeups.mjs#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": ".nero-backups/shells-payloads-20261102-145348/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/shells-payloads-20261102-145348/src/data/writeups.mjs#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": ".nero-backups/shells-payloads-20261102-145348/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/shells-payloads-20261102-145348/src/data/writeups.mjs#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "03f1b5fe69dbfeac2fa862363f39f7f391b97a9b92e6314815511077486c28dd",
+      "retainedAt": ".nero-backups/shells-payloads-20261102-145348/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/shells-payloads-20261102-145348/src/data/writeups.mjs#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": ".nero-backups/shells-payloads-20261102-145348/src/data/writeups.mjs"
+    },
+    {
+      "source": ".nero-backups/writeups-before-draft-fix-20261102-143245.mjs#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": ".nero-backups/writeups-before-draft-fix-20261102-143245.mjs"
+    },
+    {
+      "source": ".nero-backups/writeups-before-draft-fix-20261102-143245.mjs#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": ".nero-backups/writeups-before-draft-fix-20261102-143245.mjs"
+    },
+    {
+      "source": ".nero-backups/writeups-before-draft-fix-20261102-143245.mjs#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": ".nero-backups/writeups-before-draft-fix-20261102-143245.mjs"
+    },
+    {
+      "source": ".nero-backups/writeups-before-draft-fix-20261102-143245.mjs#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": ".nero-backups/writeups-before-draft-fix-20261102-143245.mjs"
+    },
+    {
+      "source": ".nero-backups/writeups-before-draft-fix-20261102-143245.mjs#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "03f1b5fe69dbfeac2fa862363f39f7f391b97a9b92e6314815511077486c28dd",
+      "retainedAt": ".nero-backups/writeups-before-draft-fix-20261102-143245.mjs"
+    },
+    {
+      "source": ".nero-backups/writeups-before-draft-fix-20261102-143245.mjs#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": ".nero-backups/writeups-before-draft-fix-20261102-143245.mjs"
+    },
+    {
+      "source": ".nero-sec-backups/fortilogger-20261102T191920Z/writeups.mjs#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": ".nero-sec-backups/fortilogger-20261102T191920Z/writeups.mjs"
+    },
+    {
+      "source": ".nero-sec-backups/fortilogger-20261102T191920Z/writeups.mjs#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": ".nero-sec-backups/fortilogger-20261102T191920Z/writeups.mjs"
+    },
+    {
+      "source": ".nero-sec-backups/fortilogger-20261102T191920Z/writeups.mjs#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": ".nero-sec-backups/fortilogger-20261102T191920Z/writeups.mjs"
+    },
+    {
+      "source": ".nero-sec-backups/fortilogger-20261102T191920Z/writeups.mjs#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": ".nero-sec-backups/fortilogger-20261102T191920Z/writeups.mjs"
+    },
+    {
+      "source": ".nero-sec-backups/fortilogger-20261102T191920Z/writeups.mjs#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "03f1b5fe69dbfeac2fa862363f39f7f391b97a9b92e6314815511077486c28dd",
+      "retainedAt": ".nero-sec-backups/fortilogger-20261102T191920Z/writeups.mjs"
+    },
+    {
+      "source": ".nero-sec-backups/fortilogger-20261102T191920Z/writeups.mjs#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": ".nero-sec-backups/fortilogger-20261102T191920Z/writeups.mjs"
+    },
+    {
+      "source": ".nerosec-backup-MjxLfdWc/writeups.mjs#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": ".nerosec-backup-MjxLfdWc/writeups.mjs"
+    },
+    {
+      "source": ".nerosec-backup-MjxLfdWc/writeups.mjs#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": ".nerosec-backup-MjxLfdWc/writeups.mjs"
+    },
+    {
+      "source": ".nerosec-backup-MjxLfdWc/writeups.mjs#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": ".nerosec-backup-MjxLfdWc/writeups.mjs"
+    },
+    {
+      "source": ".nerosec-backup-MjxLfdWc/writeups.mjs#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": ".nerosec-backup-MjxLfdWc/writeups.mjs"
+    },
+    {
+      "source": ".nerosec-backup-MjxLfdWc/writeups.mjs#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "unique-block merge",
+      "uniqueBlocks": 6,
+      "sha256": "4e1dd326bc172d9bf4c18acce8c21b3f2389c6318515a16d58eb75e681f24101",
+      "retainedAt": ".nerosec-backup-MjxLfdWc/writeups.mjs"
+    },
+    {
+      "source": ".nerosec-backup-MjxLfdWc/writeups.mjs#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": ".nerosec-backup-MjxLfdWc/writeups.mjs"
+    },
+    {
+      "source": ".nerosec-backup-lZNfXMkj/writeups.mjs#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": ".nerosec-backup-lZNfXMkj/writeups.mjs"
+    },
+    {
+      "source": ".nerosec-backup-lZNfXMkj/writeups.mjs#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": ".nerosec-backup-lZNfXMkj/writeups.mjs"
+    },
+    {
+      "source": ".nerosec-backup-lZNfXMkj/writeups.mjs#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": ".nerosec-backup-lZNfXMkj/writeups.mjs"
+    },
+    {
+      "source": ".nerosec-backup-lZNfXMkj/writeups.mjs#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": ".nerosec-backup-lZNfXMkj/writeups.mjs"
+    },
+    {
+      "source": ".nerosec-backup-lZNfXMkj/writeups.mjs#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "4e1dd326bc172d9bf4c18acce8c21b3f2389c6318515a16d58eb75e681f24101",
+      "retainedAt": ".nerosec-backup-lZNfXMkj/writeups.mjs"
+    },
+    {
+      "source": ".nerosec-backup-lZNfXMkj/writeups.mjs#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": ".nerosec-backup-lZNfXMkj/writeups.mjs"
+    },
+    {
+      "source": "src/data/writeups.mjs#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups.mjs"
+    },
+    {
+      "source": "src/data/writeups.mjs#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups.mjs"
+    },
+    {
+      "source": "src/data/writeups.mjs#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups.mjs"
+    },
+    {
+      "source": "src/data/writeups.mjs#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups.mjs"
+    },
+    {
+      "source": "src/data/writeups.mjs#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "03f1b5fe69dbfeac2fa862363f39f7f391b97a9b92e6314815511077486c28dd",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups.mjs"
+    },
+    {
+      "source": "src/data/writeups.mjs#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups.mjs"
+    },
+    {
+      "source": "src/data/writeups.mjs.bak-metasploit#thm-soc-level-1",
+      "canonicalSlug": "thm-soc-level-1",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "32cac607128102d5fcd336a7ee26bd93f8a427ed1776668e06479f5a1af36d69",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups.mjs.bak-metasploit"
+    },
+    {
+      "source": "src/data/writeups.mjs.bak-metasploit#thm-flarevm-arsenal",
+      "canonicalSlug": "thm-flarevm-arsenal",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "13ce63da7a4efc69e700074d9b963ed48dbcc0898afd404d3d1b53eb357c4989",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups.mjs.bak-metasploit"
+    },
+    {
+      "source": "src/data/writeups.mjs.bak-metasploit#htb-footprinting",
+      "canonicalSlug": "htb-footprinting",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "632627c7280fb064849f03a67d5b2e9578cc6098f1854cd701f4301079ab5b59",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups.mjs.bak-metasploit"
+    },
+    {
+      "source": "src/data/writeups.mjs.bak-metasploit#htb-shells-payloads",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "aaec207a83e50e8f3c173589864caa79c2dfe84690621ea477a6283b0e1af8ab",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups.mjs.bak-metasploit"
+    },
+    {
+      "source": "src/data/writeups.mjs.bak-metasploit#htb-metasploit",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "4e1dd326bc172d9bf4c18acce8c21b3f2389c6318515a16d58eb75e681f24101",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups.mjs.bak-metasploit"
+    },
+    {
+      "source": "src/data/writeups.mjs.bak-metasploit#htb-password-attacks",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "covered by canonical content",
+      "uniqueBlocks": 0,
+      "sha256": "a4ef9a50ed8f99af43dee7fea5d69c8dbc0038c4019e778624092470a9f726c6",
+      "retainedAt": "archive/writeups-legacy/src/data/writeups.mjs.bak-metasploit"
+    },
+    {
+      "source": "src/data/nero-nexura-generated.mjs",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "unique-block merge",
+      "sha256": "1fe60d841f6fe955346822e384e219626bb2b2700d1e336109ca42c38ca08d8b",
+      "retainedAt": "archive/writeups-legacy/src/data/nero-nexura-generated.mjs"
+    },
+    {
+      "source": "src/data/nero-shells-payloads-report.mjs",
+      "canonicalSlug": "htb-shells-payloads",
+      "mode": "generated Markdown exactly matches the retained source report",
+      "sha256": "239b470b2f5403689876dced1ded967e3a4b01fb3b19206095876b9758bb26db",
+      "retainedAt": "archive/writeups-legacy/src/data/nero-shells-payloads-report.mjs"
+    },
+    {
+      "source": "src/data/nero-nexura-report.mjs",
+      "canonicalSlug": "htb-password-attacks",
+      "mode": "generated Markdown exactly matches the retained source report",
+      "sha256": "b2f2acd82c1ae7e34aa36071444fae3b64a3d1401e640783902864e2ffb6c43a",
+      "retainedAt": "archive/writeups-legacy/src/data/nero-nexura-report.mjs"
+    },
+    {
+      "source": "src/data/nero-fortilogger-report.mjs",
+      "canonicalSlug": "htb-metasploit",
+      "mode": "generated Markdown exactly matches the retained source report",
+      "sha256": "efffcad9852678167bb1a9caf55b02ee28afe5519496088c4e499017ab599251",
+      "retainedAt": "archive/writeups-legacy/src/data/nero-fortilogger-report.mjs"
+    }
+  ],
+  "canonical": [
+    {
+      "slug": "thm-soc-level-1",
+      "source": "content/writeups/thm-soc-level-1.md",
+      "words": 246,
+      "sources": [
+        "src/data/writeups.mjs#thm-soc-level-1"
+      ],
+      "sha256": "60983926ff7249db7aeee0c482f6551e487c25e49b8e40449fe2d52ba873d939"
+    },
+    {
+      "slug": "thm-flarevm-arsenal",
+      "source": "content/writeups/thm-flarevm-arsenal.md",
+      "words": 165,
+      "sources": [
+        "src/data/writeups.mjs#thm-flarevm-arsenal"
+      ],
+      "sha256": "8a6fc62c34ab2d82adeb11283e7af52aa7baefe5a7102f921aa736785e870094"
+    },
+    {
+      "slug": "htb-footprinting",
+      "source": "content/writeups/htb-footprinting.md",
+      "words": 208,
+      "sources": [
+        "src/data/writeups.mjs#htb-footprinting"
+      ],
+      "sha256": "f72f2060853343f5b5643efd255a1a8c95d94cc3042938f6eca7c1b4f1100530"
+    },
+    {
+      "slug": "htb-shells-payloads",
+      "source": "content/writeups/htb-shells-payloads.md",
+      "words": 3362,
+      "sources": [
+        "notes/writeups/htb-shells-payloads.md"
+      ],
+      "sha256": "61e1d0f334efe300c504a6d8418959e6ae1d00036b1d8db69f00df6480703f8c"
+    },
+    {
+      "slug": "htb-metasploit",
+      "source": "content/writeups/htb-metasploit.md",
+      "words": 11308,
+      "sources": [
+        "drafts/writeups/htb-metasploit/report.md",
+        "drafts/writeups/htb-metasploit/fortilogger-meterpreter.md",
+        "notes/writeups/htb-metasploit.md",
+        "src/data/writeups-drafts/htb-using-metasploit-framework-four-section-study-notes/report.md"
+      ],
+      "sha256": "d91899707719849cc1a342e8142929d9f85dcc68d49919b761770b59b87f52b6"
+    },
+    {
+      "slug": "htb-password-attacks",
+      "source": "content/writeups/htb-password-attacks.md",
+      "words": 7806,
+      "sources": [
+        "drafts/writeups/htb-academy-password-attacks-module-90/report.md",
+        "drafts/writeups/htb-password-attacks-skills-assessment-nexura/report.md"
+      ],
+      "sha256": "d951cdbe70130ee5262c55034180bc8c8a1c2f530913602a311b01d1100f6a85"
+    }
+  ]
+}

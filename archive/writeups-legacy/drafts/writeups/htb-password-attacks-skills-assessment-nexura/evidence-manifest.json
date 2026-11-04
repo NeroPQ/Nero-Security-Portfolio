@@ -1,0 +1,33 @@
+{
+  "slug": "htb-password-attacks-skills-assessment-nexura",
+  "status": "EVIDENCE PENDING",
+  "verified_terminal_outputs": [
+    "SSH authentication to DMZ01",
+    "DMZ01 internal interface and routing",
+    "DC01 DNS resolution",
+    "Direct TCP/445 connectivity",
+    "Successful SSH local forwarding",
+    "SMB share enumeration",
+    "NetExec administrative authentication"
+  ],
+  "authentic_chat_screenshots": [
+    {
+      "source_name": "image(20261102-155951).png",
+      "sha256": "9b11c21ea6556c5ab93fdb62c1e5f4f2d399dbb94019f6d0e6a5b6a2e648ae8c",
+      "description": "SSH SOCKS prompt and Impacket SMB timeout",
+      "location_on_kali": null
+    },
+    {
+      "source_name": "image(20261102-160645).png",
+      "sha256": "23aeea3d18a35a7f7804d4b382a909acd63f31d6f98c90d64f889037ac101765",
+      "description": "SOCKS connectivity and failed NTDS operation",
+      "location_on_kali": null
+    }
+  ],
+  "missing_evidence": [
+    "Original chat screenshots in Kali project",
+    "Screenshot of NetExec Pwn3d! authentication",
+    "Local NTDS extraction result",
+    "Accepted HTB answer confirmation"
+  ]
+}

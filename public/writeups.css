@@ -1,0 +1,621 @@
+/* ==========================================================================
+   WRITE-UPS v3 — 16-BIT PIXEL QUEST LOG & TERMINAL BOSS GUIDE (writeups.css)
+   Automatically adds Retro OS Window Headers to .wu-index-header & .wu-card via CSS!
+   ========================================================================== */
+.wu-count {
+  font-family: var(--pixel, 'Silkscreen', monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: #06150e;
+  background-color: var(--lime, #b7e785);
+  border: 2px solid #e2ffc4;
+  padding: 5px 11px;
+  box-shadow: 4px 4px 0 #05070b;
+  white-space: nowrap;
+}
+
+/* Turn .wu-index-header into a Pixel OS Window with a top Titlebar via ::before */
+.wu-index-header {
+  position: relative;
+  padding: 52px 26px 24px !important;
+  background-color: #162236 !important;
+  border: 2px solid #52759e !important;
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.08),
+    6px 6px 0 #05070b !important;
+  background-image:
+    linear-gradient(rgba(183, 231, 133, 0.22), rgba(183, 231, 133, 0.22)),
+    linear-gradient(rgba(121, 224, 225, 0.22), rgba(121, 224, 225, 0.22)) !important;
+  background-size: 14px 14px, 14px 14px !important;
+  background-position: calc(100% - 16px) 48px, calc(100% - 30px) 62px !important;
+  background-repeat: no-repeat !important;
+}
+.wu-index-header::before {
+  content: "▣ QUEST_LOG // HTB_ACADEMY & TRYHACKME [ _ ] [ □ ] [ X ]";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 7px 14px;
+  background-color: #174736;
+  background-image: linear-gradient(90deg, #174736 0%, #245c73 100%);
+  border-bottom: 2px solid #52759e;
+  font-family: var(--pixel, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: #dcffef;
+}
+.wu-index-header h1 {
+  font-family: var(--pixel, monospace);
+  font-size: clamp(28px, 3.6vw, 40px);
+  margin: 6px 0 10px;
+  color: #fff;
+  text-shadow: 3px 3px 0 #05070b;
+}
+.wu-index-header p {
+  font-family: var(--mono, monospace);
+  font-size: 13.5px;
+}
+.wu-index-header a {
+  color: var(--cyan, #79e0e1);
+  text-decoration: underline;
+}
+.wu-draft-notice {
+  font-family: var(--pixel, monospace);
+  font-size: 10.5px;
+  border: 2px solid var(--cyan, #79e0e1);
+  padding: 9px 14px;
+  margin-top: 12px !important;
+  background-color: #102133;
+  color: #d6f6ff;
+  box-shadow: 3px 3px 0 #05070b;
+}
+
+/* Search & Platform Arcade Filter Buttons */
+.wu-search-label {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--lime, #b7e785);
+  font-family: var(--pixel, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.wu-search {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 2px solid #55769e;
+  background-color: #0e1522;
+  color: var(--text);
+  font-family: var(--mono, monospace);
+  font-size: 13.5px;
+  box-shadow: inset 3px 3px 0 #05070b, 4px 4px 0 #05070b;
+}
+.wu-search::placeholder {
+  color: #95a9c2;
+  opacity: 1;
+}
+.wu-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+.wu-filters button,
+.wu-reset {
+  min-height: 44px;
+  border: 2px solid #5879a3;
+  background-color: #1b273b;
+  color: #deebfa;
+  padding: 10px 16px;
+  font: 700 11px/1.4 var(--pixel, monospace);
+  cursor: pointer;
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.2),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.45),
+    4px 4px 0 #05070b;
+}
+.wu-filters button:hover,
+.wu-filters button[aria-pressed="true"] {
+  background-color: var(--cyan, #79e0e1);
+  border-color: #fff;
+  color: #06101c;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #05070b;
+}
+.wu-reset { margin: 0 0 20px; }
+[data-writeups-index] [hidden] { display: none !important; }
+
+.wu-empty {
+  padding: 24px;
+  border: 2px solid var(--line);
+  background-color: var(--card);
+  box-shadow: 5px 5px 0 #05070b;
+}
+.wu-empty a { color: var(--cyan); text-decoration: underline; }
+
+/* ==========================================================================
+   WRITE-UP CARDS — RETRO OS WINDOW CARDS WITH COLOR-CODED HEADER BARS
+   ========================================================================== */
+.wu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.wu-card {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 46px 22px 20px;
+  border: 2px solid #4d678c;
+  background-color: var(--card);
+  /* Voxel pixel blocks in bottom-right corner */
+  background-image:
+    linear-gradient(rgba(121, 224, 225, 0.1), rgba(121, 224, 225, 0.1)),
+    linear-gradient(rgba(183, 231, 133, 0.1), rgba(183, 231, 133, 0.1));
+  background-size: 10px 10px, 10px 10px;
+  background-position: calc(100% - 12px) calc(100% - 48px), calc(100% - 22px) calc(100% - 58px);
+  background-repeat: no-repeat;
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.07),
+    6px 6px 0 #05070b;
+  transition: border-color .15s steps(2), transform .15s steps(2), box-shadow .15s steps(2);
+}
+/* Automatic Retro OS Window Top Bar on every WriteupCard! */
+.wu-card::before {
+  content: "▣ QUEST_FILE // LAB_WALKTHROUGH";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 12px;
+  font-family: var(--pixel, monospace);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  background-color: #1c3d5e;
+  border-bottom: 2px solid #4d678c;
+  color: #e4f2ff;
+}
+.wu-card[data-wu-platform="HTB"] {
+  border-color: #548a41;
+}
+.wu-card[data-wu-platform="HTB"]::before {
+  content: "▣ HTB_ACADEMY // MODULE_JOURNAL   [ _ ] [ □ ] [ X ]";
+  background-color: #214a1c;
+  background-image: linear-gradient(90deg, #214a1c 0%, #2f6626 100%);
+  border-bottom-color: #548a41;
+  color: #dcffc4;
+}
+.wu-card[data-wu-platform="THM"] {
+  border-color: #9e4758;
+}
+.wu-card[data-wu-platform="THM"]::before {
+  content: "▣ TRYHACKME // ROOM_REPORT   [ _ ] [ □ ] [ X ]";
+  background-color: #541d29;
+  background-image: linear-gradient(90deg, #541d29 0%, #782839 100%);
+  border-bottom-color: #9e4758;
+  color: #ffdbe1;
+}
+.wu-card[hidden] { display: none !important; }
+.wu-card:hover {
+  border-color: var(--cyan);
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 #05070b, 0 0 0 1px var(--cyan);
+}
+.wu-card-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: var(--mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: #b4c6dc;
+}
+.wu-platform {
+  padding: 3px 9px;
+  font-family: var(--pixel, monospace);
+  font-size: 9.5px;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 #05070b;
+}
+.wu-platform.thm {
+  color: #ffd6db;
+  background-color: #5c1f2c;
+  border: 2px solid #ff7b8b;
+}
+.wu-platform.htb {
+  color: #e2ffc4;
+  background-color: #284f18;
+  border: 2px solid #b7e785;
+}
+.wu-card h3 {
+  font-family: var(--pixel, monospace);
+  font-size: 17px;
+  line-height: 1.32;
+  letter-spacing: -.02em;
+  margin: 14px 0 10px;
+  color: #fff;
+}
+.wu-card h3 a span { font-size: 13px; color: var(--cyan); }
+.wu-card p {
+  font-size: 13px;
+  line-height: 1.7;
+  flex: 1;
+}
+.wu-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 14px 0;
+}
+.wu-tags span {
+  font-family: var(--mono, monospace);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #c8d7e8;
+  background-color: #111824;
+  border: 2px solid #435773;
+  padding: 3px 8px;
+  box-shadow: 2px 2px 0 #05070b;
+}
+.wu-tags .wu-evidence-status,
+.wu-evidence-status {
+  font-family: var(--pixel, monospace);
+  font-size: 9.5px;
+  color: var(--cyan);
+  border-color: #468696;
+}
+.wu-card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 2px dashed #33455e;
+  padding-top: 14px;
+  margin-top: 10px;
+}
+.wu-card-foot small {
+  flex: 1 1 140px;
+  font-family: var(--mono, monospace);
+  font-size: 10.5px;
+  color: #a8bbd1;
+}
+.wu-card-foot a,
+.wu-official {
+  font-family: var(--pixel, monospace);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--cyan);
+}
+.wu-card-foot a {
+  padding: 6px 10px;
+  background-color: #142236;
+  border: 1px solid #466a96;
+  box-shadow: 3px 3px 0 #05070b;
+}
+.wu-card-foot a:hover {
+  background-color: var(--cyan);
+  color: #06101c;
+}
+
+/* ==========================================================================
+   WRITE-UP FULL REPORT VIEW (/writeups/[slug]/)
+   ========================================================================== */
+.wu-article,
+.wu-article-header,
+.wu-article-body {
+  min-width: 0;
+}
+.wu-article-header {
+  position: relative;
+  background-color: #17283d;
+  background-image: linear-gradient(135deg, #17283d, #1c2436);
+  border: 2px solid #52759e;
+  padding: 52px 30px 28px;
+  box-shadow: 6px 6px 0 #05070b;
+}
+.wu-article-header::before {
+  content: "▣ MISSION_BRIEFING // FULL_TECHNICAL_WALKTHROUGH   [ _ ] [ □ ] [ X ]";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 7px 14px;
+  background-color: #164461;
+  border-bottom: 2px solid #52759e;
+  font-family: var(--pixel, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  color: #d8f8ff;
+}
+.wu-article-header h1 {
+  font-family: var(--pixel, monospace);
+  font-size: clamp(24px, 3.2vw, 38px);
+  margin: 12px 0;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.wu-article-header > p {
+  font-family: var(--mono, monospace);
+  font-size: 14px;
+  line-height: 1.75;
+}
+.wu-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #c2daff;
+  font-family: var(--mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 12px 0;
+}
+.wu-detail-meta span {
+  background-color: #101826;
+  border: 2px solid #3f5878;
+  padding: 4px 9px;
+  box-shadow: 2px 2px 0 #05070b;
+}
+.wu-official,
+.wu-start-reading {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 14px;
+  margin-right: 14px;
+  padding: 10px 15px;
+  box-shadow: 4px 4px 0 #05070b;
+}
+.wu-official {
+  background-color: #1a283b;
+  border: 2px solid #587ca8;
+  color: #d0e6ff;
+}
+.wu-start-reading {
+  font-family: var(--pixel, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  background-color: var(--lime, #b7e785);
+  border: 2px solid #fff;
+  color: #071409;
+}
+.wu-official:hover,
+.wu-start-reading:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--cyan);
+}
+
+/* Collapsible Mission Briefing TOC */
+.wu-toc {
+  margin: 24px 0;
+  padding: 18px 22px;
+  background-color: var(--card);
+  border: 2px solid #4a6388;
+  box-shadow: 6px 6px 0 #05070b;
+}
+.wu-toc summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 6px 0;
+}
+.wu-toc h2 {
+  display: inline;
+  font-family: var(--pixel, monospace);
+  font-size: 16px;
+  color: var(--lime, #b7e785);
+  margin: 0 12px 0 6px;
+}
+.wu-toc summary span {
+  font-family: var(--pixel, monospace);
+  color: var(--cyan);
+  font-size: 10px;
+}
+.wu-toc ol {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 10px 8px 0 0;
+  border-top: 2px dashed #354863;
+  max-height: 26rem;
+  overflow-y: auto;
+}
+.wu-toc li {
+  margin: 4px 0;
+  overflow-wrap: anywhere;
+  font-family: var(--mono, monospace);
+  font-size: 12.5px;
+}
+.wu-toc a {
+  display: block;
+  padding: 6px 8px;
+}
+.wu-toc a:hover {
+  background-color: #16263b;
+  color: var(--cyan);
+}
+.wu-toc-sub { margin-left: 18px !important; }
+.wu-toc a,
+.wu-markdown a,
+.wu-back {
+  color: #96c5ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Markdown Body & Retro Terminal Code Blocks */
+.wu-article-body {
+  margin-top: 20px;
+  padding: 32px;
+  background-color: var(--card);
+  border: 2px solid #4a6388;
+  box-shadow: 6px 6px 0 #05070b;
+  scroll-margin-top: 110px;
+}
+.wu-markdown {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  line-height: 1.85;
+}
+.wu-markdown h2,
+.wu-markdown h3,
+.wu-markdown h4 {
+  line-height: 1.35;
+  margin: 1.8em 0 .75em;
+  scroll-margin-top: 110px;
+}
+.wu-markdown h2 {
+  font-family: var(--pixel, monospace);
+  font-size: 21px;
+  padding-bottom: 10px;
+  border-bottom: 2px dashed #435b7d;
+  color: var(--cyan);
+}
+.wu-markdown h3 {
+  font-family: var(--pixel, monospace);
+  font-size: 16.5px;
+  color: var(--lime);
+}
+.wu-markdown p,
+.wu-markdown ul,
+.wu-markdown ol {
+  margin-bottom: 1.2em;
+}
+.wu-markdown ul,
+.wu-markdown ol {
+  padding-left: 24px;
+}
+
+/* Terminal Window Wrapper for Code Blocks */
+.wu-code-block {
+  position: relative;
+  min-width: 0;
+  margin: 22px 0;
+  background-color: #0a101a;
+  border: 2px solid #4a668a;
+  box-shadow: 5px 5px 0 #05070b;
+  overflow: hidden;
+}
+.wu-code-block::before {
+  content: "▣ BASH // ROOT@NERO-LAB:~#";
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-family: var(--pixel, monospace);
+  font-size: 9.5px;
+  color: var(--lime);
+  pointer-events: none;
+}
+.wu-copy-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 5px 13px;
+  margin: 6px 8px 6px auto;
+  border: 2px solid var(--cyan);
+  background-color: #16283d;
+  color: #e2f2ff;
+  font: 700 10px/1.4 var(--pixel, monospace);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #05070b;
+}
+.wu-copy-code:hover {
+  background-color: var(--cyan);
+  color: #06101c;
+}
+.wu-markdown pre {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 0;
+  padding: 16px 18px;
+  background-color: #0a101a;
+  border-top: 2px solid #2e425c;
+  font-family: var(--mono, monospace);
+  font-size: 13px;
+  line-height: 1.65;
+  color: #e4effa;
+}
+.wu-markdown pre code {
+  white-space: pre;
+  font-family: inherit;
+}
+.wu-markdown :not(pre) > code {
+  font-family: var(--mono, monospace);
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+  background-color: #111d2e;
+  border: 1px solid #385273;
+  color: var(--cyan);
+  padding: 2px 6px;
+}
+
+.wu-markdown table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+.wu-markdown th,
+.wu-markdown td {
+  padding: 11px 14px;
+  border: 2px solid #3c516e;
+  text-align: left;
+  min-width: 120px;
+}
+.wu-markdown th {
+  background-color: #162438;
+  font-family: var(--pixel, monospace);
+  font-size: 10.5px;
+  color: var(--cyan);
+}
+.wu-markdown figure { margin: 24px 0; }
+.wu-markdown img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border: 2px solid #4d678c;
+  box-shadow: 5px 5px 0 #05070b;
+  margin: 16px 0;
+}
+.wu-markdown figcaption { color: var(--muted); font-size: 13px; }
+.wu-markdown blockquote {
+  padding: 12px 18px;
+  border-left: 4px solid var(--lime);
+  background-color: #132129;
+  box-shadow: 4px 4px 0 #05070b;
+}
+.wu-back {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 10px 14px;
+  background-color: #162436;
+  border: 2px solid var(--cyan);
+  box-shadow: 4px 4px 0 #05070b;
+  font-family: var(--pixel, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  .wu-grid { grid-template-columns: 1fr; }
+  .wu-article-header, .wu-article-body { padding: 48px 18px 20px; }
+  .wu-card { padding: 44px 18px 18px; }
+  .wu-markdown h2 { font-size: 18px; }
+  .wu-markdown h3 { font-size: 15px; }
+  .wu-toc ol { max-height: 16rem; }
+}
+@media (max-width: 570px) {
+  .wu-toc { padding: 14px 16px; }
+  .wu-article-header h1 { font-size: 24px; }
+  .wu-toc summary span { display: block; margin-left: 18px; }
+  .wu-copy-code { min-height: 44px; }
+  .wu-code-block::before { display: none; }
+}

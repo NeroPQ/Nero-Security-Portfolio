@@ -1,0 +1,104 @@
+[
+  {
+    "slug": "htb-footprinting",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "footprinting",
+    "title": "Footprinting \u2014 Network Service Enumeration",
+    "category": "Reconnaissance",
+    "summary": "Systematic enumeration of enterprise services including DNS, mail, SMB/NFS, SNMP, databases and remote management.",
+    "documentationStatus": "Hands-on practice; full module not verified",
+    "evidenceStatus": "pending",
+    "difficulty": null,
+    "source": "https://academy.hackthebox.com/course/preview/footprinting",
+    "date": "2026-10",
+    "tags": [
+      "Nmap",
+      "DNS",
+      "SMTP / IMAP",
+      "SMB",
+      "SNMP",
+      "MSSQL"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": []
+  },
+  {
+    "slug": "htb-shells-payloads",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "115",
+    "title": "Shells & Payloads \u2014 Windows, Linux and Web Initial Access",
+    "category": "Exploitation Fundamentals",
+    "summary": "A complete 17-section module journal covering shell fundamentals, Windows/Linux initial access, web shells, troubleshooting and defensive analysis.",
+    "documentationStatus": "17 sections documented; completion not verified",
+    "evidenceStatus": "pending",
+    "difficulty": null,
+    "source": "https://academy.hackthebox.com/app/module/115",
+    "date": "2026-10",
+    "tags": [
+      "Linux",
+      "Reverse Shell",
+      "Web Shell",
+      "PHP",
+      "ASPX"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": []
+  },
+  {
+    "slug": "htb-metasploit",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "39",
+    "title": "Using the Metasploit Framework \u2014 Technical Study and Lab Report",
+    "category": "Exploitation Frameworks",
+    "summary": "An evidence-aware technical study of Meterpreter, external Metasploit modules, MSFVenom and firewall/IDS evasion, supplemented by recorded FortiLogger and MS17-010 lab observations.",
+    "documentationStatus": "15 topics documented; completion not verified",
+    "evidenceStatus": "pending",
+    "difficulty": null,
+    "source": "https://academy.hackthebox.com/app/module/39",
+    "date": "2026-10-30",
+    "tags": [
+      "Metasploit",
+      "Meterpreter",
+      "MSFVenom",
+      "External Modules",
+      "IDS/IPS",
+      "HTB Academy"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": []
+  },
+  {
+    "slug": "htb-password-attacks",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "90",
+    "title": "Password Attacks \u2014 Module Report and NEXURA Skills Assessment",
+    "category": "Authentication Security",
+    "summary": "A 26-section module journal with the complete NEXURA Skills Assessment, preserving privileged SMB authentication results, failed extraction attempts and third-party reference boundaries.",
+    "documentationStatus": "26 sections documented; completion not verified",
+    "evidenceStatus": "pending",
+    "difficulty": null,
+    "source": "https://academy.hackthebox.com/app/module/90",
+    "date": "2026-10-31",
+    "tags": [
+      "SMB",
+      "Windows",
+      "SAM",
+      "Authentication",
+      "Hash Analysis"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": []
+  }
+]

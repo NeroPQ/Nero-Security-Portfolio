@@ -1,0 +1,26 @@
+---
+import { platformName, evidenceLabel, unitLabel } from '../lib/writeups-ui.mjs';
+import type { Writeup } from '../lib/writeups-types';
+interface Props { report: Writeup }
+const { report: w } = Astro.props;
+const search = [w.title, w.summary, w.category, w.unitId, ...w.tags].join(' ').toLowerCase();
+---
+<article class="wu-card" data-wu-platform={w.platform} data-wu-slug={w.slug} data-wu-search={search}>
+  <div class="wu-card-meta">
+    <span class:list={['wu-platform', w.platform.toLowerCase()]}>{platformName(w.platform)}</span>
+    <span>{w.category}</span>
+  </div>
+  <h3><a href={`/writeups/${w.slug}/`}>{w.title} <span>↗</span></a></h3>
+  <p>{w.summary}</p>
+  <div class="wu-tags">
+    <span>{unitLabel(w)}</span>
+    {w.difficulty && <span>{w.difficulty}</span>}
+    <span class="wu-evidence-status">{evidenceLabel(w.evidenceStatus)}</span>
+    {!w.approved && <span>Local draft</span>}
+    <span>~{w.readingMinutes} min read</span>
+  </div>
+  <div class="wu-card-foot">
+    <small>{w.documentationStatus}</small>
+    <a href={`/writeups/${w.slug}/`}>Read full report →</a>
+  </div>
+</article>

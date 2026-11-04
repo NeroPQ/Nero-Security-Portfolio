@@ -1,0 +1,8 @@
+---
+import Base from '../../layouts/Base.astro';
+import { cves } from '../../data/cves.mjs';
+import { caseMarkup } from '../../data/render.mjs';
+export function getStaticPaths(){return cves.map(c=>({params:{slug:c.slug},props:{c}}));}
+const {c}=Astro.props;
+---
+<Base title={`${c.name} — ${c.id} | Nero Security`} description={c.summary}><Fragment set:html={caseMarkup(c)}/></Base>

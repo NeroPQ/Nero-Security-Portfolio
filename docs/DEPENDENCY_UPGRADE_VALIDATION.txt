@@ -1,0 +1,221 @@
+NERO.SEC — dependency upgrade validation, 2026-11-02
+Node runtime: v24.15.0
+
+$ npm ci
+
+added 274 packages, and audited 275 packages in 4s
+
+84 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+EXIT 0
+
+$ npm audit --json
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {},
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "dependencies": {
+      "prod": 262,
+      "dev": 5,
+      "optional": 78,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 344
+    }
+  }
+}
+EXIT 0
+
+$ npm run check --if-present
+
+> nero-security-portfolio@0.2.0 check
+> astro check && tsc --noEmit && node scripts/validate-writeups.mjs
+
+18:58:57 [types] Generated 130ms
+18:58:57 [check] Getting diagnostics for Astro files in /home/kali/Nero-Security-Portfolio-v04-Updated/nero-security-portfolio...
+Result (21 files): 
+- 0 errors
+- 0 warnings
+- 0 hints
+
+PASS thm-soc-level-1: 246 words, 5 headings, 0 reviewed images, local draft
+PASS thm-flarevm-arsenal: 165 words, 3 headings, 0 reviewed images, local draft
+PASS htb-footprinting: 208 words, 5 headings, 0 reviewed images, local draft
+PASS htb-shells-payloads: 3362 words, 41 headings, 0 reviewed images, local draft
+PASS htb-metasploit: 11308 words, 167 headings, 0 reviewed images, local draft
+PASS htb-password-attacks: 7806 words, 111 headings, 0 reviewed images, local draft
+PASS schema, unique slugs/units, source ownership, image paths/checksums/captions, publication approvals: 6 canonical reports
+EXIT 0
+
+$ npm test
+
+> nero-security-portfolio@0.2.0 test
+> node --test tests/writeups.test.mjs
+
+✔ A: all 17 Shells sections, full report, troubleshooting, defense and references survive (2.818129ms)
+✔ B: full Metasploit report and independently labeled FortiLogger preserve verification limits (0.284338ms)
+✔ C: complete NEXURA assessment is inside Password Attacks, never a separate card (0.648105ms)
+✔ all substantive original Markdown blocks are retained, including supplementary notes (22.407817ms)
+✔ D: unique slugs and platform/module identities; missing and orphaned sources fail validation (98.915591ms)
+✔ E/F: ordinary local visibility includes pending reports; production ignores old draft flags (1.9794ms)
+✔ approval is explicit, disallows pending evidence, and becomes invalid after source/metadata changes (2.652842ms)
+✔ inline evidence requires verified association, file signature, checksum, caption and redaction review (5.199216ms)
+✔ production build removes orphaned and draft evidence while leaving original files untouched (35.564797ms)
+✔ future workflow updates a section idempotently and resolves existing module instead of creating a card (633.991921ms)
+✔ heading text and anchors preserve decoded punctuation, entities and inline formatting (1.144728ms)
+✔ metadata validates partial and full dates and platform URLs without inventing precision (1.625973ms)
+✔ review config output is isolated from deployment output (319.540907ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1402.193953
+EXIT 0
+
+$ npm run build
+
+> nero-security-portfolio@0.2.0 build
+> astro build && node scripts/verify-site.mjs dist production
+
+18:59:03 [types] Generated 43ms
+18:59:04 [build] output: "static"
+18:59:04 [build] mode: "static"
+18:59:04 [build] directory: /home/kali/Nero-Security-Portfolio-v04-Updated/nero-security-portfolio/dist/
+18:59:04 [build] Collecting build info...
+18:59:04 [build] ✓ Completed in 157ms.
+18:59:04 [build] Building static entrypoints...
+18:59:04 [vite] ✓ built in 172ms
+18:59:04 [vite] ✓ built in 38ms
+18:59:04 [build] Rearranging server assets...
+
+ generating static routes 
+18:59:04   ├─ /about/index.html (+11ms) 
+18:59:04   ├─ /projects/index.html (+3ms) 
+18:59:04   ├─ /research/log4shell/index.html (+4ms) 
+18:59:04   ├─ /research/pwnkit/index.html (+2ms) 
+18:59:04   ├─ /research/dirty-pipe/index.html (+2ms) 
+18:59:04   ├─ /research/spring4shell/index.html (+2ms) 
+18:59:04   ├─ /research/index.html (+2ms) 
+18:59:04   ├─ /writeups/index.html (+3ms) 
+18:59:04   ├─ /index.html (+3ms) 
+18:59:04 ✓ Completed in 107ms.
+
+18:59:04 [build] ✓ Completed in 365ms.
+18:59:04 [build] 9 page(s) built in 559ms
+18:59:04 [build] Complete!
+PASS production HTML: 9 pages; 0 canonical cards/routes; internal links/assets/fragments; 4 Research routes preserved
+PASS production exclusion: 6 unapproved reports and their evidence excluded
+EXIT 0
+
+$ npm run build:review
+
+> nero-security-portfolio@0.2.0 build:review
+> astro build --mode review --config astro.review.config.mjs && node scripts/verify-site.mjs .review review
+
+18:59:05 [types] Generated 33ms
+18:59:05 [build] output: "static"
+18:59:05 [build] mode: "static"
+18:59:05 [build] directory: /home/kali/Nero-Security-Portfolio-v04-Updated/nero-security-portfolio/.review/
+18:59:05 [build] Collecting build info...
+18:59:05 [build] ✓ Completed in 156ms.
+18:59:05 [build] Building static entrypoints...
+18:59:05 [vite] vite v8.3.5 building prerender environment for review...
+18:59:05 [vite] ✓ built in 169ms
+18:59:05 [vite] vite v8.3.5 building client environment for review...
+18:59:05 [vite] ✓ built in 29ms
+18:59:05 [build] Rearranging server assets...
+
+ generating static routes 
+18:59:06   ├─ /about/index.html (+10ms) 
+18:59:06   ├─ /projects/index.html (+3ms) 
+18:59:06   ├─ /research/log4shell/index.html (+3ms) 
+18:59:06   ├─ /research/pwnkit/index.html (+2ms) 
+18:59:06   ├─ /research/dirty-pipe/index.html (+2ms) 
+18:59:06   ├─ /research/spring4shell/index.html (+2ms) 
+18:59:06   ├─ /research/index.html (+3ms) 
+18:59:06   ├─ /writeups/thm-soc-level-1/index.html (+4ms) 
+18:59:06   ├─ /writeups/thm-flarevm-arsenal/index.html (+4ms) 
+18:59:06   ├─ /writeups/htb-footprinting/index.html (+3ms) 
+18:59:06   ├─ /writeups/htb-shells-payloads/index.html (+3ms) 
+18:59:06   ├─ /writeups/htb-metasploit/index.html (+3ms) 
+18:59:06   ├─ /writeups/htb-password-attacks/index.html (+3ms) 
+18:59:06   ├─ /writeups/index.html (+5ms) 
+18:59:06   ├─ /index.html (+3ms) 
+18:59:06 ✓ Completed in 130ms.
+
+18:59:06 [build] ✓ Completed in 373ms.
+18:59:06 [build] 15 page(s) built in 568ms
+18:59:06 [build] Complete!
+PASS rendered thm-soc-level-1: 5 source headings, 0 code blocks, 0 inline code spans, complete body once
+PASS rendered thm-flarevm-arsenal: 3 source headings, 0 code blocks, 0 inline code spans, complete body once
+PASS rendered htb-footprinting: 5 source headings, 0 code blocks, 0 inline code spans, complete body once
+PASS rendered htb-shells-payloads: 41 source headings, 0 code blocks, 13 inline code spans, complete body once
+PASS rendered htb-metasploit: 167 source headings, 60 code blocks, 89 inline code spans, complete body once
+PASS rendered htb-password-attacks: 111 source headings, 55 code blocks, 50 inline code spans, complete body once
+PASS review HTML: 15 pages; 6 canonical cards/routes; internal links/assets/fragments; 4 Research routes preserved
+EXIT 0
+
+PASS review build does not overwrite dist/: all production file hashes unchanged
+$ npm run test:browser
+
+> nero-security-portfolio@0.2.0 test:browser
+> playwright test
+
+[WebServer] (node:616922) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 26 tests using 1 worker
+
+(node:617083) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › tests/browser/writeups.spec.ts:17:1 › one canonical card per unit and working platform filters (785ms)
+  ✓   2 [desktop] › tests/browser/writeups.spec.ts:32:1 › Shells contains all 17 walkthrough headings and complete conclusions (575ms)
+  ✓   3 [desktop] › tests/browser/writeups.spec.ts:48:1 › Metasploit keeps 15 module topics and independent FortiLogger boundaries (399ms)
+  ✓   4 [desktop] › tests/browser/writeups.spec.ts:57:1 › Password Attacks retains 26 chapters and the full NEXURA assessment (483ms)
+  ✓   5 [desktop] › tests/browser/writeups.spec.ts:67:1 › all canonical reports fit the viewport and preserve the navigation (911ms)
+  ✓   6 [desktop] › tests/browser/writeups.spec.ts:82:1 › search combines with platform filters, announces results and restores a shareable query (546ms)
+  ✓   7 [desktop] › tests/browser/writeups.spec.ts:102:1 › article TOC collapses, reading shortcut works and copy preserves exact code (1.6s)
+  ✓   8 [desktop] › tests/browser/writeups.spec.ts:126:1 › keyboard users have a skip link and the current page is announced (399ms)
+  ✓   9 [desktop] › tests/browser/writeups.spec.ts:137:1 › reports remain readable and native TOC works without JavaScript (682ms)
+  ✓  10 [desktop] › tests/browser/writeups.spec.ts:152:1 › automated WCAG accessibility checks pass on portfolio and write-up pages (7.7s)
+  ✓  11 [desktop] › tests/browser/writeups.spec.ts:161:1 › Home, Research, Projects, About and all four CVE URLs respond (180ms)
+  ✓  12 [desktop] › tests/browser/writeups.spec.ts:169:1 › normal dev reflects source updates without changing card count (380ms)
+  ✓  13 [desktop] › tests/browser/writeups.spec.ts:183:1 › busy 4321 is reported and the existing server remains healthy (275ms)
+(node:618123) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  14 [mobile] › tests/browser/writeups.spec.ts:17:1 › one canonical card per unit and working platform filters (728ms)
+  ✓  15 [mobile] › tests/browser/writeups.spec.ts:32:1 › Shells contains all 17 walkthrough headings and complete conclusions (437ms)
+  ✓  16 [mobile] › tests/browser/writeups.spec.ts:48:1 › Metasploit keeps 15 module topics and independent FortiLogger boundaries (332ms)
+  ✓  17 [mobile] › tests/browser/writeups.spec.ts:57:1 › Password Attacks retains 26 chapters and the full NEXURA assessment (344ms)
+  ✓  18 [mobile] › tests/browser/writeups.spec.ts:67:1 › all canonical reports fit the viewport and preserve the navigation (911ms)
+  ✓  19 [mobile] › tests/browser/writeups.spec.ts:82:1 › search combines with platform filters, announces results and restores a shareable query (509ms)
+  ✓  20 [mobile] › tests/browser/writeups.spec.ts:102:1 › article TOC collapses, reading shortcut works and copy preserves exact code (926ms)
+  ✓  21 [mobile] › tests/browser/writeups.spec.ts:126:1 › keyboard users have a skip link and the current page is announced (342ms)
+  ✓  22 [mobile] › tests/browser/writeups.spec.ts:137:1 › reports remain readable and native TOC works without JavaScript (493ms)
+  ✓  23 [mobile] › tests/browser/writeups.spec.ts:152:1 › automated WCAG accessibility checks pass on portfolio and write-up pages (6.8s)
+  ✓  24 [mobile] › tests/browser/writeups.spec.ts:161:1 › Home, Research, Projects, About and all four CVE URLs respond (142ms)
+  -  25 [mobile] › tests/browser/writeups.spec.ts:169:1 › normal dev reflects source updates without changing card count
+  -  26 [mobile] › tests/browser/writeups.spec.ts:183:1 › busy 4321 is reported and the existing server remains healthy
+
+  2 skipped
+  24 passed (32.7s)
+EXIT 0
+
+PASS preservation: 11 canonical reports/metadata and Research/profile sources unchanged
+PASS active JavaScript syntax checks
+PASS npm run preview: foreground lifecycle, port 4321, 0 cards; correct draft routes/date/evidence labels
+PASS npm run preview:review: foreground lifecycle, port 4321, 6 cards; correct draft routes/date/evidence labels
+PASS final live dev: 6 canonical reports at http://127.0.0.1:4321/writeups/; unverified dates labeled; server left running

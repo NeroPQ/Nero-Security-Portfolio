@@ -1,0 +1,70 @@
+MODIFIED .gitignore
+MODIFIED DEPLOY-QUICKSTART-VI.md
+MODIFIED README.md
+MODIFIED astro.config.mjs
+NEW astro.review.config.mjs
+NEW content/writeups/htb-footprinting.md
+NEW content/writeups/htb-metasploit.md
+NEW content/writeups/htb-password-attacks.md
+NEW content/writeups/htb-shells-payloads.md
+NEW content/writeups/registry.json
+NEW content/writeups/thm-flarevm-arsenal.md
+NEW content/writeups/thm-soc-level-1.md
+NEW docs/WRITEUPS_AUDIT.md
+NEW docs/WRITEUPS_CHANGED_FILES.txt
+NEW docs/WRITEUPS_VALIDATION.txt
+NEW docs/WRITEUPS_WORKFLOW.md
+NEW docs/writeups-migration.json
+MODIFIED package-lock.json
+MODIFIED package.json
+NEW playwright.config.ts
+MODIFIED public/styles.css
+NEW scripts/astro-local.mjs
+MODIFIED scripts/generate_static.py
+NEW scripts/validate-writeups.mjs
+NEW scripts/verify-site.mjs
+NEW scripts/verify_site.py
+NEW scripts/writeups.mjs
+NEW src/components/WriteupCard.astro
+MODIFIED src/data/render.mjs
+MODIFIED src/data/writeups.mjs
+MODIFIED src/layouts/Base.astro
+NEW src/lib/writeups-build.mjs
+NEW src/lib/writeups-core.mjs
+NEW src/lib/writeups-types.ts
+NEW src/lib/writeups-ui.mjs
+MODIFIED src/pages/writeups/[slug]/index.astro
+MODIFIED src/pages/writeups/index.astro
+NEW tests/browser/writeups.spec.ts
+NEW tests/writeups.test.mjs
+NEW wrangler.toml
+ARCHIVED drafts/writeups/htb-academy-password-attacks-module-90/evidence-manifest.json -> archive/writeups-legacy/drafts/writeups/htb-academy-password-attacks-module-90/evidence-manifest.json
+ARCHIVED drafts/writeups/htb-academy-password-attacks-module-90/report.md -> archive/writeups-legacy/drafts/writeups/htb-academy-password-attacks-module-90/report.md
+ARCHIVED drafts/writeups/htb-metasploit/evidence-manifest.json -> archive/writeups-legacy/drafts/writeups/htb-metasploit/evidence-manifest.json
+ARCHIVED drafts/writeups/htb-metasploit/fortilogger-meterpreter.md -> archive/writeups-legacy/drafts/writeups/htb-metasploit/fortilogger-meterpreter.md
+ARCHIVED drafts/writeups/htb-metasploit/report.md -> archive/writeups-legacy/drafts/writeups/htb-metasploit/report.md
+ARCHIVED drafts/writeups/htb-password-attacks-skills-assessment-nexura/evidence-manifest.json -> archive/writeups-legacy/drafts/writeups/htb-password-attacks-skills-assessment-nexura/evidence-manifest.json
+ARCHIVED drafts/writeups/htb-password-attacks-skills-assessment-nexura/report.md -> archive/writeups-legacy/drafts/writeups/htb-password-attacks-skills-assessment-nexura/report.md
+ARCHIVED notes/writeups/htb-metasploit.md -> archive/writeups-legacy/notes/writeups/htb-metasploit.md
+ARCHIVED notes/writeups/htb-shells-payloads.md -> archive/writeups-legacy/notes/writeups/htb-shells-payloads.md
+ARCHIVED scripts/__pycache__/nero_metasploit_postbuild.cpython-314.pyc -> archive/writeups-legacy/scripts/__pycache__/nero_metasploit_postbuild.cpython-314.pyc
+ARCHIVED scripts/nero_metasploit_postbuild.py -> archive/writeups-legacy/scripts/nero_metasploit_postbuild.py
+ARCHIVED scripts/patch_writeups_static.py -> archive/writeups-legacy/scripts/patch_writeups_static.py
+ARCHIVED scripts/preview-drafts.sh -> archive/writeups-legacy/scripts/preview-drafts.sh
+ARCHIVED scripts/sync-shells-payloads.py -> archive/writeups-legacy/scripts/sync-shells-payloads.py
+ARCHIVED src/data/nero-fortilogger-report.mjs -> archive/writeups-legacy/src/data/nero-fortilogger-report.mjs
+ARCHIVED src/data/nero-nexura-generated.mjs -> archive/writeups-legacy/src/data/nero-nexura-generated.mjs
+ARCHIVED src/data/nero-nexura-report.mjs -> archive/writeups-legacy/src/data/nero-nexura-report.mjs
+ARCHIVED src/data/nero-shells-payloads-report.mjs -> archive/writeups-legacy/src/data/nero-shells-payloads-report.mjs
+ARCHIVED src/data/writeups-drafts/htb-using-metasploit-framework-four-section-study-notes/entry.mjs -> archive/writeups-legacy/src/data/writeups-drafts/htb-using-metasploit-framework-four-section-study-notes/entry.mjs
+ARCHIVED src/data/writeups-drafts/htb-using-metasploit-framework-four-section-study-notes/evidence-manifest.md -> archive/writeups-legacy/src/data/writeups-drafts/htb-using-metasploit-framework-four-section-study-notes/evidence-manifest.md
+ARCHIVED src/data/writeups-drafts/htb-using-metasploit-framework-four-section-study-notes/report.md -> archive/writeups-legacy/src/data/writeups-drafts/htb-using-metasploit-framework-four-section-study-notes/report.md
+ARCHIVED src/data/writeups-render.mjs -> archive/writeups-legacy/src/data/writeups-render.mjs
+ARCHIVED src/data/writeups.mjs.bak-metasploit -> archive/writeups-legacy/src/data/writeups.mjs.bak-metasploit
+RETAINED ORIGINAL archive/writeups-legacy/src/data/writeups.mjs
+RETAINED ORIGINAL archive/writeups-legacy/scripts/generate_static.py
+NEW archive/writeups-legacy/README.md
+ARCHIVED preview/ -> archive/writeups-legacy/preview/
+REGENERATED dist/ (publication-approved production only)
+GENERATED .review/ (isolated local review, ignored)
+GENERATED test-results/ (website layout screenshots, ignored)

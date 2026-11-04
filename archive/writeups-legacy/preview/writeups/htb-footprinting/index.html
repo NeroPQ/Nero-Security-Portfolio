@@ -1,0 +1,136 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#11151d"><meta name="description" content="Nero — Cybersecurity research notes, detection engineering, practical labs and documented CVEs."><link rel="icon" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/styles.css"><title>Nero Security — Cybersecurity Portfolio</title></head><body><header class="main-header"><div class="header-inner"><a class="brand" href="/">N<span>ERO.</span><small>SECURITY NOTES</small></a><nav aria-label="Primary navigation"><a href="/">Home</a><a href="/research/">Research</a><a href="/projects/">Projects</a><a href="/writeups/">Write-ups</a><a href="/about/">About</a></nav><a class="header-link" href="https://github.com/NeroPQ" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></header><main>
+    <div class="page-shell two-column">
+      <article class="content-column wu-article">
+
+        <div class="detail-breadcrumb">
+          <a href="/writeups/">← All write-ups</a>
+          <span>Hack The Box Academy</span>
+        </div>
+
+        <header class="wu-article-header">
+          <div class="eyebrow">
+            RECONNAISSANCE
+            / HACK THE BOX ACADEMY
+          </div>
+
+          <h1>Footprinting — Network Service Enumeration</h1>
+          <p>Systematic enumeration of enterprise services including DNS, mail, SMB/NFS, SNMP, databases and remote management.</p>
+
+          <div class="wu-detail-meta">
+            <span>Hands-on practice; full module not verified</span>
+            <span>Documented: 2026-10</span>
+          </div>
+
+          <div class="wu-tags">
+            <span>Nmap</span><span>DNS</span><span>SMTP / IMAP</span><span>SMB</span><span>SNMP</span><span>MSSQL</span>
+          </div>
+
+          <a
+            class="wu-official"
+            href="https://academy.hackthebox.com/course/preview/footprinting"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Official platform page ↗
+          </a>
+        </header>
+
+        <div class="wu-article-body">
+
+          
+    <section class="wu-section">
+      <div class="eyebrow">
+        01 / FIELD NOTES
+      </div>
+
+      <h2>Objective and methodology</h2>
+      <p>Footprinting focuses on discovering accessible services, identifying their protocols and configurations, and extracting useful information during an authorized assessment. Service enumeration is not equivalent to vulnerability exploitation.</p>
+
+      
+
+      
+    </section>
+  
+    <section class="wu-section">
+      <div class="eyebrow">
+        02 / FIELD NOTES
+      </div>
+
+      <h2>Sections covered in my practice</h2>
+      <p>The documented exercises and discussions involved FTP, SMB, NFS, DNS, SMTP, IMAP/POP3, SNMP, MySQL, MSSQL, Oracle TNS, IPMI, SSH, RDP and WinRM. The historical conversations support practical exposure to these topics but do not establish completion of the entire HTB Academy module.</p>
+
+      
+
+      
+    </section>
+  
+    <section class="wu-section">
+      <div class="eyebrow">
+        03 / FIELD NOTES
+      </div>
+
+      <h2>Hard lab — Mail services</h2>
+      <p>Recovered notes describe a training host exposing SSH and several mail-related ports, including POP3/IMAP and their TLS variants. The investigation began with service identification and then focused on the behavior of the identified mail protocols. A final verified flag was not recovered.</p>
+
+      
+
+      
+    </section>
+  
+    <section class="wu-section">
+      <div class="eyebrow">
+        04 / FIELD NOTES
+      </div>
+
+      <h2>Technical observations</h2>
+      <p>Protocol-specific enumeration is more informative than relying on port numbers alone. SMTP may disclose mail configuration or supported extensions; SMB may reveal shares and access policies; SNMP may expose management information; and database services may reveal version and authentication characteristics.</p>
+
+      
+
+      
+    </section>
+  
+    <section class="wu-section">
+      <div class="eyebrow">
+        05 / FIELD NOTES
+      </div>
+
+      <h2>Security takeaway</h2>
+      <p>A useful assessment finding includes the service, the observed evidence, the potential security implication and any limitations. Negative results should also be documented; an unsuccessful enumeration attempt does not prove that the service is secure.</p>
+
+      
+
+      
+    </section>
+  
+
+          <section class="wu-section wu-evidence">
+            <div class="eyebrow">EVIDENCE</div>
+            <h2>Supporting screenshots</h2>
+
+            
+                <p>
+                  No screenshots have been attached to this entry yet.
+                  Additional evidence will be added only when recovered
+                  and verified.
+                </p>
+              
+
+            <p class="wu-disclaimer">
+              All exercises were performed in authorized educational
+              environments. Sensitive credentials, hashes and flags
+              are intentionally excluded.
+            </p>
+          </section>
+
+        </div>
+      </article>
+
+      <aside class="sidebar" aria-label="Profile and navigation">
+  <section class="side-card identity-card"><div class="avatar-wrap"><div class="avatar">N<span>.</span></div><span class="avatar-orbit">// NERO</span></div><h2>Phan Thien Quang</h2><p class="handle">@NeroPQ · Ho Chi Minh City</p><p class="bio">Information Assurance student passionate about offensive and defensive cybersecurity, with hands-on experience in penetration testing, SOC operations, vulnerability research, and security engineering.</p><div class="profile-actions"><a class="mini-link" href="https://github.com/NeroPQ" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a class="mini-link" href="https://www.linkedin.com/in/phan-quang-nero/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div></section>
+  <section class="side-card"><div class="side-title">FIELD NOTES <span>01</span></div><a class="side-nav" href="/research/"><span>Vulnerability Research</span><b>04</b></a><a class="side-nav" href="/projects/"><span>Engineering & Projects</span><b>06</b></a><a class="side-nav" href="/writeups/"><span>Platform Write-ups</span><b>06</b></a><a class="side-nav" href="/about/"><span>Experience & Milestones</span><b>↗</b></a></section>
+  <section class="side-card"><div class="side-title">PRACTICE PLATFORMS <span>02</span></div><a class="platform-row" href="https://tryhackme.com/p/N3R0PH4N" target="_blank" rel="noopener noreferrer"><span class="platform-initial">THM</span><span class="platform-item-text"><strong>TryHackMe</strong><small>N3R0PH4N · Top 1% (resume)</small></span> <span aria-hidden="true">↗</span></a><a class="platform-row" href="https://app.hackthebox.com/users/3896988?profile-top-tab=machines&amp;ownership-period=1M&amp;profile-bottom-tab=prolabs" target="_blank" rel="noopener noreferrer"><span class="platform-initial">HTB</span><span class="platform-item-text"><strong>Hack The Box</strong><small>User #3896988 · Hands-on labs</small></span> <span aria-hidden="true">↗</span></a><a class="platform-row" href="https://portswigger.net/web-security" target="_blank" rel="noopener noreferrer"><span class="platform-initial">PS</span><span class="platform-item-text"><strong>PortSwigger Academy</strong><small>Web security learning · Public academy</small></span> <span aria-hidden="true">↗</span></a><p class="micro-note">Profile ranks can change. PortSwigger links to the public Academy, not account settings.</p></section>
+  <section class="side-card"><div class="side-title">SELECTED HIGHLIGHTS <span>03</span></div><div class="side-achievement"><strong>Top 1%</strong><span>TryHackMe · resume snapshot</span></div><div class="side-achievement"><strong>Top 15</strong><span>THRYVE CTF 2026</span></div><div class="side-achievement"><strong>46th</strong><span>CSCV 2026 · WannaLoSE</span></div><a href="/about/#achievements" class="side-all">More achievements <span>↗</span></a></section>
+</aside>
+    </div>
+  </main><footer class="main-footer"><div><strong>NERO.SEC</strong><span>Research · Build · Document</span></div><small>© <span id="year">2026</span> Phan Thien Quang · Educational research in authorized labs.</small><a href="#top">Back to top ↑</a></footer><script src="/site.js" defer></script></body></html>

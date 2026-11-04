@@ -1,0 +1,162 @@
+{
+  "slug": "htb-academy-password-attacks-module-90",
+  "platform": "Hack The Box Academy",
+  "module_id": 90,
+  "section_count": 26,
+  "module_completion_verified": false,
+  "publication_state": "EVIDENCE PENDING / REVIEW REQUIRED",
+  "sections": [
+    {
+      "section": "01",
+      "title": "Introduction",
+      "classification": "LEARNING NOTES"
+    },
+    {
+      "section": "02",
+      "title": "Introduction to Password Cracking",
+      "classification": "LEARNING NOTES"
+    },
+    {
+      "section": "03",
+      "title": "Introduction to John The Ripper",
+      "classification": "DOCUMENTED PRACTICE / EVIDENCE PENDING"
+    },
+    {
+      "section": "04",
+      "title": "Introduction to Hashcat",
+      "classification": "DOCUMENTED PRACTICE"
+    },
+    {
+      "section": "05",
+      "title": "Writing Custom Wordlists and Rules",
+      "classification": "PARTIAL PRACTICE"
+    },
+    {
+      "section": "06",
+      "title": "Cracking Protected Files",
+      "classification": "DOCUMENTED PRACTICE"
+    },
+    {
+      "section": "07",
+      "title": "Cracking Protected Archives",
+      "classification": "EVIDENCE PENDING"
+    },
+    {
+      "section": "08",
+      "title": "Network Services",
+      "classification": "PARTIAL PRACTICE"
+    },
+    {
+      "section": "09",
+      "title": "Spraying, Stuffing, and Defaults",
+      "classification": "LEARNING NOTES"
+    },
+    {
+      "section": "10",
+      "title": "Windows Authentication Process",
+      "classification": "LEARNING NOTES"
+    },
+    {
+      "section": "11",
+      "title": "Attacking SAM, SYSTEM, and SECURITY",
+      "classification": "DOCUMENTED PRACTICE"
+    },
+    {
+      "section": "12",
+      "title": "Attacking LSASS",
+      "classification": "PARTIAL PRACTICE"
+    },
+    {
+      "section": "13",
+      "title": "Attacking Windows Credential Manager",
+      "classification": "DOCUMENTED PRACTICE"
+    },
+    {
+      "section": "14",
+      "title": "Attacking Active Directory and NTDS.dit",
+      "classification": "DOCUMENTED PRACTICE"
+    },
+    {
+      "section": "15",
+      "title": "Credential Hunting in Windows",
+      "classification": "DOCUMENTED PRACTICE"
+    },
+    {
+      "section": "16",
+      "title": "Linux Authentication Process",
+      "classification": "REFERENCE ONLY"
+    },
+    {
+      "section": "17",
+      "title": "Credential Hunting in Linux",
+      "classification": "REFERENCE ONLY"
+    },
+    {
+      "section": "18",
+      "title": "Credential Hunting in Network Traffic",
+      "classification": "REFERENCE ONLY"
+    },
+    {
+      "section": "19",
+      "title": "Credential Hunting in Network Shares",
+      "classification": "DOCUMENTED PRACTICE"
+    },
+    {
+      "section": "20",
+      "title": "Pass the Hash (PtH)",
+      "classification": "PARTIAL PRACTICE"
+    },
+    {
+      "section": "21",
+      "title": "Pass the Ticket from Windows",
+      "classification": "REFERENCE ONLY"
+    },
+    {
+      "section": "22",
+      "title": "Pass the Ticket from Linux",
+      "classification": "REFERENCE ONLY"
+    },
+    {
+      "section": "23",
+      "title": "Pass the Certificate",
+      "classification": "REFERENCE ONLY"
+    },
+    {
+      "section": "24",
+      "title": "Password Policies",
+      "classification": "LEARNING NOTES"
+    },
+    {
+      "section": "25",
+      "title": "Password Managers",
+      "classification": "LEARNING NOTES"
+    },
+    {
+      "section": "26",
+      "title": "Skills Assessment: NEXURA",
+      "classification": "DOCUMENTED PRACTICE / EVIDENCE PENDING"
+    }
+  ],
+  "nexura_chat_screenshots": [
+    {
+      "original_name": "image(20261102-155951).png",
+      "subject": "Initial SSH pivot and SMB timeout",
+      "available_on_kali": false
+    },
+    {
+      "original_name": "image(20261102-160645).png",
+      "subject": "SOCKS connectivity and Impacket failure",
+      "available_on_kali": false
+    }
+  ],
+  "required_checks": [
+    "Locate authentic screenshots for each practical section",
+    "Review terminal provenance",
+    "Confirm which HTB exercises were accepted",
+    "Confirm current Astro article schema",
+    "Verify canonical Markdown rendering",
+    "Verify evidence image paths",
+    "Check for existing module and section write-up slugs",
+    "Confirm build and content parity"
+  ]
+}
