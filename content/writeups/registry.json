@@ -4,7 +4,7 @@
     "platform": "HTB",
     "unitType": "module",
     "unitId": "footprinting",
-    "title": "Footprinting \u2014 Network Service Enumeration",
+    "title": "Footprinting — Network Service Enumeration",
     "category": "Reconnaissance",
     "summary": "Systematic enumeration of enterprise services including DNS, mail, SMB/NFS, SNMP, databases and remote management.",
     "documentationStatus": "Hands-on practice; full module not verified",
@@ -30,7 +30,7 @@
     "platform": "HTB",
     "unitType": "module",
     "unitId": "115",
-    "title": "Shells & Payloads \u2014 Windows, Linux and Web Initial Access",
+    "title": "Shells & Payloads — Windows, Linux and Web Initial Access",
     "category": "Exploitation Fundamentals",
     "summary": "A complete 17-section module journal covering shell fundamentals, Windows/Linux initial access, web shells, troubleshooting and defensive analysis.",
     "documentationStatus": "17 sections documented; completion not verified",
@@ -55,7 +55,7 @@
     "platform": "HTB",
     "unitType": "module",
     "unitId": "39",
-    "title": "Using the Metasploit Framework \u2014 Technical Study and Lab Report",
+    "title": "Using the Metasploit Framework — Technical Study and Lab Report",
     "category": "Exploitation Frameworks",
     "summary": "An evidence-aware technical study of Meterpreter, external Metasploit modules, MSFVenom and firewall/IDS evasion, supplemented by recorded FortiLogger and MS17-010 lab observations.",
     "documentationStatus": "15 topics documented; completion not verified",
@@ -81,7 +81,7 @@
     "platform": "HTB",
     "unitType": "module",
     "unitId": "90",
-    "title": "Password Attacks \u2014 Module Report and NEXURA Skills Assessment",
+    "title": "Password Attacks — Module Report and NEXURA Skills Assessment",
     "category": "Authentication Security",
     "summary": "A 26-section module journal with the complete NEXURA Skills Assessment, preserving privileged SMB authentication results, failed extraction attempts and third-party reference boundaries.",
     "documentationStatus": "26 sections documented; completion not verified",
@@ -95,6 +95,58 @@
       "SAM",
       "Authentication",
       "Hash Analysis"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": []
+  },
+  {
+    "slug": "htb-vulnerability-assessment",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "108",
+    "title": "Vulnerability Assessment — Concepts, Scanner Analysis and Reporting",
+    "category": "Vulnerability Management",
+    "summary": "A complete 17-section module journal covering security assessment methodologies, CVSS scoring, Nessus and OpenVAS scanner configuration, verified Linux anonymous FTP findings, and professional reporting.",
+    "documentationStatus": "17 sections documented; completion not verified",
+    "evidenceStatus": "pending",
+    "difficulty": "Easy",
+    "source": "https://academy.hackthebox.com/course/preview/vulnerability-assessment",
+    "date": "2026-11",
+    "tags": [
+      "Nessus",
+      "OpenVAS",
+      "Greenbone",
+      "Nmap",
+      "CVSS",
+      "FTP"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": []
+  },
+  {
+    "slug": "htb-file-transfers",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "24",
+    "title": "File Transfers — Windows, Linux and Living-off-the-Land Methods",
+    "category": "Penetration Testing Fundamentals",
+    "summary": "A complete 10-section module journal covering Windows and Linux file transfer methods, Living-off-the-Land binaries, transport protection, and defensive telemetry correlation.",
+    "documentationStatus": "10 sections documented; completion not verified",
+    "evidenceStatus": "pending",
+    "difficulty": "Medium",
+    "source": "https://academy.hackthebox.com/course/preview/file-transfers",
+    "date": "2026-11",
+    "tags": [
+      "PowerShell",
+      "SMB",
+      "FTP",
+      "WebDAV",
+      "cURL",
+      "Living off the Land"
     ],
     "publication": {
       "approved": false
