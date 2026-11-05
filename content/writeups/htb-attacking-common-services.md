@@ -82,14 +82,12 @@ Expected observed result: `testadmin | 1`. A local login's `sysadmin = 0` is not
 
 **Evidence.**
 
-> **[]** 
 
 
-> **[]** 
-
-
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E23]** Hard MSSQL authentication and linked-server inventory
+> - **[E24]** Hard john linked-server context becomes testadmin sysadmin
+> - **[E25]** Hard xp_cmdshell SYSTEM and Administrator Desktop flag
 
 **Mitigation framing.** Remove unnecessary cross-service trust, use least-privilege service accounts, separate file and database access, restrict impersonation, and alert on unusual linked-server use and `xp_cmdshell` state changes.
 
@@ -133,23 +131,15 @@ SHOW VARIABLES LIKE 'secure_file_priv';
 
 **Evidence.**
 
-> **[]** 
 
 
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E12]** Easy MariaDB account rights and empty secure_file_priv
+> - **[E15]** Medium DNS AXFR and anonymous FTP differentiation
+> - **[E16]** Medium FTP Simon mynotes.txt password candidates
+> - **[E19]** Hard SMB departmental folders
+> - **[E21]** Hard Fiona and John files downloaded over SMB
+> - **[E24]** Hard john linked-server context becomes testadmin sysadmin
 
 **Remediation.** Disable unnecessary anonymous access; segment administrative services; enforce share and file ACLs; limit database grants, especially `FILE`; require distinct strong credentials for unrelated systems; deny unintended zone transfers; review `IMPERSONATE` permissions and linked-server security mappings.
 
@@ -183,20 +173,14 @@ Sensitive information is often disclosed by simple operational mistakes: a perso
 
 **Evidence.**
 
-> **[]** 
 
 
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E01]** Samba GGJ share and id_rsa directory listing
+> - **[E16]** Medium FTP Simon mynotes.txt password candidates
+> - **[E20]** Hard Simon random.txt and candidate passwords
+> - **[E21]** Hard Fiona and John files downloaded over SMB
+> - **[E22]** Hard Fiona password candidates and SMB credential tests
 
 **Remediation.** Use secrets managers; segregate sensitive operational notes; apply strict read permissions; remove test credentials and backup artifacts; avoid passwords in globally readable directories; rotate any credential after confirmed exposure.
 
@@ -247,20 +231,14 @@ An FTP data-channel failure is distinct from a login failure. `229 Entering Exte
 
 **Evidence.**
 
-> **[]** 
 
 
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E11]** Easy CoreFTP and Apache service configuration notes
+> - **[E15]** Medium DNS AXFR and anonymous FTP differentiation
+> - **[E16]** Medium FTP Simon mynotes.txt password candidates
+> - **[E17]** Medium authenticated FTP and flag.txt retrieval
+> - **[E18]** Medium Hydra validates Simon FTP credentials
 
 **Remediation.** Disable anonymous access unless indispensable, make FTP accounts read-only where possible, remove private notes, rate-limit authentication, enforce unique strong passwords and use SFTP or well-configured FTPS for sensitive data.
 
@@ -288,8 +266,11 @@ For known vulnerabilities, track CVE, affected version, prerequisite modules/con
 
 **Evidence:**
 
-> **[]** 
- (Core FTP service configuration), but **Evidence Pending** for any confirmed CVE exploitation in this module run.
+
+
+> **[Evidence E11]** Easy CoreFTP and Apache service configuration notes *(Lab screenshot archive)*
+
+(Core FTP service configuration), but **Evidence Pending** for any confirmed CVE exploitation in this module run.
 
 **Remediation.** Patch/upgrade FTP daemons, disable unnecessary modules, confine server processes to dedicated storage, protect upload paths, and verify secure protocol configurations. Reference: [NVD CVE-2015-3306](https://nvd.nist.gov/vuln/detail/CVE-2015-3306).
 
@@ -343,26 +324,16 @@ The actual output confirmed `WIN-HARD\\Fiona:48Ns72!bns74@S84NNNSl`. A positive 
 
 **Evidence.**
 
-> **[]** 
 
 
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E01]** Samba GGJ share and id_rsa directory listing
+> - **[E02]** SSH authentication and flag in earlier SMB chain
+> - **[E03]** SMB candidate testing and authenticated jason example
+> - **[E19]** Hard SMB departmental folders
+> - **[E20]** Hard Simon random.txt and candidate passwords
+> - **[E21]** Hard Fiona and John files downloaded over SMB
+> - **[E22]** Hard Fiona password candidates and SMB credential tests
 
 **Remediation.** Disable guest reads of business documents and private keys, minimize share enumeration disclosure, enforce NTFS and share ACLs together, monitor access from unfamiliar hosts, and rotate exposed passwords.
 
@@ -388,10 +359,12 @@ nmap -Pn -p 445 --script smb-protocols,smb-security-mode <LAB_TARGET>
 
 **Evidence.**
 
-> **[]** 
 
 
-> **[]** 
+> **Evidence Archive:**
+> - **[E01]** Samba GGJ share and id_rsa directory listing
+> - **[E19]** Hard SMB departmental folders
+
 . No evidence of successful MS17-010/SMBGhost exploitation in the user-provided images — **Evidence Pending** for vulnerability exploitation.
 
 **Remediation.** Keep security updates current, disable SMBv1, require signing where practical, block unnecessary inbound 445, review share + filesystem permissions, and use strong authentication. Reference: [Microsoft MS17-010 security bulletin](https://learn.microsoft.com/en-us/security-updates/SecurityBulletins/2017/ms17-010).
@@ -447,23 +420,15 @@ With `xp_cmdshell` enabled on the linked server, `whoami` returned `nt authority
 
 **Evidence.**
 
-> **[]** 
 
 
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
+> **Evidence Archive:**
+> - **[C03]** Responder tun0 setup and mixed Bash/SQL shells
+> - **[E12]** Easy MariaDB account rights and empty secure_file_priv
+> - **[E13]** Easy MariaDB LOAD_FILE and Administrator flag
+> - **[E23]** Hard MSSQL authentication and linked-server inventory
+> - **[E24]** Hard john linked-server context becomes testadmin sysadmin
+> - **[E25]** Hard xp_cmdshell SYSTEM and Administrator Desktop flag
 
 **Remediation.** Do not give application users global grants; limit `FILE`, control `secure_file_priv`, apply OS permissions to DB service accounts, remove unnecessary SQL `IMPERSONATE`, restrict linked-server mappings and disable/monitor `xp_cmdshell`.
 
@@ -494,16 +459,14 @@ SELECT name, product, provider, data_source FROM sys.servers;
 
 **Evidence.**
 
-> **[]** 
 
 
-> **[]** 
+> **Evidence Archive:**
+> - **[E12]** Easy MariaDB account rights and empty secure_file_priv
+> - **[E23]** Hard MSSQL authentication and linked-server inventory
+> - **[E24]** Hard john linked-server context becomes testadmin sysadmin
+> - **[E25]** Hard xp_cmdshell SYSTEM and Administrator Desktop flag
 
-
-> **[]** 
-
-
-> **[]** 
 . CVE-2020-0618 exploitation is **Evidence Pending**, not claimed.
 
 **Remediation.** Patch SQL components, remove unused SSRS installations, protect management ports, harden linked servers, audit principal mappings and database `FILE` privileges. Reference: [NVD CVE-2020-0618](https://nvd.nist.gov/vuln/detail/CVE-2020-0618).
@@ -548,8 +511,11 @@ REM Change requires administrative permission and an explicit lab need.
 
 **Evidence.**
 
-> **[]** 
- — troubleshooting only. **Evidence Pending:** successful Administrator RDP/PtH flag retrieval.
+
+
+> **[Evidence C02]** Windows RDP session: PowerShell cmdlet typed in CMD *(Lab screenshot archive)*
+
+— troubleshooting only. **Evidence Pending:** successful Administrator RDP/PtH flag retrieval.
 
 **Remediation.** Restrict RDP at the firewall, mandate MFA through supported gateways, enforce least privilege, audit Remote Desktop logons, enable credential protection as appropriate, and use a documented policy for Restricted Admin mode instead of changing the setting without oversight.
 
@@ -576,8 +542,11 @@ nmap -Pn -sV -p 3389 --script rdp-ntlm-info 10.129.203.13
 
 **Evidence.**
 
-> **[]** 
- provides a real lab RDP shell screenshot, but no successful BlueKeep exploit or patch-state validation — **Evidence Pending** for any version-dependent vulnerability claim.
+
+
+> **[Evidence C02]** Windows RDP session: PowerShell cmdlet typed in CMD *(Lab screenshot archive)*
+
+provides a real lab RDP shell screenshot, but no successful BlueKeep exploit or patch-state validation — **Evidence Pending** for any version-dependent vulnerability claim.
 
 **Remediation.** Update all affected Windows hosts; restrict RDP to management networks or VPN; use NLA, MFA and administrative access controls; monitor RDS access. References: [Microsoft BlueKeep advisory](https://www.microsoft.com/en-us/msrc/blog/2019/05/prevent-a-worm-by-updating-remote-desktop-services-cve-2019-0708/), [CERT-EU 2019 advisory](https://cert.europa.eu/publications/security-advisories/2019-013/).
 
@@ -621,11 +590,11 @@ dig @10.129.201.127 inlanefreight.htb AXFR
 
 **Evidence.**
 
-> **[]** 
 
 
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E15]** Medium DNS AXFR and anonymous FTP differentiation
+> - **[C01]** DNS HR subzone AXFR and TXT flag
 
 **Remediation.** Limit AXFR to explicitly approved secondary DNS servers using IP allowlists and TSIG where supported, audit every zone separately, monitor transfer attempts, and avoid disclosing internal naming schemes on externally reachable DNS infrastructure.
 
@@ -653,11 +622,13 @@ dig @10.129.12.41 hr.inlanefreight.htb AXFR
 
 **Evidence.**
 
-> **[]** 
 
 
-> **[]** 
- establish AXFR exposure in the designated lab targets. SIGRed exploitation is **Evidence Pending** / not indicated on the observed BIND server.
+> **Evidence Archive:**
+> - **[E15]** Medium DNS AXFR and anonymous FTP differentiation
+> - **[C01]** DNS HR subzone AXFR and TXT flag
+
+establish AXFR exposure in the designated lab targets. SIGRed exploitation is **Evidence Pending** / not indicated on the observed BIND server.
 
 **Remediation.** Patch name servers, restrict recursion and AXFR, validate DNSSEC configuration if deployed, monitor anomalous zone transfers, and review both public and internal views. Reference: [NVD CVE-2020-1350](https://nvd.nist.gov/vuln/detail/CVE-2020-1350).
 
@@ -705,11 +676,13 @@ For encrypted POP3S on 995, use a TLS client; `nc` alone does not negotiate impl
 
 **Evidence.**
 
-> **[]** 
 
 
-> **[]** 
- from the Easy assessment. **Evidence Pending:** independently executed POP3 retrieval of the separate email exercise's flag.
+> **Evidence Archive:**
+> - **[E09]** Easy test.php output and disabled SMTP VRFY
+> - **[E10]** Easy RCPT recipient-state differences and host-header redirect
+
+from the Easy assessment. **Evidence Pending:** independently executed POP3 retrieval of the separate email exercise's flag.
 
 **Remediation.** Reduce account-enumeration leakage, disable insecure authentication methods, mandate TLS, apply rate limits and lockout protections, and monitor user guessing by RCPT response patterns.
 
@@ -730,11 +703,13 @@ The widely documented ProxyLogon and ProxyShell chains show how vulnerable Excha
 
 **Evidence.**
 
-> **[]** 
 
 
-> **[]** 
- show protocol behavior; product-CVE exploit evidence is **Pending**.
+> **Evidence Archive:**
+> - **[E09]** Easy test.php output and disabled SMTP VRFY
+> - **[E10]** Easy RCPT recipient-state differences and host-header redirect
+
+show protocol behavior; product-CVE exploit evidence is **Pending**.
 
 **Remediation.** Patch mail software, disable legacy/plaintext login over unprotected channels, normalize error messages where appropriate, implement SPF/DKIM/DMARC for domain spoofing protections, protect mailboxes with strong authentication and monitor brute-force attempts. Reference: [CISA/US government summary of 2021 exploited vulnerabilities](https://media.defense.gov/2022/Apr/27/2002984949/-1/-1/0/JOINT_CSA_2021_ROUTINELY_EXPLOITED_CVES_20220427.PDF).
 
@@ -753,11 +728,11 @@ nmap -Pn -sT -p- --open -T4 10.129.203.7 -oN ports.txt
 nmap -Pn -sC -sV -p 21,25,80,443,587,3306,3389 10.129.203.7 -oN services.txt
 ```
 
-> **[]** 
 
 
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E04]** Easy assessment full-port Nmap scan
+> - **[E05]** Easy assessment detailed service fingerprints
 
 ### Phase B — Record negative findings, do not erase them
 
@@ -772,17 +747,13 @@ gobuster dir -u http://10.129.203.7/ \
 curl -i http://10.129.203.7/test.php
 ```
 
-> **[]** 
 
 
-> **[]** 
-
-
-> **[]** 
-
-
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E06]** Easy anonymous FTP, phpMyAdmin, MySQL and Gobuster tests
+> - **[E07]** Easy negative service checks and Gobuster results
+> - **[E08]** Easy SMTP connection and initial checks
+> - **[E09]** Easy test.php output and disabled SMTP VRFY
 
 ### Phase C — Enumerate users with SMTP response differences
 
@@ -801,11 +772,11 @@ smtp-user-enum -M RCPT -U /usr/share/seclists/Usernames/Names/names.txt \
 
 The 17-entry shortlist returned no matches. A larger 10,713-entry names list eventually identified `fiona`. An earlier proposed downloadable `users.zip` path returned HTTP 404; this was **not** an operator error and should not appear as a successful retrieval in any report.
 
-> **[]** 
 
 
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E09]** Easy test.php output and disabled SMTP VRFY
+> - **[E10]** Easy RCPT recipient-state differences and host-header redirect
 
 ### Phase D — FTP login and operational notes
 
@@ -826,8 +797,9 @@ curl -vk -H 'Host: localhost' --basic -u 'fiona:987654321' \
 
 The HTTPS request produced `200 OK`, server banner `Core FTP HTTP Server`, and the original 55-byte `docs.txt` content. That credential reuse was verified; a Core FTP traversal exploit was **not** demonstrated.
 
-> **[]** 
 
+
+> **[Evidence E11]** Easy CoreFTP and Apache service configuration notes *(Lab screenshot archive)*
 
 ### Phase E — MariaDB credential reuse and filesystem read
 
@@ -847,11 +819,11 @@ SELECT LOAD_FILE('C:/Users/Administrator/Desktop/flag.txt');
 
 **Verified flag:** `HTB{t#3r3_4r3_tw0_w4y$_t0_93t_t#3_fl49}`
 
-> **[]** 
 
 
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E12]** Easy MariaDB account rights and empty secure_file_priv
+> - **[E13]** Easy MariaDB LOAD_FILE and Administrator flag
 
 ### Root cause, impact and corrective actions
 
@@ -871,8 +843,9 @@ Nmap found OpenSSH 8.2p1 (22), BIND 9.16.1 (53), Dovecot POP3 (110) and POP3S (9
 nmap -Pn -sC -sV -p 22,53,110,995,2121,30021 10.129.201.127
 ```
 
-> **[]** 
 
+
+> **[Evidence E14]** Medium Linux service and ProFTPD banner scan *(Lab screenshot archive)*
 
 ### Phase B — DNS zone transfer revealed internal naming
 
@@ -882,8 +855,9 @@ nmap -Pn -sC -sV -p 22,53,110,995,2121,30021 10.129.201.127
 dig @10.129.201.127 inlanefreight.htb AXFR
 ```
 
-> **[]** 
 
+
+> **[Evidence E15]** Medium DNS AXFR and anonymous FTP differentiation *(Lab screenshot archive)*
 
 ### Phase C — Anonymous FTP exposed candidate passwords
 
@@ -902,11 +876,11 @@ cat mynotes.txt
 
 The text contained **eight password-like lines**. It was legitimate to narrow the hypothesis to an account called `simon` based on the folder name, but the folder alone did not prove login validity. The file was the concrete credential-exposure artifact.
 
-> **[]** 
 
 
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E15]** Medium DNS AXFR and anonymous FTP differentiation
+> - **[E16]** Medium FTP Simon mynotes.txt password candidates
 
 ### Phase D — Small-list credential validation on FTP 2121
 
@@ -918,8 +892,9 @@ hydra -l simon -P mynotes.txt -s 2121 -t 2 -f ftp://10.129.201.127
 
 **Observed login:** `simon` with password `8Ns8j1b!23hs4921smHzwn` (visible in the Hydra screenshot). The resulting authenticated FTP session listed `flag.txt` and `Maildir`.
 
-> **[]** 
 
+
+> **[Evidence E18]** Medium Hydra validates Simon FTP credentials *(Lab screenshot archive)*
 
 ### Phase E — Retrieve flag
 
@@ -937,8 +912,9 @@ The transfer completed (`226 Transfer complete`), and `cat flag.txt` returned:
 
 **Verified flag:** `HTB{1qay2wsx3EDC4rfv_M3D1UM}`
 
-> **[]** 
 
+
+> **[Evidence E17]** Medium authenticated FTP and flag.txt retrieval *(Lab screenshot archive)*
 
 ### Root cause, impact and corrective actions
 
@@ -966,11 +942,11 @@ cat random.txt
 
 **Hard Q1 answer:** `random.txt`.
 
-> **[]** 
 
 
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E19]** Hard SMB departmental folders
+> - **[E20]** Hard Simon random.txt and candidate passwords
 
 ### Phase B — Move from Simon's candidates to Fiona's credentials
 
@@ -992,11 +968,11 @@ nxc smb 10.129.203.10 -u Fiona -p fiona_pass.txt --local-auth
 
 **Hard Q2 answer:** `48Ns72!bns74@S84NNNSl`.
 
-> **[]** 
 
 
-> **[]** 
-
+> **Evidence Archive:**
+> - **[E21]** Hard Fiona and John files downloaded over SMB
+> - **[E22]** Hard Fiona password candidates and SMB credential tests
 
 ### Phase C — MSSQL login and initial privilege picture
 
@@ -1015,8 +991,9 @@ SELECT name, type_desc FROM sys.server_principals;
 
 The visible server principals included `john` and `simon`. When the operator typed a multi-line SQL JOIN into Impacket line by line, each line executed independently and produced parse errors; the corrected query was entered on one line. That query returned no *direct Fiona* permission rows because the effective `IMPERSONATE` right was **inherited via a group**, not necessarily granted to the exact login being queried.
 
-> **[]** 
 
+
+> **[Evidence E23]** Hard MSSQL authentication and linked-server inventory *(Lab screenshot archive)*
 
 ### Phase D — Inherited impersonation and linked-server mapping
 
@@ -1036,8 +1013,9 @@ EXECUTE('SELECT SYSTEM_USER AS login_name, IS_SRVROLEMEMBER(''sysadmin'') AS is_
 
 **Hard Q3 answer:** `john`.
 
-> **[]** 
 
+
+> **[Evidence E24]** Hard john linked-server context becomes testadmin sysadmin *(Lab screenshot archive)*
 
 ### Phase E — Privileged OS command execution and Administrator flag
 
@@ -1055,8 +1033,9 @@ EXEC('EXEC xp_cmdshell ''type C:\Users\Administrator\Desktop\flag.txt''') AT [LO
 
 This demonstrates a high-impact trust-boundary crossing: SMB information disclosure allowed Windows authentication, inherited SQL impersonation enabled a login context switch, linked-server mapping provided `sysadmin`, and `xp_cmdshell` executed under an extremely privileged OS account. It does **not** prove that simply possessing Fiona's password granted direct Windows administrator permissions.
 
-> **[]** 
 
+
+> **[Evidence E25]** Hard xp_cmdshell SYSTEM and Administrator Desktop flag *(Lab screenshot archive)*
 
 ### Root cause and prioritized mitigations
 
