@@ -87,7 +87,7 @@ export function sidebarMarkup() {
     <div class="side-title">QUICK NAVIGATION <span>01</span></div>
     <a class="side-nav" href="/research/"><span>Vulnerability Research</span><b>${cves.length.toString().padStart(2, '0')} CVEs</b></a>
     <a class="side-nav" href="/projects/"><span>Engineering &amp; Projects</span><b>${String(selectedProjects.length).padStart(2, '0')} Apps</b></a>
-    <a class="side-nav" href="/writeups/"><span>Platform Write-ups</span><b>6 Labs ↗</b></a>
+    <a class="side-nav" href="/writeups/"><span>Platform Write-ups</span><b>7 Labs ↗</b></a>
     <a class="side-nav" href="/about/"><span>Experience &amp; Skills</span><b>Profile ↗</b></a>
   </section>
   <section class="side-card">
@@ -124,7 +124,7 @@ export function heroMarkup() {
       <p>Researching critical vulnerabilities, engineering detection systems, and documenting reproducible lab evidence.</p>
       <div class="hero-quick-highlights" aria-label="Key portfolio metrics">
         <span><strong>4</strong> Verified CVE Case Studies</span>
-        <span><strong>6</strong> Deep-Dive HTB &amp; THM Reports</span>
+        <span><strong>7</strong> Deep-Dive HTB Reports</span>
         <span><strong>Top 1%</strong> TryHackMe · SOC L1</span>
       </div>
       <div class="banner-actions">

@@ -152,5 +152,33 @@
       "approved": false
     },
     "evidence": []
+  },
+  {
+    "slug": "htb-attacking-common-services",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "116",
+    "title": "Attacking Common Services — Penetration Testing and Hard Assessment",
+    "category": "Service Exploitation",
+    "summary": "A comprehensive 19-section module report covering FTP, SMB, MSSQL, MariaDB, RDP, DNS, and SMTP attack paths, featuring verified Easy, Medium, and Hard skills assessments with linked-server sysadmin impersonation and xp_cmdshell SYSTEM access.",
+    "documentationStatus": "19 sections documented; completion not verified",
+    "evidenceStatus": "pending",
+    "difficulty": "Medium",
+    "source": "https://academy.hackthebox.com/app/module/116",
+    "date": "2026-11-05",
+    "tags": [
+      "SMB",
+      "FTP",
+      "MSSQL",
+      "MariaDB",
+      "RDP",
+      "DNS",
+      "Linked Server",
+      "xp_cmdshell"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": []
   }
 ]
