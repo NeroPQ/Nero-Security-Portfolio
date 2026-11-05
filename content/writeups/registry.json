@@ -162,7 +162,7 @@
     "category": "Service Exploitation",
     "summary": "A comprehensive 19-section module report covering FTP, SMB, MSSQL, MariaDB, RDP, DNS, and SMTP attack paths, featuring verified Easy, Medium, and Hard skills assessments with linked-server sysadmin impersonation and xp_cmdshell SYSTEM access.",
     "documentationStatus": "19 sections documented; completion not verified",
-    "evidenceStatus": "pending",
+    "evidenceStatus": "verified",
     "difficulty": "Medium",
     "source": "https://academy.hackthebox.com/app/module/116",
     "date": "2026-11-05",
@@ -179,6 +179,259 @@
     "publication": {
       "approved": false
     },
-    "evidence": []
+    "evidence": [
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e01.jpg",
+        "section": "credential-validation",
+        "alt": "E01: Samba GGJ share and id_rsa directory listing",
+        "caption": "Samba GGJ share and id_rsa directory listing",
+        "sha256": "a7ee1f5d4748672e694f1b60c41e2673b42a7cb3c8627d5354c046cdd448a4dd",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e02.jpg",
+        "section": "credential-validation",
+        "alt": "E02: SSH authentication and flag in earlier SMB exercise",
+        "caption": "SSH authentication and flag in earlier SMB exercise",
+        "sha256": "00829394c1e6afdbb6fec6acb3357c4d2dd7ab54194ca04e72fc46806f741dad",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e03.jpg",
+        "section": "credential-validation",
+        "alt": "E03: SMB candidate testing and authenticated jason session",
+        "caption": "SMB candidate testing and authenticated jason session",
+        "sha256": "2caaaac31cddc1c728ce202ee6ec2f124f31701db39c91006952f74e9136caa1",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/c03.png",
+        "section": "mssql--hard-impersonation-and-linked-server",
+        "alt": "C03: Responder tun0 setup and mixed Bash/SQL shell",
+        "caption": "Responder tun0 setup and mixed Bash/SQL shell",
+        "sha256": "77509fd8fa87c53580e65cb3f2fd23fbbf90c65046767ad53e1447db9a9e131c",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/c02.png",
+        "section": "restricted-admin-and-pass-the-hash",
+        "alt": "C02: Windows RDP session: PowerShell cmdlet type",
+        "caption": "Windows RDP session: PowerShell cmdlet type",
+        "sha256": "24701a917bb11da81bb4b97744f5463a5834f8097a0432579c6a0babfd83f27e",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/c01.png",
+        "section": "medium-assessment-root-zone-axfr-was-available",
+        "alt": "C01: DNS HR subzone AXFR and TXT flag",
+        "caption": "DNS HR subzone AXFR and TXT flag",
+        "sha256": "f13a28f71640d3d7d9b5f5b65e22132a96f57d013f81be5a64c2beaeaaffda9d",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e04.jpg",
+        "section": "phase-a--reconnaissance-and-exposed-services",
+        "alt": "E04: Easy assessment full-port Nmap scan",
+        "caption": "Easy assessment full-port Nmap scan",
+        "sha256": "152834e4aa294f036ab9c153546b16cc6b09a79474cb21d54d552804cc91e380",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e05.jpg",
+        "section": "phase-a--reconnaissance-and-exposed-services",
+        "alt": "E05: Easy assessment detailed service fingerprints",
+        "caption": "Easy assessment detailed service fingerprints",
+        "sha256": "1dc2ba28c519da9418003351a14fcdfbbdecc770d909f823946d1e2c3f6131d3",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e06.jpg",
+        "section": "phase-b--record-negative-findings-do-not-erase-them",
+        "alt": "E06: Easy anonymous FTP, phpMyAdmin, MySQL and Gobuster tests",
+        "caption": "Easy anonymous FTP, phpMyAdmin, MySQL and Gobuster tests",
+        "sha256": "b83bf2044df7a28e572ca0bf72b9b384ce4f90d432a7ee7ead6890a79a106b60",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e07.jpg",
+        "section": "phase-b--record-negative-findings-do-not-erase-them",
+        "alt": "E07: Easy negative service checks and Gobuster results",
+        "caption": "Easy negative service checks and Gobuster results",
+        "sha256": "f27a9ae05f1f656484a266711bd2b8f6e6792a52012445a2d185a9b65ed25be4",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e08.jpg",
+        "section": "phase-b--record-negative-findings-do-not-erase-them",
+        "alt": "E08: Easy SMTP connection and initial checks",
+        "caption": "Easy SMTP connection and initial checks",
+        "sha256": "4c8dfe42c1cac9d1fd4a546f549f2a4d920b3c8fc15ca1ee852cd5b25b234369",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e09.jpg",
+        "section": "phase-b--record-negative-findings-do-not-erase-them",
+        "alt": "E09: Easy test.php output and disabled SMTP VRFY",
+        "caption": "Easy test.php output and disabled SMTP VRFY",
+        "sha256": "7699841c94d2f977512a35e452a55c58d4f4c62cb53d4bb1f8ffb2752e9ac44f",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e10.jpg",
+        "section": "phase-c--enumerate-users-with-smtp-response-differences",
+        "alt": "E10: Easy RCPT recipient-state differences and host-header redirect",
+        "caption": "Easy RCPT recipient-state differences and host-header redirect",
+        "sha256": "b9f8ac2303842279cdddbd73095288a94ab3b6872d26f93b447ce9967e0d27eb",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e11.jpg",
+        "section": "phase-d--ftp-login-and-operational-notes",
+        "alt": "E11: Easy CoreFTP and Apache service configuration notes",
+        "caption": "Easy CoreFTP and Apache service configuration notes",
+        "sha256": "306f3a64cc244b8d9de09c7a4ab4505f1192faa72af0df39b2d1831010037a8f",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e12.jpg",
+        "section": "phase-e--mariadb-credential-reuse-and-filesystem-read",
+        "alt": "E12: Easy MariaDB account rights and empty secure_file_priv",
+        "caption": "Easy MariaDB account rights and empty secure_file_priv",
+        "sha256": "9fff19f8f8b8d27c1f9d482859d400660066d6a0a30eea3bee886e2dd920af56",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e13.jpg",
+        "section": "phase-e--mariadb-credential-reuse-and-filesystem-read",
+        "alt": "E13: Easy MariaDB LOAD_FILE and Administrator flag",
+        "caption": "Easy MariaDB LOAD_FILE and Administrator flag",
+        "sha256": "36fc44dfaa69d2437ea6fa1f7e29e4768bf8dea8c188b92aeabe47197c24ce4a",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e14.jpg",
+        "section": "phase-a--service-map",
+        "alt": "E14: Medium Linux service and ProFTPD banner scan",
+        "caption": "Medium Linux service and ProFTPD banner scan",
+        "sha256": "a0c4f4eff0403ff54da51638873965f8164848e44303b08b8e2aef48e1840469",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e15.jpg",
+        "section": "phase-b--dns-zone-transfer-revealed-internal-naming",
+        "alt": "E15: Medium DNS AXFR and anonymous FTP differentiation",
+        "caption": "Medium DNS AXFR and anonymous FTP differentiation",
+        "sha256": "8826d679516ce7eab92d4eab4b3ef18e76b55e5a6d88ebe014dc4ff26bd0e0a1",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e16.jpg",
+        "section": "phase-c--anonymous-ftp-exposed-candidate-passwords",
+        "alt": "E16: Medium FTP Simon mynotes.txt password candidates",
+        "caption": "Medium FTP Simon mynotes.txt password candidates",
+        "sha256": "03022a6fdc697593d58f61594f3335dde2e98f3ef2995772e7c4c209d0294964",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e18.jpg",
+        "section": "phase-d--small-list-credential-validation-on-ftp-2121",
+        "alt": "E18: Medium Hydra validates Simon FTP credentials",
+        "caption": "Medium Hydra validates Simon FTP credentials",
+        "sha256": "f1263c3e6b439a2d39f0fcb2f8a2b8dfe2997e4eaadb84eb5e3864391969dcc4",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e17.jpg",
+        "section": "phase-e--retrieve-flag",
+        "alt": "E17: Medium authenticated FTP and flag.txt retrieval",
+        "caption": "Medium authenticated FTP and flag.txt retrieval",
+        "sha256": "433f0cf109d350cd6810c50eb46a82a845c9b3a827ca232ced51c3fb7f578dd2",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e19.jpg",
+        "section": "phase-a--anonymous-smb-discovery-and-simons-file",
+        "alt": "E19: Hard SMB departmental folders",
+        "caption": "Hard SMB departmental folders",
+        "sha256": "21c7f1e23b296d1f3ca6fb37c33cb81990d6e2dea7067d41e319fbb46d0ce5df",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e20.jpg",
+        "section": "phase-a--anonymous-smb-discovery-and-simons-file",
+        "alt": "E20: Hard Simon random.txt and candidate passwords",
+        "caption": "Hard Simon random.txt and candidate passwords",
+        "sha256": "e4f75ef4adb6e1bf408c9666cc459cb800efc902b0018807581a58450894c8fc",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e21.jpg",
+        "section": "phase-b--move-from-simons-candidates-to-fionas-credentials",
+        "alt": "E21: Hard Fiona and John files downloaded over SMB",
+        "caption": "Hard Fiona and John files downloaded over SMB",
+        "sha256": "627653bc9faa7b49f9337055b447a6fd0ffe6d11a465def2105207546a819a60",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e22.jpg",
+        "section": "phase-b--move-from-simons-candidates-to-fionas-credentials",
+        "alt": "E22: Hard Fiona password candidates and SMB credential tests",
+        "caption": "Hard Fiona password candidates and SMB credential tests",
+        "sha256": "e5c44900345466d172c9bc69b674d7b6607a28e04fadb55947ae0dcd2a902983",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e23.jpg",
+        "section": "phase-c--mssql-login-and-initial-privilege-picture",
+        "alt": "E23: Hard MSSQL authentication and linked-server inventory",
+        "caption": "Hard MSSQL authentication and linked-server inventory",
+        "sha256": "0316c2d9fccd0fe1c2dfa0d3bd14dd8fa0321f74c51e3cfede466a1eb8adcfa2",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e24.jpg",
+        "section": "phase-d--inherited-impersonation-and-linked-server-mapping",
+        "alt": "E24: Hard john linked-server context becomes testadmin sysadmin",
+        "caption": "Hard john linked-server context becomes testadmin sysadmin",
+        "sha256": "b81ed0c6d7e6fde9d07d768db017f457d5aaf474588d046c2fe5c1a965406e93",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-common-services/e25.jpg",
+        "section": "phase-e--privileged-os-command-execution-and-administrator-flag",
+        "alt": "E25: Hard xp_cmdshell SYSTEM and Administrator Desktop flag",
+        "caption": "Hard xp_cmdshell SYSTEM and Administrator Desktop flag",
+        "sha256": "1c1e462cc4ea41ce053ed42e3d247bbaa3a6dfa6684fcd5d2ecdc7de730d6a17",
+        "verified": true,
+        "sensitiveReviewed": true
+      }
+    ]
   }
 ]
