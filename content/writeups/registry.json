@@ -433,5 +433,169 @@
         "sensitiveReviewed": true
       }
     ]
+  },
+  {
+    "slug": "htb-pivoting-tunneling-port-forwarding",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "158",
+    "title": "Pivoting, Tunneling, and Port Forwarding — Network Pivoting and Lateral Movement",
+    "category": "Network Security",
+    "summary": "Comprehensive laboratory walkthrough of HTB Academy Module 158: SSH port forwarding, SOCKS tunneling, Meterpreter routing, Socat, Rpivot, Windows Netsh portproxy, Dnscat2, Chisel, ptunnel-ng, and multi-hop pivoting.",
+    "documentationStatus": "Hands-on practice; 14 verified lab screenshots with 7-stage skills assessment",
+    "evidenceStatus": "verified",
+    "difficulty": "Medium",
+    "source": "https://academy.hackthebox.com/app/module/158",
+    "date": "2026-11",
+    "tags": [
+      "SSH Forwarding",
+      "SOCKS5",
+      "Rpivot",
+      "Netsh Portproxy",
+      "Dnscat2",
+      "Chisel",
+      "ptunnel-ng",
+      "Multi-hop Pivoting"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": [
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-14.jpg",
+        "section": "screenshot--interface-context-and-reachability",
+        "alt": "Evidence 14: Ubuntu dual-homed interface listing, successful port-3389 probe, and SSH forwarding context",
+        "caption": "Ubuntu dual-homed interface listing, successful port-3389 probe, and SSH forwarding context",
+        "sha256": "34522da0cc9d429a3d56886542b956b3a2ad61f815808890074d90f4f80c2193",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-15.jpg",
+        "section": "screenshot--interface-context-and-reachability",
+        "alt": "Evidence 15: Ping sweep from Pwnbox with no usable results before routing is established",
+        "caption": "Ping sweep from Pwnbox with no usable results before routing is established",
+        "sha256": "459717bbeb58d9851b7de830ae49a8a64e923f3ab3ba4dc95288d61287ee0969",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-13.jpg",
+        "section": "verified-lab-outcome",
+        "alt": "Evidence 13: RDP desktop and CMD output reading flag.txt.txt after SSH forwarding",
+        "caption": "RDP desktop and CMD output reading flag.txt.txt after SSH forwarding",
+        "sha256": "842b3d21828aa3ef0f87188cd8d2adda704fd8d4453671048e05f8b55c8473e5",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-14b.jpg",
+        "section": "verified-lab-outcome",
+        "alt": "Evidence 14 (Context): The preceding Ubuntu network and SSH local port-forward commands",
+        "caption": "The preceding Ubuntu network and SSH local port-forward commands",
+        "sha256": "34522da0cc9d429a3d56886542b956b3a2ad61f815808890074d90f4f80c2193",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-16.jpg",
+        "section": "step-by-step-lab-reproduction",
+        "alt": "Evidence 16: Original client failure, corrected server.py and client.py placement, and new incoming connection",
+        "caption": "Original client failure, corrected server.py and client.py placement, and new incoming connection",
+        "sha256": "9113e1408872acee5274d0322ed81eb78b816dc725038694be0fafaab846adee",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-17.jpg",
+        "section": "verify-via-the-socks-proxy",
+        "alt": "Evidence 17: curl --socks4 reaches the internal server; the page title contains the exercise flag",
+        "caption": "curl --socks4 reaches the internal server; the page title contains the exercise flag",
+        "sha256": "720624830fcf59ceea20292bdcadc9872e54859915bb5c9eae65383f40a319e4",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-18.jpg",
+        "section": "configure-the-forward-as-administrator",
+        "alt": "Evidence 18: Dual NICs, Test-NetConnection, successful portproxy rule and firewall rule",
+        "caption": "Dual NICs, Test-NetConnection, successful portproxy rule and firewall rule",
+        "sha256": "3d0be0d0ffa80e121e07a8fde749c18f91cb3176d2c63bb2c9558608c1d569a9",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-19.jpg",
+        "section": "use-the-proxy-and-obtain-the-artifact",
+        "alt": "Evidence 19: VendorContacts.txt read successfully from the Victor RDP session",
+        "caption": "VendorContacts.txt read successfully from the Victor RDP session",
+        "sha256": "93c6cafdd40468c0bfc19b543da801215a38655e5755835905e893e528f46a8e",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-20.jpg",
+        "section": "interact-with-the-new-command-window",
+        "alt": "Evidence 20: PowerShell dnscat2 client, receiving command window, and confirmed DNS tunnel flag",
+        "caption": "PowerShell dnscat2 client, receiving command window, and confirmed DNS tunnel flag",
+        "sha256": "7b9feb1da6fa9e79bb31d7f38b0f81a3362c054e67bfe6dd0d6ee7a8c645ff58",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-21.jpg",
+        "section": "real-compatibility-failure-and-remedy",
+        "alt": "Evidence 21: Chisel binary fails due to incompatible GLIBC symbols on the older Ubuntu WEB01",
+        "caption": "Chisel binary fails due to incompatible GLIBC symbols on the older Ubuntu WEB01",
+        "sha256": "3a9efdd9a570257061544d4b23ab039e355aa6534f2216f6fdffe7ec569e2b07",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-22.jpg",
+        "section": "initial-attempted-ssh-over-icmp-route",
+        "alt": "Evidence 22: Initial SSH-over-ICMP and ptunnel client setup",
+        "caption": "Initial SSH-over-ICMP and ptunnel client setup",
+        "sha256": "c23dc855671dd2b0a0ca38a0d82f77f69a0ab984b321a5260281f14fa5ba9fe5",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-23.jpg",
+        "section": "initial-attempted-ssh-over-icmp-route",
+        "alt": "Evidence 23: ptunnel session creation, SSH key exchange progress and premature disconnect",
+        "caption": "ptunnel session creation, SSH key exchange progress and premature disconnect",
+        "sha256": "237d997060f8588e0b27712d404e6584d4d64ea2f1dcf32f39cf11dec76de872",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-24.jpg",
+        "section": "successful-approach--direct-rdp-over-icmp",
+        "alt": "Evidence 24: ICMP session and RDP troubleshooting across both hosts",
+        "caption": "ICMP session and RDP troubleshooting across both hosts",
+        "sha256": "c32ca61edb9f11ff3b6d5a730b24cd1ef3a43166da0a3c311259bf27bc4b7241",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-25.jpg",
+        "section": "successful-approach--direct-rdp-over-icmp",
+        "alt": "Evidence 25: Working FreeRDP session through TCP/13389 and confirmed flag in Downloads",
+        "caption": "Working FreeRDP session through TCP/13389 and confirmed flag in Downloads",
+        "sha256": "33bd7e376dd9ba4975fdaea7e03fb4d792b89a3d5e335c51618ece4282cfc4b8",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-pivoting-tunneling-port-forwarding/evidence-26.jpg",
+        "section": "stage-a--web-foothold-host-enumeration-and-credential-exposure-q1q2",
+        "alt": "Evidence 26: Web shell directory enumeration and direct display of the exposed credential note",
+        "caption": "Web shell directory enumeration and direct display of the exposed credential note",
+        "sha256": "368e5e029a949bc00642a0ddc531b568dfadc23655d37cda25a50bde872b2078",
+        "verified": true,
+        "sensitiveReviewed": true
+      }
+    ]
   }
 ]
