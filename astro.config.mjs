@@ -9,5 +9,5 @@ export default defineConfig({
   server: { host: '127.0.0.1', port: 4321 },
   devToolbar: { enabled: false },
   vite: { server: { strictPort: true } },
-  integrations: [writeupsBuild()],
+  integrations: [writeupsBuild({ review: true })],
 });

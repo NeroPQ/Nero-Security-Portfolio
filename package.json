@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/astro-local.mjs dev",
-    "build": "astro build && node scripts/verify-site.mjs dist production",
+    "build": "astro build --mode review && node scripts/verify-site.mjs dist review",
     "preview": "node scripts/astro-local.mjs preview",
     "check": "astro check && tsc --noEmit && node scripts/validate-writeups.mjs",
     "build:review": "astro build --mode review --config astro.review.config.mjs && node scripts/verify-site.mjs .review review",
