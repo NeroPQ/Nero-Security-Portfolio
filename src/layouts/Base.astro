@@ -4,13 +4,13 @@ import { ClientRouter } from 'astro:transitions';
 const {
   title = 'Nero Security — Phan Thien Quang | SOC & Vulnerability Research Portfolio',
   description = 'Phan Thien Quang (Nero): Red Team / Blue Team cybersecurity portfolio featuring verified CVE reproductions, SIEM detection engineering, and HTB Academy / TryHackMe write-ups.',
-  transitionStyle = 'scanline',
+  transitionStyle = 'slide-fade',
   ogImage = '/og-card.jpg',
   articleType = 'website',
 } = Astro.props;
 
 const path = Astro.url.pathname;
-const siteOrigin = Astro.site ? Astro.site.origin : 'https://neropq.pages.dev';
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://neropq.phanthienquang11234.workers.dev';
 const canonicalUrl = new URL(path, siteOrigin).href;
 const ogImageUrl = new URL(ogImage, siteOrigin).href;
 
@@ -51,7 +51,7 @@ const structuredData = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="author" content="Phan Thien Quang (Nero)" />
-    <meta name="theme-color" content="#0d111a" />
+    <meta name="theme-color" content="#0f141c" />
     <link rel="canonical" href={canonicalUrl} />
 
     <!-- OpenGraph / LinkedIn / Discord / Telegram -->
@@ -78,8 +78,9 @@ const structuredData = {
     <link rel="icon" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Bộ 3 font tối ưu cho đọc lướt (Plus Jakarta Sans + Inter + JetBrains Mono) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
@@ -91,11 +92,10 @@ const structuredData = {
   <body>
     <a class="skip-link" href="#page-top">Skip to content</a>
     <div class="cyber-progress" aria-hidden="true"></div>
-    <div class="crt-overlay" aria-hidden="true"></div>
 
     <header class="main-header" transition:name="site-header">
       <div class="header-inner">
-        <a class="brand" href="/">N<span>ERO.</span><small>ARCADE // SEC_OS</small></a>
+        <a class="brand" href="/">N<span>ERO.</span><small>SECURITY NOTES</small></a>
         <nav aria-label="Primary navigation">
           {navigation.map(item => (
             <a
@@ -128,7 +128,7 @@ const structuredData = {
     </main>
 
     <footer class="main-footer" transition:name="site-footer">
-      <div><strong>NERO.SEC // PIXEL_OS v2.6</strong><span>Research · Build · Document</span></div>
+      <div><strong>NERO.SEC</strong><span>Research · Build · Document</span></div>
       <small>© <span id="year">2026</span> Phan Thien Quang · Educational research in authorized labs.</small>
       <a href="#page-top">Back to top ↑</a>
     </footer>
@@ -156,7 +156,7 @@ const structuredData = {
         });
 
         document.addEventListener('astro:after-swap', () => {
-          const currentStyle = document.documentElement.getAttribute('data-transition') || 'scanline';
+          const currentStyle = document.documentElement.getAttribute('data-transition') || 'slide-fade';
           document.documentElement.setAttribute('data-transition', currentStyle);
         });
 

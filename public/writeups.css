@@ -1,275 +1,199 @@
 /* ==========================================================================
-   WRITE-UPS v3 — 16-BIT PIXEL QUEST LOG & TERMINAL BOSS GUIDE (writeups.css)
-   Automatically adds Retro OS Window Headers to .wu-index-header & .wu-card via CSS!
+   WRITE-UPS v4 — HIGH-READABILITY TECHNICAL JOURNAL & LAB WALKTHROUGHS
+   Optimized for long-form reading (6,500+ words) & fast card skimming
    ========================================================================== */
 .wu-count {
-  font-family: var(--pixel, 'Silkscreen', monospace);
-  font-size: 11px;
+  font-family: var(--mono, monospace);
+  font-size: 12.5px;
   font-weight: 700;
-  color: #06150e;
-  background-color: var(--lime, #b7e785);
-  border: 2px solid #e2ffc4;
-  padding: 5px 11px;
-  box-shadow: 4px 4px 0 #05070b;
+  color: var(--cyan);
+  background-color: rgba(103, 232, 249, 0.1);
+  border: 1px solid rgba(103, 232, 249, 0.3);
+  border-radius: 999px;
+  padding: 5px 12px;
   white-space: nowrap;
 }
 
-/* Turn .wu-index-header into a Pixel OS Window with a top Titlebar via ::before */
 .wu-index-header {
-  position: relative;
-  padding: 52px 26px 24px !important;
-  background-color: #162236 !important;
-  border: 2px solid #52759e !important;
-  box-shadow:
-    inset 2px 2px 0 rgba(255, 255, 255, 0.08),
-    6px 6px 0 #05070b !important;
-  background-image:
-    linear-gradient(rgba(183, 231, 133, 0.22), rgba(183, 231, 133, 0.22)),
-    linear-gradient(rgba(121, 224, 225, 0.22), rgba(121, 224, 225, 0.22)) !important;
-  background-size: 14px 14px, 14px 14px !important;
-  background-position: calc(100% - 16px) 48px, calc(100% - 30px) 62px !important;
-  background-repeat: no-repeat !important;
-}
-.wu-index-header::before {
-  content: "▣ QUEST_LOG // HTB_ACADEMY & TRYHACKME [ _ ] [ □ ] [ X ]";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 7px 14px;
-  background-color: #174736;
-  background-image: linear-gradient(90deg, #174736 0%, #245c73 100%);
-  border-bottom: 2px solid #52759e;
-  font-family: var(--pixel, monospace);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .06em;
-  color: #dcffef;
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 26px 30px;
 }
 .wu-index-header h1 {
-  font-family: var(--pixel, monospace);
-  font-size: clamp(28px, 3.6vw, 40px);
+  font-family: var(--font-display, sans-serif);
+  font-size: clamp(30px, 3.6vw, 42px);
   margin: 6px 0 10px;
-  color: #fff;
-  text-shadow: 3px 3px 0 #05070b;
+  letter-spacing: -0.03em;
 }
 .wu-index-header p {
-  font-family: var(--mono, monospace);
-  font-size: 13.5px;
+  font-size: 15.5px;
+  max-width: 70ch;
 }
 .wu-index-header a {
-  color: var(--cyan, #79e0e1);
+  color: #7ab3ff;
   text-decoration: underline;
 }
 .wu-draft-notice {
-  font-family: var(--pixel, monospace);
-  font-size: 10.5px;
-  border: 2px solid var(--cyan, #79e0e1);
-  padding: 9px 14px;
-  margin-top: 12px !important;
-  background-color: #102133;
-  color: #d6f6ff;
-  box-shadow: 3px 3px 0 #05070b;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 13.5px;
+  border-left: 3px solid var(--cyan);
+  padding: 10px 16px;
+  margin-top: 14px !important;
+  background-color: rgba(103, 232, 249, 0.08);
+  border-radius: 0 6px 6px 0;
+  color: #e2e8f0;
 }
 
-/* Search & Platform Arcade Filter Buttons */
+/* Search & Platform Filter Console */
 .wu-search-label {
   display: block;
   margin: 0 0 8px;
-  color: var(--lime, #b7e785);
-  font-family: var(--pixel, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .08em;
+  color: var(--text);
+  font-size: 13.5px;
+  font-weight: 600;
 }
 .wu-search {
   width: 100%;
   min-height: 46px;
-  padding: 10px 14px;
-  border: 2px solid #55769e;
-  background-color: #0e1522;
+  padding: 10px 16px;
+  border: 1px solid #3c4f69;
+  border-radius: 8px;
+  background-color: #131b26;
   color: var(--text);
-  font-family: var(--mono, monospace);
-  font-size: 13.5px;
-  box-shadow: inset 3px 3px 0 #05070b, 4px 4px 0 #05070b;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 14.5px;
 }
 .wu-search::placeholder {
-  color: #95a9c2;
+  color: #8fa1b8;
   opacity: 1;
 }
 .wu-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin: 16px 0 24px;
+  gap: 10px;
+  margin: 14px 0 24px;
 }
 .wu-filters button,
 .wu-reset {
   min-height: 44px;
-  border: 2px solid #5879a3;
-  background-color: #1b273b;
-  color: #deebfa;
-  padding: 10px 16px;
-  font: 700 11px/1.4 var(--pixel, monospace);
+  border: 1px solid #3c4f69;
+  background-color: #192332;
+  color: #cbd5e1;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font: 600 13px/1.4 var(--font-sans, sans-serif);
   cursor: pointer;
-  box-shadow:
-    inset 2px 2px 0 rgba(255, 255, 255, 0.2),
-    inset -2px -2px 0 rgba(0, 0, 0, 0.45),
-    4px 4px 0 #05070b;
 }
 .wu-filters button:hover,
 .wu-filters button[aria-pressed="true"] {
-  background-color: var(--cyan, #79e0e1);
-  border-color: #fff;
-  color: #06101c;
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #05070b;
+  background-color: #2563eb;
+  border-color: #60a5fa;
+  color: #fff;
 }
 .wu-reset { margin: 0 0 20px; }
 [data-writeups-index] [hidden] { display: none !important; }
 
 .wu-empty {
   padding: 24px;
-  border: 2px solid var(--line);
+  border: 1px solid var(--line);
+  border-radius: 10px;
   background-color: var(--card);
-  box-shadow: 5px 5px 0 #05070b;
 }
-.wu-empty a { color: var(--cyan); text-decoration: underline; }
+.wu-empty a { color: #7ab3ff; text-decoration: underline; }
 
 /* ==========================================================================
-   WRITE-UP CARDS — RETRO OS WINDOW CARDS WITH COLOR-CODED HEADER BARS
+   WRITE-UP CARDS — CLEAN, SCANNABLE 2-COLUMN GRID
    ========================================================================== */
 .wu-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  gap: 18px;
 }
 .wu-card {
   position: relative;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  padding: 46px 22px 20px;
-  border: 2px solid #4d678c;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
   background-color: var(--card);
-  /* Voxel pixel blocks in bottom-right corner */
-  background-image:
-    linear-gradient(rgba(121, 224, 225, 0.1), rgba(121, 224, 225, 0.1)),
-    linear-gradient(rgba(183, 231, 133, 0.1), rgba(183, 231, 133, 0.1));
-  background-size: 10px 10px, 10px 10px;
-  background-position: calc(100% - 12px) calc(100% - 48px), calc(100% - 22px) calc(100% - 58px);
-  background-repeat: no-repeat;
-  box-shadow:
-    inset 2px 2px 0 rgba(255, 255, 255, 0.07),
-    6px 6px 0 #05070b;
-  transition: border-color .15s steps(2), transform .15s steps(2), box-shadow .15s steps(2);
-}
-/* Automatic Retro OS Window Top Bar on every WriteupCard! */
-.wu-card::before {
-  content: "▣ QUEST_FILE // LAB_WALKTHROUGH";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 12px;
-  font-family: var(--pixel, monospace);
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: .06em;
-  background-color: #1c3d5e;
-  border-bottom: 2px solid #4d678c;
-  color: #e4f2ff;
+  transition: border-color .2s ease, transform .2s ease, background-color .2s ease, box-shadow .2s ease;
 }
 .wu-card[data-wu-platform="HTB"] {
-  border-color: #548a41;
-}
-.wu-card[data-wu-platform="HTB"]::before {
-  content: "▣ HTB_ACADEMY // MODULE_JOURNAL   [ _ ] [ □ ] [ X ]";
-  background-color: #214a1c;
-  background-image: linear-gradient(90deg, #214a1c 0%, #2f6626 100%);
-  border-bottom-color: #548a41;
-  color: #dcffc4;
+  border-top: 3px solid #84cc16;
 }
 .wu-card[data-wu-platform="THM"] {
-  border-color: #9e4758;
-}
-.wu-card[data-wu-platform="THM"]::before {
-  content: "▣ TRYHACKME // ROOM_REPORT   [ _ ] [ □ ] [ X ]";
-  background-color: #541d29;
-  background-image: linear-gradient(90deg, #541d29 0%, #782839 100%);
-  border-bottom-color: #9e4758;
-  color: #ffdbe1;
+  border-top: 3px solid #f43f5e;
 }
 .wu-card[hidden] { display: none !important; }
 .wu-card:hover {
-  border-color: var(--cyan);
-  transform: translate(-3px, -3px);
-  box-shadow: 9px 9px 0 #05070b, 0 0 0 1px var(--cyan);
+  background-color: var(--card-hover);
+  border-color: var(--line-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24);
 }
 .wu-card-meta {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  font-family: var(--mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  color: #b4c6dc;
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a3b8;
 }
 .wu-platform {
   padding: 3px 9px;
-  font-family: var(--pixel, monospace);
-  font-size: 9.5px;
+  border-radius: 5px;
+  font-family: var(--mono, monospace);
+  font-size: 11px;
   font-weight: 700;
-  box-shadow: 2px 2px 0 #05070b;
 }
 .wu-platform.thm {
-  color: #ffd6db;
-  background-color: #5c1f2c;
-  border: 2px solid #ff7b8b;
+  color: #fda4af;
+  background-color: rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.4);
 }
 .wu-platform.htb {
-  color: #e2ffc4;
-  background-color: #284f18;
-  border: 2px solid #b7e785;
+  color: #bef264;
+  background-color: rgba(132, 204, 22, 0.14);
+  border: 1px solid rgba(132, 204, 22, 0.4);
 }
 .wu-card h3 {
-  font-family: var(--pixel, monospace);
-  font-size: 17px;
+  font-family: var(--font-display, sans-serif);
+  font-size: 20px;
   line-height: 1.32;
-  letter-spacing: -.02em;
+  letter-spacing: -0.02em;
   margin: 14px 0 10px;
   color: #fff;
 }
-.wu-card h3 a span { font-size: 13px; color: var(--cyan); }
+.wu-card h3 a span { font-size: 14px; color: var(--blue); }
 .wu-card p {
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.68;
   flex: 1;
 }
 .wu-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 6px;
   margin: 14px 0;
 }
 .wu-tags span {
   font-family: var(--mono, monospace);
-  font-size: 10.5px;
-  font-weight: 700;
-  color: #c8d7e8;
-  background-color: #111824;
-  border: 2px solid #435773;
-  padding: 3px 8px;
-  box-shadow: 2px 2px 0 #05070b;
+  font-size: 11px;
+  font-weight: 600;
+  color: #cbd5e1;
+  background-color: rgba(15, 20, 28, 0.55);
+  border: 1px solid #36475e;
+  border-radius: 5px;
+  padding: 3px 9px;
 }
 .wu-tags .wu-evidence-status,
 .wu-evidence-status {
-  font-family: var(--pixel, monospace);
-  font-size: 9.5px;
   color: var(--cyan);
-  border-color: #468696;
+  border-color: rgba(103, 232, 249, 0.35);
 }
 .wu-card-foot {
   display: flex;
@@ -277,36 +201,25 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  border-top: 2px dashed #33455e;
+  border-top: 1px solid var(--line);
   padding-top: 14px;
   margin-top: 10px;
 }
 .wu-card-foot small {
   flex: 1 1 140px;
-  font-family: var(--mono, monospace);
-  font-size: 10.5px;
-  color: #a8bbd1;
+  font-size: 12px;
+  color: var(--dim);
 }
 .wu-card-foot a,
 .wu-official {
-  font-family: var(--pixel, monospace);
-  font-size: 10.5px;
-  font-weight: 700;
-  color: var(--cyan);
+  font-size: 13px;
+  font-weight: 600;
+  color: #7ab3ff;
 }
-.wu-card-foot a {
-  padding: 6px 10px;
-  background-color: #142236;
-  border: 1px solid #466a96;
-  box-shadow: 3px 3px 0 #05070b;
-}
-.wu-card-foot a:hover {
-  background-color: var(--cyan);
-  color: #06101c;
-}
+.wu-card-foot a:hover { text-decoration: underline; }
 
 /* ==========================================================================
-   WRITE-UP FULL REPORT VIEW (/writeups/[slug]/)
+   WRITE-UP FULL REPORT VIEW (/writeups/[slug]/) — READER-FIRST TYPOGRAPHY
    ========================================================================== */
 .wu-article,
 .wu-article-header,
@@ -314,90 +227,70 @@
   min-width: 0;
 }
 .wu-article-header {
-  position: relative;
-  background-color: #17283d;
-  background-image: linear-gradient(135deg, #17283d, #1c2436);
-  border: 2px solid #52759e;
-  padding: 52px 30px 28px;
-  box-shadow: 6px 6px 0 #05070b;
-}
-.wu-article-header::before {
-  content: "▣ MISSION_BRIEFING // FULL_TECHNICAL_WALKTHROUGH   [ _ ] [ □ ] [ X ]";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 7px 14px;
-  background-color: #164461;
-  border-bottom: 2px solid #52759e;
-  font-family: var(--pixel, monospace);
-  font-size: 10px;
-  font-weight: 700;
-  color: #d8f8ff;
+  background: linear-gradient(135deg, #16263b, #192230);
+  border: 1px solid #364c69;
+  border-radius: 10px;
+  padding: 30px 32px;
 }
 .wu-article-header h1 {
-  font-family: var(--pixel, monospace);
-  font-size: clamp(24px, 3.2vw, 38px);
+  font-family: var(--font-display, sans-serif);
+  font-size: clamp(28px, 3.6vw, 42px);
   margin: 12px 0;
-  line-height: 1.25;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
   overflow-wrap: anywhere;
 }
 .wu-article-header > p {
-  font-family: var(--mono, monospace);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.75;
+  color: #e2e8f0;
+  max-width: 72ch;
 }
 .wu-detail-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  color: #c2daff;
+  color: #cbd5e1;
   font-family: var(--mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 11.5px;
+  font-weight: 600;
   padding: 12px 0;
 }
 .wu-detail-meta span {
-  background-color: #101826;
-  border: 2px solid #3f5878;
-  padding: 4px 9px;
-  box-shadow: 2px 2px 0 #05070b;
+  background-color: rgba(15, 20, 28, 0.55);
+  border: 1px solid #354861;
+  border-radius: 6px;
+  padding: 4px 10px;
 }
 .wu-official,
 .wu-start-reading {
   display: inline-flex;
   align-items: center;
-  margin-top: 14px;
-  margin-right: 14px;
-  padding: 10px 15px;
-  box-shadow: 4px 4px 0 #05070b;
+  margin-top: 12px;
+  margin-right: 12px;
+  padding: 9px 16px;
+  border-radius: 7px;
+  font-size: 13.5px;
+  font-weight: 600;
 }
 .wu-official {
-  background-color: #1a283b;
-  border: 2px solid #587ca8;
-  color: #d0e6ff;
+  background-color: #192332;
+  border: 1px solid #455d7d;
+  color: #e2e8f0;
 }
 .wu-start-reading {
-  font-family: var(--pixel, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  background-color: var(--lime, #b7e785);
-  border: 2px solid #fff;
-  color: #071409;
-}
-.wu-official:hover,
-.wu-start-reading:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--cyan);
+  background-color: #2563eb;
+  border: 1px solid #60a5fa;
+  color: #fff;
 }
 
-/* Collapsible Mission Briefing TOC */
+/* Collapsible Table of Contents */
 .wu-toc {
-  margin: 24px 0;
-  padding: 18px 22px;
+  margin: 22px 0;
+  padding: 18px 24px;
   background-color: var(--card);
-  border: 2px solid #4a6388;
-  box-shadow: 6px 6px 0 #05070b;
+  border: 1px solid var(--line);
+  border-radius: 10px;
 }
 .wu-toc summary {
   cursor: pointer;
@@ -406,139 +299,129 @@
 }
 .wu-toc h2 {
   display: inline;
-  font-family: var(--pixel, monospace);
-  font-size: 16px;
-  color: var(--lime, #b7e785);
+  font-size: 18px;
+  color: var(--text);
   margin: 0 12px 0 6px;
 }
 .wu-toc summary span {
-  font-family: var(--pixel, monospace);
-  color: var(--cyan);
-  font-size: 10px;
+  color: var(--dim);
+  font-size: 12.5px;
 }
 .wu-toc ol {
   list-style: none;
   margin: 12px 0 0;
   padding: 10px 8px 0 0;
-  border-top: 2px dashed #354863;
+  border-top: 1px solid var(--line);
   max-height: 26rem;
   overflow-y: auto;
 }
 .wu-toc li {
-  margin: 4px 0;
+  margin: 3px 0;
   overflow-wrap: anywhere;
-  font-family: var(--mono, monospace);
-  font-size: 12.5px;
+  font-size: 13.5px;
 }
 .wu-toc a {
   display: block;
-  padding: 6px 8px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #cbd5e1;
 }
 .wu-toc a:hover {
-  background-color: #16263b;
-  color: var(--cyan);
+  background-color: rgba(92, 153, 255, 0.12);
+  color: #fff;
 }
-.wu-toc-sub { margin-left: 18px !important; }
-.wu-toc a,
+.wu-toc-sub { margin-left: 18px !important; font-size: 13px !important; }
 .wu-markdown a,
 .wu-back {
-  color: #96c5ff;
+  color: #7ab3ff;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-/* Markdown Body & Retro Terminal Code Blocks */
+/* Long-form Article Body — Optimized for Eye Comfort */
 .wu-article-body {
   margin-top: 20px;
-  padding: 32px;
+  padding: 34px 36px;
   background-color: var(--card);
-  border: 2px solid #4a6388;
-  box-shadow: 6px 6px 0 #05070b;
+  border: 1px solid var(--line);
+  border-radius: 10px;
   scroll-margin-top: 110px;
 }
 .wu-markdown {
   max-width: 100%;
   overflow-wrap: anywhere;
-  line-height: 1.85;
+  font-size: 16px;
+  line-height: 1.82;
+  color: #d1dce8;
 }
 .wu-markdown h2,
 .wu-markdown h3,
 .wu-markdown h4 {
-  line-height: 1.35;
-  margin: 1.8em 0 .75em;
+  color: #f8fafc;
+  line-height: 1.32;
+  margin: 1.8em 0 .7em;
   scroll-margin-top: 110px;
 }
 .wu-markdown h2 {
-  font-family: var(--pixel, monospace);
-  font-size: 21px;
+  font-size: 24px;
   padding-bottom: 10px;
-  border-bottom: 2px dashed #435b7d;
-  color: var(--cyan);
+  border-bottom: 1px solid var(--line);
 }
 .wu-markdown h3 {
-  font-family: var(--pixel, monospace);
-  font-size: 16.5px;
-  color: var(--lime);
+  font-size: 19px;
 }
 .wu-markdown p,
 .wu-markdown ul,
 .wu-markdown ol {
-  margin-bottom: 1.2em;
+  margin-bottom: 1.25em;
+  max-width: 74ch;
 }
 .wu-markdown ul,
 .wu-markdown ol {
   padding-left: 24px;
 }
 
-/* Terminal Window Wrapper for Code Blocks */
+/* Clean Terminal Code Blocks */
 .wu-code-block {
   position: relative;
   min-width: 0;
   margin: 22px 0;
-  background-color: #0a101a;
-  border: 2px solid #4a668a;
-  box-shadow: 5px 5px 0 #05070b;
+  background-color: #0d131c;
+  border: 1px solid #33455c;
+  border-radius: 8px;
   overflow: hidden;
-}
-.wu-code-block::before {
-  content: "▣ BASH // ROOT@NERO-LAB:~#";
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  font-family: var(--pixel, monospace);
-  font-size: 9.5px;
-  color: var(--lime);
-  pointer-events: none;
 }
 .wu-copy-code {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 36px;
-  padding: 5px 13px;
+  min-height: 34px;
+  padding: 5px 12px;
   margin: 6px 8px 6px auto;
-  border: 2px solid var(--cyan);
-  background-color: #16283d;
-  color: #e2f2ff;
-  font: 700 10px/1.4 var(--pixel, monospace);
+  border: 1px solid #435975;
+  border-radius: 5px;
+  background-color: #182332;
+  color: #cbd5e1;
+  font: 600 12px/1.4 var(--font-sans, sans-serif);
   cursor: pointer;
-  box-shadow: 3px 3px 0 #05070b;
 }
 .wu-copy-code:hover {
-  background-color: var(--cyan);
-  color: #06101c;
+  background-color: #2563eb;
+  border-color: #60a5fa;
+  color: #fff;
 }
 .wu-markdown pre {
   max-width: 100%;
   overflow-x: auto;
   margin: 0;
-  padding: 16px 18px;
-  background-color: #0a101a;
-  border-top: 2px solid #2e425c;
+  padding: 16px 20px;
+  background-color: #0d131c;
+  border-top: 1px solid #243244;
   font-family: var(--mono, monospace);
-  font-size: 13px;
+  font-size: 13.5px;
   line-height: 1.65;
-  color: #e4effa;
+  color: #e2e8f0;
 }
 .wu-markdown pre code {
   white-space: pre;
@@ -546,12 +429,13 @@
 }
 .wu-markdown :not(pre) > code {
   font-family: var(--mono, monospace);
-  font-size: 0.9em;
+  font-size: 0.88em;
   overflow-wrap: anywhere;
-  background-color: #111d2e;
-  border: 1px solid #385273;
-  color: var(--cyan);
+  background-color: #131d2b;
+  border: 1px solid #2b3d54;
+  color: #93c5fd;
   padding: 2px 6px;
+  border-radius: 4px;
 }
 
 .wu-markdown table {
@@ -560,62 +444,55 @@
   border-collapse: collapse;
   display: block;
   overflow-x: auto;
-  margin: 20px 0;
+  margin: 22px 0;
 }
 .wu-markdown th,
 .wu-markdown td {
   padding: 11px 14px;
-  border: 2px solid #3c516e;
+  border: 1px solid #324359;
   text-align: left;
   min-width: 120px;
+  font-size: 14.5px;
 }
 .wu-markdown th {
-  background-color: #162438;
-  font-family: var(--pixel, monospace);
-  font-size: 10.5px;
-  color: var(--cyan);
+  background-color: #141e2c;
+  font-weight: 700;
+  color: #f1f5f9;
 }
 .wu-markdown figure { margin: 24px 0; }
 .wu-markdown img {
   max-width: 100%;
   height: auto;
   display: block;
-  border: 2px solid #4d678c;
-  box-shadow: 5px 5px 0 #05070b;
+  border: 1px solid var(--line);
+  border-radius: 8px;
   margin: 16px 0;
 }
-.wu-markdown figcaption { color: var(--muted); font-size: 13px; }
+.wu-markdown figcaption { color: var(--dim); font-size: 13.5px; }
 .wu-markdown blockquote {
   padding: 12px 18px;
-  border-left: 4px solid var(--lime);
-  background-color: #132129;
-  box-shadow: 4px 4px 0 #05070b;
+  border-left: 3px solid var(--blue);
+  background-color: rgba(92, 153, 255, 0.07);
+  border-radius: 0 6px 6px 0;
 }
 .wu-back {
   display: inline-block;
-  margin-top: 32px;
-  padding: 10px 14px;
-  background-color: #162436;
-  border: 2px solid var(--cyan);
-  box-shadow: 4px 4px 0 #05070b;
-  font-family: var(--pixel, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  text-decoration: none;
+  margin-top: 28px;
+  padding: 8px 0;
+  font-weight: 600;
 }
 
 @media (max-width: 760px) {
   .wu-grid { grid-template-columns: 1fr; }
-  .wu-article-header, .wu-article-body { padding: 48px 18px 20px; }
-  .wu-card { padding: 44px 18px 18px; }
-  .wu-markdown h2 { font-size: 18px; }
-  .wu-markdown h3 { font-size: 15px; }
+  .wu-article-header, .wu-article-body { padding: 22px 20px; }
+  .wu-card { padding: 20px; }
+  .wu-markdown h2 { font-size: 21px; }
+  .wu-markdown h3 { font-size: 17.5px; }
   .wu-toc ol { max-height: 16rem; }
 }
 @media (max-width: 570px) {
   .wu-toc { padding: 14px 16px; }
-  .wu-article-header h1 { font-size: 24px; }
+  .wu-article-header h1 { font-size: 26px; }
   .wu-toc summary span { display: block; margin-left: 18px; }
   .wu-copy-code { min-height: 44px; }
-  .wu-code-block::before { display: none; }
 }

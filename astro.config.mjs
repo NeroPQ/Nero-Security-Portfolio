@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import { writeupsBuild } from './src/lib/writeups-build.mjs';
 
 export default defineConfig({
-  site: 'https://nero-sec.pages.dev',
+  site: 'https://neropq.phanthienquang11234.workers.dev',
   output: 'static',
   trailingSlash: 'always',
   outDir: './dist/',
