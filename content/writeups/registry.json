@@ -597,5 +597,104 @@
         "sensitiveReviewed": true
       }
     ]
+  },
+  {
+    "slug": "thm-tshark-the-basics",
+    "platform": "THM",
+    "unitType": "room",
+    "unitId": "tsharkthebasics",
+    "title": "TShark: The Basics — Command-Line Packet Analysis and Filtering",
+    "category": "Network Forensics",
+    "summary": "Practical, evidence-backed command-line packet analysis walkthrough of TryHackMe's TShark room: capinfos metadata, interface sniffing, display vs capture filters, and protocol dissections.",
+    "documentationStatus": "Hands-on practice; 8 verified lab screenshots",
+    "evidenceStatus": "verified",
+    "difficulty": "Easy",
+    "source": "https://tryhackme.com/room/tsharkthebasics",
+    "date": "2026-11",
+    "tags": [
+      "TShark",
+      "Wireshark",
+      "PCAP",
+      "Packet Analysis",
+      "Capinfos",
+      "Network Forensics"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": [
+      {
+        "src": "/writeups/evidence/thm-tshark-the-basics/01-capinfos-file-summary.jpg",
+        "section": "task-2--command-line-packet-analysis-hints-and-supplemental-cli-tools",
+        "alt": "Capinfos output displaying capture statistics and the RIPEMD160 value",
+        "caption": "File metadata and digest from capinfos demo.pcapng",
+        "sha256": "c617da50df1e93167d05aa2aeeb895938287c13aeb52858071043fb8070cadd0",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/thm-tshark-the-basics/02-tshark-version.jpg",
+        "section": "31--verify-the-version",
+        "alt": "TShark command-line version details",
+        "caption": "TShark version identification on the TryHackMe VM",
+        "sha256": "feaa28bd91ef5dc0044f78f4bb0da23c1933d899ccf36f9344cde3eb1bbc26c7",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/thm-tshark-the-basics/03-available-interfaces.jpg",
+        "section": "32--list-interfaces",
+        "alt": "TShark interface enumeration listing twelve entries",
+        "caption": "Enumerating available capture interfaces with tshark -D",
+        "sha256": "eb52ff0d3387f93a587d70606038eb8eacc04609c4aee5cc5dc3915e0cf497f0",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/thm-tshark-the-basics/04-read-pcap-first-packets.jpg",
+        "section": "41--read-the-entire-capture",
+        "alt": "Beginning of the demo packet capture shown in TShark",
+        "caption": "Initial packet readout from demo.pcapng",
+        "sha256": "192c6013e9534826061f55096efbba5778ca890c72791d498c58f8e24c034fdc",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/thm-tshark-the-basics/05-read-pcap-complete.jpg",
+        "section": "41--read-the-entire-capture",
+        "alt": "Full 43-packet TShark readout",
+        "caption": "Complete 43-packet stream from demo.pcapng",
+        "sha256": "b902d4d2ad4152802bf9a4a69046d4f2045aa45f43450175afb43f36827f4361",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/thm-tshark-the-basics/06-display-filter-ip-address.jpg",
+        "section": "81--traffic-involving-a-particular-ip-address",
+        "alt": "34 matching packets involving the requested IP address",
+        "caption": "Filtering packets with ip.addr == 65.208.228.223",
+        "sha256": "397aea2fe75b070dfcf0b8482d448270f90359f82ba435eba38b94fcaabb26a6",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/thm-tshark-the-basics/07-display-filter-tcp-port.jpg",
+        "section": "82--traffic-involving-tcp-port-3371",
+        "alt": "Seven TCP packets using port 3371",
+        "caption": "Filtering by TCP port with tcp.port == 3371",
+        "sha256": "37aecd0f8f74a20efa01dc9dd6a486f641bcd78fc44a740ba1716e72524f69ec",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/thm-tshark-the-basics/08-display-filter-source-and-duplicate-ack.jpg",
+        "section": "83--traffic-from-a-particular-source-ip",
+        "alt": "Twenty frames sourced from 145.254.160.237; frame 37 carries a duplicate acknowledgment",
+        "caption": "Filtering by source IP and identifying duplicate ACK frame 37",
+        "sha256": "caee3c7d2e425b28a46e1410be07b3bce4302b595f8ba8f6de3988066c2c45a0",
+        "verified": true,
+        "sensitiveReviewed": true
+      }
+    ]
   }
 ]
