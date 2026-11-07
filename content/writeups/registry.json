@@ -696,5 +696,484 @@
         "sensitiveReviewed": true
       }
     ]
+  },
+  {
+    "slug": "htb-active-directory-enumeration-attacks",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "ad-enumeration-attacks",
+    "title": "Active Directory Enumeration & Attacks — Comprehensive Module Lab Report",
+    "category": "Enterprise Security",
+    "summary": "End-to-end technical report for HTB Academy Active Directory Enumeration & Attacks: external recon, LLMNR/NBT-NS poisoning, Kerberoasting, ACL abuse, DCSync, domain trusts, and complete walkthroughs for Skills Assessments Parts I & II with 50 verified evidence captures.",
+    "documentationStatus": "Hands-on practice; 50 verified lab screenshots with Skills Assessments I & II",
+    "evidenceStatus": "verified",
+    "difficulty": "Medium",
+    "source": "https://academy.hackthebox.com/course/preview/active-directory-enumeration--attacks",
+    "date": "2026-11",
+    "tags": [
+      "Active Directory",
+      "Kerberoasting",
+      "DCSync",
+      "ACL Abuse",
+      "BloodHound",
+      "Domain Trusts",
+      "Impacket",
+      "NetExec"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": [
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_032.jpg",
+        "section": "04-external-recon-and-enumeration-principles",
+        "alt": "Captured evidence 032: Scoped service scan / host-fingerprint example",
+        "caption": "CAPTURED - E032 Scoped service scan / host-fingerprint example. Original image from user archive.",
+        "sha256": "17389b7c9311cc16a448e8a0acc9266c47f2dffa600ab783e57b2d0866fdc0db",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_038.jpg",
+        "section": "05-initial-enumeration-of-the-domain",
+        "alt": "Captured evidence 038: Host and SMB enumeration from a guided lab",
+        "caption": "CAPTURED - E038 Host and SMB enumeration from a guided lab. Original image from user archive.",
+        "sha256": "b33c7eea53371c38320d6a625e4baf0ded011b392d995f333ab4ec62f3fc520e",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_055.jpg",
+        "section": "05-initial-enumeration-of-the-domain",
+        "alt": "Captured evidence 055: Computer-object discovery / domain host list",
+        "caption": "CAPTURED - E055 Computer-object discovery / domain host list. Original image from user archive.",
+        "sha256": "9802d4949a8c69d2646cb997d6d6dbb2812e8e119fd840447e68b62a054e5d25",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_036.jpg",
+        "section": "06-llmnrnbt-ns-poisoning---from-linux",
+        "alt": "Captured evidence 036: Responder poisoning and NetNTLMv2 capture in guided practice",
+        "caption": "CAPTURED - E036 Responder poisoning and NetNTLMv2 capture in guided practice. Original image from user archive.",
+        "sha256": "aa30aa18427fed3eb8b08f49183d0ddcf90b8d98304b4d81d3f3376e63494fc9",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_072.jpg",
+        "section": "06-llmnrnbt-ns-poisoning---from-linux",
+        "alt": "Captured evidence 072: Name-resolution poisoning events observed on the wire",
+        "caption": "CAPTURED - E072 Name-resolution poisoning events observed on the wire. Original image from user archive.",
+        "sha256": "423a45a349e0342f78c1526dccc0fe8bc77d2c1236ed031231288afea475db4b",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_006.jpg",
+        "section": "08-password-spraying-overview",
+        "alt": "Captured evidence 006: Kerbrute password spraying output",
+        "caption": "CAPTURED - E006 Kerbrute password spraying output. Original image from user archive.",
+        "sha256": "21c7f1e23b296d1f3ca6fb37c33cb81990d6e2dea7067d41e319fbb46d0ce5df",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_012.jpg",
+        "section": "10-password-spraying---making-a-target-user-list",
+        "alt": "Captured evidence 012: Authenticated LDAP enumeration output",
+        "caption": "CAPTURED - E012 Authenticated LDAP enumeration output. Original image from user archive.",
+        "sha256": "1c1e462cc4ea41ce053ed42e3d247bbaa3a6dfa6684fcd5d2ecdc7de730d6a17",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_006_sec11.jpg",
+        "section": "11-internal-password-spraying---from-linux",
+        "alt": "Captured evidence 006: Kerbrute identifies a valid login in Assessment Part II",
+        "caption": "CAPTURED - E006 Kerbrute identifies a valid login in Assessment Part II. Original image from user archive.",
+        "sha256": "21c7f1e23b296d1f3ca6fb37c33cb81990d6e2dea7067d41e319fbb46d0ce5df",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_061.jpg",
+        "section": "13-enumerating-security-controls",
+        "alt": "Captured evidence 061: MS01 privilege and login-session context",
+        "caption": "CAPTURED - E061 MS01 privilege and login-session context. Original image from user archive.",
+        "sha256": "d207d6a2b87c452d165a20795d5bdc819641bed21f2c1de04e84ec72550fcf30",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_031.jpg",
+        "section": "14-credentialed-enumeration---from-linux",
+        "alt": "Captured evidence 031: Linux-based directory and service enumeration",
+        "caption": "CAPTURED - E031 Linux-based directory and service enumeration. Original image from user archive.",
+        "sha256": "fb228ca614010d0b8dc6876d3b4874dbfb18be8c6903c20d3be3144578faf38e",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_009.jpg",
+        "section": "15-credentialed-enumeration---from-windows",
+        "alt": "Captured evidence 009: PowerShell/AD user enumeration and troubleshooting",
+        "caption": "CAPTURED - E009 PowerShell/AD user enumeration and troubleshooting. Original image from user archive.",
+        "sha256": "e5c44900345466d172c9bc69b674d7b6607a28e04fadb55947ae0dcd2a902983",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_033.jpg",
+        "section": "17-kerberoasting---from-linux",
+        "alt": "Captured evidence 033: Service-ticket hash and offline cracking with John",
+        "caption": "CAPTURED - E033 Service-ticket hash and offline cracking with John. Original image from user archive.",
+        "sha256": "43f6e85e048ba01e61aabb61a7f9307e9180cf6bd83e2a23a250ef5284527fe1",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_019.jpg",
+        "section": "18-kerberoasting---from-windows",
+        "alt": "Captured evidence 019: Target SPN found with Windows setspn",
+        "caption": "CAPTURED - E019 Target SPN found with Windows setspn. Original image from user archive.",
+        "sha256": "c23dc855671dd2b0a0ca38a0d82f77f69a0ab984b321a5260281f14fa5ba9fe5",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_029.jpg",
+        "section": "18-kerberoasting---from-windows",
+        "alt": "Captured evidence 029: Rubeus Kerberoasting and ticket transfer",
+        "caption": "CAPTURED - E029 Rubeus Kerberoasting and ticket transfer. Original image from user archive.",
+        "sha256": "6cf3319e79ad8bd6363179bb395be1a9627e14a8f30f9568ee2f7335c40de133",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_069.jpg",
+        "section": "20-acl-enumeration",
+        "alt": "Captured evidence 069: Domain-root replication ACE enumeration in Part I",
+        "caption": "CAPTURED - E069 Domain-root replication ACE enumeration in Part I. Original image from user archive.",
+        "sha256": "36acf3d86e8e2d8b6b813768192f81ae12b106c98c4da13622bbb11d605ea274",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_039.jpg",
+        "section": "22-dcsync",
+        "alt": "Captured evidence 039: DRSUAPI replication method in Part I",
+        "caption": "CAPTURED - E039 DRSUAPI replication method in Part I. Original image from user archive.",
+        "sha256": "7551a963d1f61427b26cbd06fbdd31621578a7c56df73b4e62704d93b1be0577",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_061_sec23.jpg",
+        "section": "23-privileged-access",
+        "alt": "Captured evidence 061: Administrator group membership and token privileges",
+        "caption": "CAPTURED - E061 Administrator group membership and token privileges. Original image from user archive.",
+        "sha256": "d207d6a2b87c452d165a20795d5bdc819641bed21f2c1de04e84ec72550fcf30",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_024.jpg",
+        "section": "25-bleeding-edge-vulnerabilities",
+        "alt": "Captured evidence 024: NoPac demonstration from guided module practice",
+        "caption": "CAPTURED - E024 NoPac demonstration from guided module practice. Original image from user archive.",
+        "sha256": "49194a794997044a786080d5ffacab76eba423e4eab0f151e15545e2b3c39f95",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_070.jpg",
+        "section": "26-miscellaneous-misconfigurations",
+        "alt": "Captured evidence 070: SMB share navigation",
+        "caption": "CAPTURED - E070 SMB share navigation. Original image from user archive.",
+        "sha256": "b6663b624bd9acca281eac721c60386d192c146500bb50eba5e4b9a84c0c6044",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_071.jpg",
+        "section": "26-miscellaneous-misconfigurations",
+        "alt": "Captured evidence 071: Development web.config observed in the SMB share",
+        "caption": "CAPTURED - E071 Development web.config observed in the SMB share. Original image from user archive.",
+        "sha256": "4455f34618059d001ffea5b3b15f265fcbf37c0e27654db07912ebe993c217bd",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_011.jpg",
+        "section": "28-attacking-domain-trusts---child---parent-trusts---from-windows",
+        "alt": "Captured evidence 011: Kerberos ticket tooling in a domain trust exercise",
+        "caption": "CAPTURED - E011 Kerberos ticket tooling in a domain trust exercise. Original image from user archive.",
+        "sha256": "b81ed0c6d7e6fde9d07d768db017f457d5aaf474588d046c2fe5c1a965406e93",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_035.jpg",
+        "section": "29-attacking-domain-trusts---child---parent-trusts---from-linux",
+        "alt": "Captured evidence 035: Impacket/secretsdump example from an earlier module exercise",
+        "caption": "CAPTURED - E035 Impacket/secretsdump example from an earlier module exercise. Original image from user archive.",
+        "sha256": "52670adb68e940d900d16c27b39c14c9127a2857bf5500b9fd07dfdb4542367a",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_010.jpg",
+        "section": "30-attacking-domain-trusts---cross-forest-trust-abuse---from-windows",
+        "alt": "Captured evidence 010: Windows/Kerberos trust exploration example",
+        "caption": "CAPTURED - E010 Windows/Kerberos trust exploration example. Original image from user archive.",
+        "sha256": "0316c2d9fccd0fe1c2dfa0d3bd14dd8fa0321f74c51e3cfede466a1eb8adcfa2",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_011_sec31.jpg",
+        "section": "31-attacking-domain-trusts---cross-forest-trust-abuse---from-linux",
+        "alt": "Captured evidence 011: Linux ticket retrieval example",
+        "caption": "CAPTURED - E011 Linux ticket retrieval example. Original image from user archive.",
+        "sha256": "b81ed0c6d7e6fde9d07d768db017f457d5aaf474588d046c2fe5c1a965406e93",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_021.jpg",
+        "section": "33-additional-ad-auditing-techniques",
+        "alt": "Captured evidence 021: Security-control telemetry from a guided Windows lab",
+        "caption": "CAPTURED - E021 Security-control telemetry from a guided Windows lab. Original image from user archive.",
+        "sha256": "c32ca61edb9f11ff3b6d5a730b24cd1ef3a43166da0a3c311259bf27bc4b7241",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_052.jpg",
+        "section": "342-initial-access--web01-and-q1",
+        "alt": "Captured evidence 052: Gobuster identifies the web upload path",
+        "caption": "CAPTURED - E052 Gobuster identifies the web upload path. Original image from user archive.",
+        "sha256": "8de1a5d068bbd4472a0320f2983987a5e45a2d6a1bd7253c7f277d33395775ec",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_028.jpg",
+        "section": "342-initial-access--web01-and-q1",
+        "alt": "Captured evidence 028: Antak executes as SYSTEM and reads WEB01 flag",
+        "caption": "CAPTURED - E028 Antak executes as SYSTEM and reads WEB01 flag. Original image from user archive.",
+        "sha256": "133b6ffe3defc90f18a5befade4d8a1d8a6380d188512ed5b8c3c7ac9bd4c682",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_019_sec34.jpg",
+        "section": "343-spn-discovery-tgs-extraction-and-cracking--q2q3",
+        "alt": "Captured evidence 019: Windows SPN query",
+        "caption": "CAPTURED - E019 Windows SPN query. Original image from user archive.",
+        "sha256": "c23dc855671dd2b0a0ca38a0d82f77f69a0ab984b321a5260281f14fa5ba9fe5",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_015.jpg",
+        "section": "343-spn-discovery-tgs-extraction-and-cracking--q2q3",
+        "alt": "Captured evidence 015: Kerberos ticket normalized and cracked with John",
+        "caption": "CAPTURED - E015 Kerberos ticket normalized and cracked with John. Original image from user archive.",
+        "sha256": "9113e1408872acee5274d0322ed81eb78b816dc725038694be0fafaab846adee",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_066.jpg",
+        "section": "343-spn-discovery-tgs-extraction-and-cracking--q2q3",
+        "alt": "Captured evidence 066: John displays the cracked service credential",
+        "caption": "CAPTURED - E066 John displays the cracked service credential. Original image from user archive.",
+        "sha256": "4fc5bb614e700b4041d7fc3af8f25d6c6ab280f2ad64152db65e01205911186e",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_055_sec34.jpg",
+        "section": "344-correctly-identifying-ms01-and-retrieving-q4",
+        "alt": "Captured evidence 055: LDAP computer records including MS01",
+        "caption": "CAPTURED - E055 LDAP computer records including MS01. Original image from user archive.",
+        "sha256": "9802d4949a8c69d2646cb997d6d6dbb2812e8e119fd840447e68b62a054e5d25",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_045.jpg",
+        "section": "344-correctly-identifying-ms01-and-retrieving-q4",
+        "alt": "Captured evidence 045: Domain Controller discovery and network checks",
+        "caption": "CAPTURED - E045 Domain Controller discovery and network checks. Original image from user archive.",
+        "sha256": "0b8b9064bc4bf7df5f63f40e7db229d41a0e1718547f8d7d3e7a720e0aa10715",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_059.jpg",
+        "section": "344-correctly-identifying-ms01-and-retrieving-q4",
+        "alt": "Captured evidence 059: WinRM on MS01 and Administrator flag",
+        "caption": "CAPTURED - E059 WinRM on MS01 and Administrator flag. Original image from user archive.",
+        "sha256": "d1681a2750ae76f8137397d6fcafe555c4a4a5efdcce46ad4a9c871aa50ee84a",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_034.jpg",
+        "section": "345-privilege-triage-and-credential-recovery--q5q6",
+        "alt": "Captured evidence 034: MS01 profile inspection",
+        "caption": "CAPTURED - E034 MS01 profile inspection. Original image from user archive.",
+        "sha256": "c2e6ece82351778cc4474c52b7e26af59dc0c61e5557e163e74dacf92fb94b9c",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_061_sec34.jpg",
+        "section": "345-privilege-triage-and-credential-recovery--q5q6",
+        "alt": "Captured evidence 061: svc_sql local administrator token / tpetty console session",
+        "caption": "CAPTURED - E061 svc_sql local administrator token / tpetty console session. Original image from user archive.",
+        "sha256": "d207d6a2b87c452d165a20795d5bdc819641bed21f2c1de04e84ec72550fcf30",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_013.jpg",
+        "section": "345-privilege-triage-and-credential-recovery--q5q6",
+        "alt": "Captured evidence 013: LSASS dump and SHA-256 evidence",
+        "caption": "CAPTURED - E013 LSASS dump and SHA-256 evidence. Original image from user archive.",
+        "sha256": "842b3d21828aa3ef0f87188cd8d2adda704fd8d4453671048e05f8b55c8473e5",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_062.jpg",
+        "section": "345-privilege-triage-and-credential-recovery--q5q6",
+        "alt": "Captured evidence 062: NetExec LSA secret extraction",
+        "caption": "CAPTURED - E062 NetExec LSA secret extraction. Original image from user archive.",
+        "sha256": "db9681f44dafce5326aacb185a4d48b87c18ae9e322c1f2e3db79744629ea2ac",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_069_sec34.jpg",
+        "section": "346-replication-rights-dcsync-and-final-dc-flag--q7q8",
+        "alt": "Captured evidence 069: tpetty replication rights on the domain object",
+        "caption": "CAPTURED - E069 tpetty replication rights on the domain object. Original image from user archive.",
+        "sha256": "36acf3d86e8e2d8b6b813768192f81ae12b106c98c4da13622bbb11d605ea274",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_039_sec34.jpg",
+        "section": "346-replication-rights-dcsync-and-final-dc-flag--q7q8",
+        "alt": "Captured evidence 039: Successful DRSUAPI extraction of Administrator secret",
+        "caption": "CAPTURED - E039 Successful DRSUAPI extraction of Administrator secret. Original image from user archive.",
+        "sha256": "7551a963d1f61427b26cbd06fbdd31621578a7c56df73b4e62704d93b1be0577",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_065.jpg",
+        "section": "346-replication-rights-dcsync-and-final-dc-flag--q7q8",
+        "alt": "Captured evidence 065: DC01 Administrator identity and final flag",
+        "caption": "CAPTURED - E065 DC01 Administrator identity and final flag. Original image from user archive.",
+        "sha256": "c27ba95666be80e747268b87351ceeb648ecf2de58ce127b042d188b134e76de",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_060.jpg",
+        "section": "352-q1q2--capture-and-crack-a-netntlmv2-credential",
+        "alt": "Captured evidence 060: Hashcat --show displays the captured AB920 NetNTLMv2 and recovered password",
+        "caption": "CAPTURED - E060 Hashcat --show displays the captured AB920 NetNTLMv2 and recovered password. Original image from user archive.",
+        "sha256": "b2488a5f88ab5d4861756bd85fa85839a308425274c6c5b63a53bc7af4974c87",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_027.jpg",
+        "section": "353-q3--first-windows-foothold-and-ms01-flag",
+        "alt": "Captured evidence 027: Evil-WinRM on MS01 with initial user flag",
+        "caption": "CAPTURED - E027 Evil-WinRM on MS01 with initial user flag. Original image from user archive.",
+        "sha256": "0e94a175cbaaf6a3497070ccef4b4ed645e370f8b05086395cc32b3d0213edfe",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_006_sec35.jpg",
+        "section": "354-q4q5--ldap-enumeration-and-kerberos-password-spraying",
+        "alt": "Captured evidence 006: Kerbrute VALID LOGIN for BR086:Welcome1",
+        "caption": "CAPTURED - E006 Kerbrute VALID LOGIN for BR086:Welcome1. Original image from user archive.",
+        "sha256": "21c7f1e23b296d1f3ca6fb37c33cb81990d6e2dea7067d41e319fbb46d0ce5df",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_026.jpg",
+        "section": "355-q6--sensitive-mssql-connection-string-in-an-smb-share",
+        "alt": "Captured evidence 026: Navigating Department Shares/IT/Private",
+        "caption": "CAPTURED - E026 Navigating Department Shares/IT/Private. Original image from user archive.",
+        "sha256": "91b98d5ac473a2ffb20031afdf2b21602a2e2035aa088a7be0303e518987a05c",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_070_sec35.jpg",
+        "section": "355-q6--sensitive-mssql-connection-string-in-an-smb-share",
+        "alt": "Captured evidence 070: Finding Development within the SMB share",
+        "caption": "CAPTURED - E070 Finding Development within the SMB share. Original image from user archive.",
+        "sha256": "b6663b624bd9acca281eac721c60386d192c146500bb50eba5e4b9a84c0c6044",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_071_sec35.jpg",
+        "section": "355-q6--sensitive-mssql-connection-string-in-an-smb-share",
+        "alt": "Captured evidence 071: Inspecting web.config and MSSQL connection string",
+        "caption": "CAPTURED - E071 Inspecting web.config and MSSQL connection string. Original image from user archive.",
+        "sha256": "4455f34618059d001ffea5b3b15f265fcbf37c0e27654db07912ebe993c217bd",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_074.jpg",
+        "section": "355-q6--sensitive-mssql-connection-string-in-an-smb-share",
+        "alt": "Captured evidence 074: A second captured view of the configuration",
+        "caption": "CAPTURED - E074 A second captured view of the configuration. Original image from user archive.",
+        "sha256": "d0060e4d25899e6bf4ff5e2fbc843b96521393554253ba98d6756b2a9d700da9",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_042.jpg",
+        "section": "356-q7--sql01-execution-service-token-and-local-privilege-escalation",
+        "alt": "Captured evidence 042: SQL01 MSSQL connection and sysadmin validation",
+        "caption": "CAPTURED - E042 SQL01 MSSQL connection and sysadmin validation. Original image from user archive.",
+        "sha256": "73e98e8109e77e33e3f361e5b50feac5de014e8fd9cd76f18525bb5c3a24f685",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_005.jpg",
+        "section": "356-q7--sql01-execution-service-token-and-local-privilege-escalation",
+        "alt": "Captured evidence 005: Metasploit MSSQL payload configuration",
+        "caption": "CAPTURED - E005 Metasploit MSSQL payload configuration. Original image from user archive.",
+        "sha256": "f1263c3e6b439a2d39f0fcb2f8a2b8dfe2997e4eaadb84eb5e3864391969dcc4",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-active-directory-enumeration-attacks/evidence_003.jpg",
+        "section": "356-q7--sql01-execution-service-token-and-local-privilege-escalation",
+        "alt": "Captured evidence 003: Successful Meterpreter staging and session",
+        "caption": "CAPTURED - E003 Successful Meterpreter staging and session. Original image from user archive.",
+        "sha256": "03022a6fdc697593d58f61594f3335dde2e98f3ef2995772e7c4c209d0294964",
+        "verified": true,
+        "sensitiveReviewed": true
+      }
+    ]
   }
 ]
