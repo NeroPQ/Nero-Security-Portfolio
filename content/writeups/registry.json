@@ -1310,5 +1310,139 @@
         "sensitiveReviewed": true
       }
     ]
+  },
+  {
+    "slug": "htb-attacking-web-applications-with-ffuf",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "54",
+    "title": "Attacking Web Applications with Ffuf",
+    "category": "Web Application Security",
+    "summary": "Web fuzzing with ffuf: directories, pages, extensions, recursion, sub-domains, VHosts, GET/POST parameters and values, closed by a skills assessment that chains every technique.",
+    "documentationStatus": "Hands-on practice; 12 verified lab screenshots with Skills Assessment",
+    "evidenceStatus": "pending",
+    "difficulty": null,
+    "date": "2026-11-17",
+    "source": "https://academy.hackthebox.com/app/module/54",
+    "tags": [
+      "ffuf",
+      "web-fuzzing",
+      "enumeration",
+      "vhost",
+      "parameter-fuzzing"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": [
+      {
+        "src": "/writeups/evidence/htb-attacking-web-applications-with-ffuf/02-directory-fuzzing/directory-scan-blog-forum.jpg",
+        "section": "02-directory-fuzzing",
+        "alt": "ffuf directory scan returning forum and blog with 301",
+        "caption": "Directory scan: forum and blog (301), plus comment-line noise at size 986.",
+        "sha256": "4d545eb566d43f3e1a40718edda4d2a6bfbf2f35bd305750d68a43d9929bfcea",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-web-applications-with-ffuf/03-page-fuzzing/extension-fuzz-blog-index.jpg",
+        "section": "03-page-fuzzing",
+        "alt": "Extension fuzz on /blog/index with curl checks",
+        "caption": ".php returns 200 (size 0, an empty page); .phps returns 403. The right-hand terminal confirms with curl: index.php is empty, index.phps is Forbidden.",
+        "sha256": "0effd4b70ed72a368f420390104066dc52f198cb6297218a1b9fa4e9010d20dd",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-web-applications-with-ffuf/03-page-fuzzing/page-fuzz-blog-home-redacted.jpg",
+        "section": "03-page-fuzzing",
+        "alt": "Page fuzz on /blog returning home, with curl output (flag redacted)",
+        "caption": "home returns 200 with 1,046 bytes. Requesting /blog/home.php with curl returns a short 'Admin panel moved to academy.htb' page that contains the flag (redacted).",
+        "sha256": "25770267a94a8cf126ee50849c86da473353dd509c2c9a75c328e743ddd59002",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-web-applications-with-ffuf/04-recursive-scanning/forum-flag-php-redacted.jpg",
+        "section": "04-recursive-scanning",
+        "alt": "curl of /forum/flag.php (flag redacted)",
+        "caption": "curl of /forum/flag.php returns the flag (redacted).",
+        "sha256": "da257cdcb0cf781794ac70bc1da1d8a25fb8981606df2b5f347022d6fb9d98a2",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-web-applications-with-ffuf/06-sub-domain-fuzzing/dig-customer-inlanefreight.jpg",
+        "section": "05-dns-records",
+        "alt": "dig +short returning an IP for customer.inlanefreight.com",
+        "caption": "dig resolves customer.inlanefreight.com to a public IP, proving the record exists.",
+        "sha256": "306dfc5ab2461a4d435a86b3aa8b6c9d16baa1f21fadc633d1ee940833e2c1d8",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-web-applications-with-ffuf/07-vhost-fuzzing/hosts-entry-test-admin.jpg",
+        "section": "07-vhost-fuzzing",
+        "alt": "Appending the discovered VHosts to /etc/hosts",
+        "caption": "End of the VHost scan (4989/4989, 0 errors) and the /etc/hosts entry added for the new VHosts.",
+        "sha256": "258ee488ece811dd21393dc0625b99b68e100f16ad1c6120aaa76c863d5a04c3",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-web-applications-with-ffuf/08-filtering-results/phps-403-noise.png",
+        "section": "08-filtering-results",
+        "alt": "Hundreds of 403 results for .phps names",
+        "caption": "actualite.phps, kino.phps, hack7.phps and others all return 403 / size 287; curl of king.phps confirms a generic Forbidden. The scan counter reached 45,586 of 350,604 requests before it was stopped.",
+        "sha256": "d3f6e30d79f58082fc6d59b715d3225a6a4a00f0e4d7a316da04a3d0ef14403e",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-web-applications-with-ffuf/11-value-fuzzing/id-value-fuzz-and-post-redacted.jpg",
+        "section": "11-value-fuzzing",
+        "alt": "Value fuzz finding id=73 and curl returning the flag (redacted)",
+        "caption": "ffuf configuration (POST, id=FUZZ, calibration on), the single hit 73, and the curl response with the flag (redacted).",
+        "sha256": "facf6ce444ec48fa7456bfb93c277d6425c5b441e444380ba8f483e6c92563f3",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-web-applications-with-ffuf/12-skills-assessment/vhost-scan-test-archive-faculty.jpg",
+        "section": "12-skills-assessment--web-fuzzing",
+        "alt": "VHost scan on the assessment target returning test, archive and faculty",
+        "caption": "Three hits, all Status 200 / Size 0: test, archive, faculty (4989/4989, 0 errors). The /etc/hosts line was accidentally appended twice; duplicates are harmless.",
+        "sha256": "3d50e0beb10f5c0d86caf59d10183420eb6fb2c0184a0658bcaa98fe290a65cf",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-web-applications-with-ffuf/12-skills-assessment/courses-recursion-job.png",
+        "section": "12-skills-assessment--web-fuzzing",
+        "alt": "ffuf finding /courses (301) and queuing a recursive job",
+        "caption": "courses returns 301; ffuf logs 'Adding a new job to the queue: …/courses/FUZZ'.",
+        "sha256": "60e58fbc3553649a8bd086254568004dee0aae45ff5ea9706b85f56ec6702b16",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-web-applications-with-ffuf/12-skills-assessment/linux-security-no-access.jpg",
+        "section": "12-skills-assessment--web-fuzzing",
+        "alt": "curl of linux-security.php7 showing 'You don't have access!'",
+        "caption": "The page returns 'You don't have access!'.",
+        "sha256": "3ba4e606a351d6ac78946535fb36ea47af4cbf35a88c7434d0378ddec35a16a5",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-attacking-web-applications-with-ffuf/12-skills-assessment/post-username-redacted.jpg",
+        "section": "12-skills-assessment--web-fuzzing",
+        "alt": "POST with username=harry returning the flag (redacted)",
+        "caption": "The POST with username=harry replaces 'You don't have access!' with the flag (redacted).",
+        "sha256": "03a7102bda8f2890acaeff569fb63cc12700429c9fdf100df26e69537515cc23",
+        "verified": true,
+        "sensitiveReviewed": true
+      }
+    ]
   }
 ]

@@ -1,0 +1,62 @@
+[
+  {
+    "alias": "02-directory-fuzzing\\directory-scan-blog-forum.jpg",
+    "size": 251346,
+    "sha256": "4d545eb566d43f3e1a40718edda4d2a6bfbf2f35bd305750d68a43d9929bfcea"
+  },
+  {
+    "alias": "03-page-fuzzing\\extension-fuzz-blog-index.jpg",
+    "size": 271408,
+    "sha256": "0effd4b70ed72a368f420390104066dc52f198cb6297218a1b9fa4e9010d20dd"
+  },
+  {
+    "alias": "03-page-fuzzing\\page-fuzz-blog-home-redacted.jpg",
+    "size": 181490,
+    "sha256": "25770267a94a8cf126ee50849c86da473353dd509c2c9a75c328e743ddd59002"
+  },
+  {
+    "alias": "04-recursive-scanning\\forum-flag-php-redacted.jpg",
+    "size": 32305,
+    "sha256": "da257cdcb0cf781794ac70bc1da1d8a25fb8981606df2b5f347022d6fb9d98a2"
+  },
+  {
+    "alias": "06-sub-domain-fuzzing\\dig-customer-inlanefreight.jpg",
+    "size": 32471,
+    "sha256": "306dfc5ab2461a4d435a86b3aa8b6c9d16baa1f21fadc633d1ee940833e2c1d8"
+  },
+  {
+    "alias": "07-vhost-fuzzing\\hosts-entry-test-admin.jpg",
+    "size": 137393,
+    "sha256": "258ee488ece811dd21393dc0625b99b68e100f16ad1c6120aaa76c863d5a04c3"
+  },
+  {
+    "alias": "08-filtering-results\\phps-403-noise.png",
+    "size": 1582679,
+    "sha256": "d3f6e30d79f58082fc6d59b715d3225a6a4a00f0e4d7a316da04a3d0ef14403e"
+  },
+  {
+    "alias": "11-value-fuzzing\\id-value-fuzz-and-post-redacted.jpg",
+    "size": 209013,
+    "sha256": "facf6ce444ec48fa7456bfb93c277d6425c5b441e444380ba8f483e6c92563f3"
+  },
+  {
+    "alias": "12-skills-assessment\\courses-recursion-job.png",
+    "size": 194602,
+    "sha256": "60e58fbc3553649a8bd086254568004dee0aae45ff5ea9706b85f56ec6702b16"
+  },
+  {
+    "alias": "12-skills-assessment\\linux-security-no-access.jpg",
+    "size": 102647,
+    "sha256": "3ba4e606a351d6ac78946535fb36ea47af4cbf35a88c7434d0378ddec35a16a5"
+  },
+  {
+    "alias": "12-skills-assessment\\post-username-redacted.jpg",
+    "size": 130747,
+    "sha256": "03a7102bda8f2890acaeff569fb63cc12700429c9fdf100df26e69537515cc23"
+  },
+  {
+    "alias": "12-skills-assessment\\vhost-scan-test-archive-faculty.jpg",
+    "size": 191173,
+    "sha256": "3d50e0beb10f5c0d86caf59d10183420eb6fb2c0184a0658bcaa98fe290a65cf"
+  }
+]
