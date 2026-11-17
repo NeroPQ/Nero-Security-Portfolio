@@ -1,0 +1,62 @@
+[
+  {
+    "alias": "e01-burp-intruder-md5-cookie-fuzz.jpg",
+    "size": 206584,
+    "sha256": "51942e7eb61a9072e322dafd523f53459230a750701682e7ee46af947a3cc7f1"
+  },
+  {
+    "alias": "e02-skills-cookie-request.png",
+    "size": 498563,
+    "sha256": "339d857c3c7ef897e5d796f923ef7063f651f86fd73bcbdf86b1a6a7aba5fb39"
+  },
+  {
+    "alias": "e03-zap-passive-alerts.png",
+    "size": 410307,
+    "sha256": "31fe0aebe6258b5379ce0569bdd834f6dd189c05c2f7f9a7a770349e09db1af4"
+  },
+  {
+    "alias": "e04-zap-sqli-alert.png",
+    "size": 486676,
+    "sha256": "4320cc1b2d9113244eda90c36203b2cc57f8927a9ca298a7b397fc01bacddb7f"
+  },
+  {
+    "alias": "e05-zap-command-injection-alert.png",
+    "size": 435682,
+    "sha256": "4677f8cdf824f12969d8deb75201286dec7827ef896ea2c9ce040a87a355c00c"
+  },
+  {
+    "alias": "e06-command-injection-flag.png",
+    "size": 521279,
+    "sha256": "dca8f6c39ae99b5ceb166661181907014664e78054d69c58b85f181ea3e6cb29"
+  },
+  {
+    "alias": "e07-lucky-disabled-button.png",
+    "size": 234203,
+    "sha256": "c80e15325eb70427613ad47eb20ccd5ca96b951edf2d0de9ab7b3db4197b572e"
+  },
+  {
+    "alias": "e08-repeater-400-bad-request.png",
+    "size": 173898,
+    "sha256": "bbee32f42089db711deb91422414037c12ff71ad212b2a33f0cca1b2f3389bff"
+  },
+  {
+    "alias": "e09-terminal-lucky-cookie-prefix-error.png",
+    "size": 322212,
+    "sha256": "f90e07b5e7d80245716b116fd5bfe57afa92b396f8ee050376f121a7aba61fbb"
+  },
+  {
+    "alias": "e10-cyberchef-cookie-decode.jpg",
+    "size": 64970,
+    "sha256": "e5d23c0fd7e2e6774e6e33ce613f3041904c6be35850846e6680abe9d0a327e1"
+  },
+  {
+    "alias": "e11-cookie-fuzz-success.png",
+    "size": 85976,
+    "sha256": "5584f81814a897069922f4a834c2ed63870db600f17c4ee8a2c235bc2ded428c"
+  },
+  {
+    "alias": "e12-zap-sites-cfide.png",
+    "size": 40418,
+    "sha256": "bde011d8d43f87a79be2244113f83763d9ff68bbe38e0f9ed72803da63fe8ee9"
+  }
+]

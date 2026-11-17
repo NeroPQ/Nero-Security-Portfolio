@@ -1175,5 +1175,140 @@
         "sensitiveReviewed": true
       }
     ]
+  },
+  {
+    "slug": "htb-using-web-proxies",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "110",
+    "title": "Using Web Proxies — Burp Suite and OWASP ZAP",
+    "category": "Web Application Security",
+    "summary": "A 15-section module report covering Burp Suite and OWASP ZAP: interception, automatic modification, repeating, encoding, proxying tools, fuzzing and scanning, with a fully documented Skills Assessment.",
+    "documentationStatus": "15 sections documented; completion not verified",
+    "evidenceStatus": "pending",
+    "difficulty": "Easy",
+    "date": "2026-11-17",
+    "source": "https://academy.hackthebox.com/app/module/110",
+    "tags": [
+      "Burp Suite",
+      "OWASP ZAP",
+      "Intruder",
+      "Fuzzing",
+      "Command Injection",
+      "Cookie Decoding"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": [
+      {
+        "src": "/writeups/evidence/htb-using-web-proxies/e08-repeater-400-bad-request.png",
+        "section": "section-07--repeating-requests",
+        "alt": "E08: Repeater request with duplicated headers and missing blank line returns 400",
+        "caption": "A hand-edited POST failed with 400 Bad Request; the request had duplicate Content-Type headers and no blank line before the body",
+        "sha256": "bbee32f42089db711deb91422414037c12ff71ad212b2a33f0cca1b2f3389bff",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-using-web-proxies/e02-skills-cookie-request.png",
+        "section": "section-11--zap-fuzzer",
+        "alt": "E02: Repeater request mistakenly using Set-Cookie for the guest md5 cookie",
+        "caption": "The /skills/ request initially carried Set-Cookie instead of Cookie; the response shows the guest md5 cookie set by the server",
+        "sha256": "339d857c3c7ef897e5d796f923ef7063f651f86fd73bcbdf86b1a6a7aba5fb39",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-using-web-proxies/e01-burp-intruder-md5-cookie-fuzz.jpg",
+        "section": "section-11--zap-fuzzer",
+        "alt": "E01: Burp Intruder md5 cookie fuzz with the user response containing the flag",
+        "caption": "Request 8 (md5 of user, length 731) returns Welcome Back user and the section flag; the browser address bar was cropped",
+        "sha256": "51942e7eb61a9072e322dafd523f53459230a750701682e7ee46af947a3cc7f1",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-using-web-proxies/e03-zap-passive-alerts.png",
+        "section": "section-13--zap-scanner",
+        "alt": "E03: ZAP Alerts after spidering show only passive findings",
+        "caption": "Passive alerts only (Cookie No HttpOnly Flag on wp-comments-post.php); the status bar shows zero High alerts before the active scan",
+        "sha256": "31fe0aebe6258b5379ce0569bdd834f6dd189c05c2f7f9a7a770349e09db1af4",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-using-web-proxies/e04-zap-sqli-alert.png",
+        "section": "section-13--zap-scanner",
+        "alt": "E04: ZAP High alert for SQL injection in comment_parent",
+        "caption": "SQL Injection alert on wp-comments-post.php, parameter comment_parent, attack 4/2, confidence Medium",
+        "sha256": "4320cc1b2d9113244eda90c36203b2cc57f8927a9ca298a7b397fc01bacddb7f",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-using-web-proxies/e05-zap-command-injection-alert.png",
+        "section": "section-13--zap-scanner",
+        "alt": "E05: ZAP Remote OS Command Injection alert with /etc/passwd in the response",
+        "caption": "Remote OS Command Injection on /devtools/ping.php; the payload 127.0.0.1&cat /etc/passwd& returned the passwd file",
+        "sha256": "4677f8cdf824f12969d8deb75201286dec7827ef896ea2c9ce040a87a355c00c",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-using-web-proxies/e06-command-injection-flag.png",
+        "section": "section-13--zap-scanner",
+        "alt": "E06: Response body containing the flag after the command injection",
+        "caption": "Manual Request Editor response with a 156-byte body containing the flag read from /flag.txt",
+        "sha256": "dca8f6c39ae99b5ceb166661181907014664e78054d69c58b85f181ea3e6cb29",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-using-web-proxies/e07-lucky-disabled-button.png",
+        "section": "section-15--skills-assessment-using-web-proxies",
+        "alt": "E07: lucky.php button with the disabled attribute in Firefox Inspector",
+        "caption": "The submit button posts getflag=true but is shipped with disabled; the form method is POST",
+        "sha256": "c80e15325eb70427613ad47eb20ccd5ca96b951edf2d0de9ab7b3db4197b572e",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-using-web-proxies/e10-cyberchef-cookie-decode.jpg",
+        "section": "section-15--skills-assessment-using-web-proxies",
+        "alt": "E10: CyberChef From Hex then From Base64 decodes the cookie",
+        "caption": "CyberChef recipe From Hex → From Base64 produces the 31-character value",
+        "sha256": "e5d23c0fd7e2e6774e6e33ce613f3041904c6be35850846e6680abe9d0a327e1",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-using-web-proxies/e09-terminal-lucky-cookie-prefix-error.png",
+        "section": "section-15--skills-assessment-using-web-proxies",
+        "alt": "E09: Terminal showing the Q1 flag, the admin cookie and a failed fuzz with an unset prefix",
+        "caption": "The Q1 loop returns the flag; the first Q3 loop used a placeholder prefix and every candidate returned 1901 bytes",
+        "sha256": "f90e07b5e7d80245716b116fd5bfe57afa92b396f8ee050376f121a7aba61fbb",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-using-web-proxies/e11-cookie-fuzz-success.png",
+        "section": "section-15--skills-assessment-using-web-proxies",
+        "alt": "E11: Fuzz loop finds the missing character d and prints the flag",
+        "caption": "With the decoded 31-character prefix, candidate d returns 947 bytes instead of 1901 and the flag is printed",
+        "sha256": "5584f81814a897069922f4a834c2ed63870db600f17c4ee8a2c235bc2ded428c",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-using-web-proxies/e12-zap-sites-cfide.png",
+        "section": "section-15--skills-assessment-using-web-proxies",
+        "alt": "E12: ZAP Sites tree showing CFIDE/administrator/index.cfm",
+        "caption": "The proxied Metasploit request appears under CFIDE → administrator → index.cfm on the assessment target",
+        "sha256": "bde011d8d43f87a79be2244113f83763d9ff68bbe38e0f9ed72803da63fe8ee9",
+        "verified": true,
+        "sensitiveReviewed": true
+      }
+    ]
   }
 ]
