@@ -1444,5 +1444,132 @@
         "sensitiveReviewed": true
       }
     ]
+  },
+  {
+    "slug": "htb-login-brute-forcing",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "57",
+    "title": "Login Brute Forcing",
+    "category": "Web Application Security",
+    "summary": "Online password guessing against live services: exhausting small keyspaces, dictionary attacks, policy-filtered wordlists, custom profiling with cupp, Hydra and Medusa across Basic Auth, web forms, SSH and FTP, closed by a 2-part skills assessment.",
+    "documentationStatus": "Hands-on practice; 11 verified lab screenshots with Skills Assessments I & II",
+    "evidenceStatus": "pending",
+    "difficulty": null,
+    "date": "2026-11-18",
+    "source": "https://academy.hackthebox.com/app/module/57",
+    "tags": [
+      "hydra",
+      "medusa",
+      "brute-force",
+      "basic-auth",
+      "login-forms",
+      "wordlists",
+      "cupp"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": [
+      {
+        "src": "/writeups/evidence/htb-login-brute-forcing/03-brute-force-attacks/pin-ffuf-curl.jpg",
+        "section": "03-brute-force-attacks",
+        "alt": "ffuf completing 10,000 PIN requests and curl confirming the PIN",
+        "caption": "ffuf progress reaching 10000/10000 (0 errors), then curl with the correct PIN returning the flag and 'Correct PIN!'.",
+        "sha256": "69b3c1f32f749f2a199c923cd13141676f7be7f89671811bd3b667be1efaf8aa",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-login-brute-forcing/04-dictionary-attacks/dictionary-solver.jpg",
+        "section": "04-dictionary-attacks",
+        "alt": "Dictionary solver output ending with the correct password and flag",
+        "caption": "'Attempted password' lines followed by '[+] Correct password found' and '[+] Flag'.",
+        "sha256": "eb2dd3f9de0eca2c9f634b96aab8d46d01bc91c538e1d743cacdbb07c321672f",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-login-brute-forcing/07-basic-http-authentication/basic-auth-flag-page.jpg",
+        "section": "07-basic-http-authentication",
+        "alt": "HTML of the authenticated page showing 'Congratulations!' and the flag",
+        "caption": "Page body after authentication: Congratulations! and the flag span.",
+        "sha256": "9df388c0adb6ece5d75bca5d027f908eed2f28a25cf68d52aa8a0b6daa585e87",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-login-brute-forcing/08-login-forms/login-form-curl-flag.jpg",
+        "section": "08-login-forms",
+        "alt": "curl POST with cookie jar extracting the flag after the 405 error",
+        "caption": "The 405 page from attempt 2, then attempt 3 printing the flag.",
+        "sha256": "8b76f698e8f837919b37aa60c14a45b4b89f727f0983ad2e8e49d83d0dabcd63",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-login-brute-forcing/10-web-services/medusa-ftp-found.jpg",
+        "section": "10-web-services",
+        "alt": "Medusa finding the ftpuser password and the FTP login",
+        "caption": "Medusa ACCOUNT FOUND for ftpuser (16 of 197), then ftp connecting to [::1]:21 (vsFTPd 3.0.5).",
+        "sha256": "15ff1ac3d0c570422f4a3de26d45f2147df55bc5ef5417da471284b35d90a9e9",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-login-brute-forcing/10-web-services/ftp-get-flag.jpg",
+        "section": "10-web-services",
+        "alt": "FTP session downloading flag.txt and cat output",
+        "caption": "230 Login successful, flag.txt (35 bytes) downloaded, cat flag.txt as sshuser.",
+        "sha256": "e1849627ad5a89e9325b41a44a82d143d7c15ebdbee2016af50f29cea8348888",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-login-brute-forcing/11-custom-wordlists/cupp-jane-txt.jpg",
+        "section": "11-custom-wordlists",
+        "alt": "cupp interactive session saving jane.txt with 42,194 words",
+        "caption": "cupp prompts and 'Saving dictionary to jane.txt, counting 42194 words'.",
+        "sha256": "890d3fe17c2f20136a4f25e5d338985e892e4a1b9cdcef6d20af47f02d75852f",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-login-brute-forcing/11-custom-wordlists/filter-and-hydra-jane.jpg",
+        "section": "11-custom-wordlists",
+        "alt": "Policy filter result, Hydra run and valid pair for jane",
+        "caption": "wc -l = 7186; Hydra l:14/p:7186; login: jane password: ….",
+        "sha256": "1dd4a2e4b2ca5881d66ee1897301b02a84f65ccbf86c63870ae6bcc91422c437",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-login-brute-forcing/11-custom-wordlists/curl-single-quote-flag.jpg",
+        "section": "11-custom-wordlists",
+        "alt": "curl with single-quoted body printing the flag",
+        "caption": "The single-quoted request prints the flag.",
+        "sha256": "3ea57de13c3ff06a1fa53059ba1f894f0e791b09412afa856e2a8b360ff07b62",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-login-brute-forcing/12-skills-assessment-part-1/hydra-basic-auth-admin.jpg",
+        "section": "12-skills-assessment--part-1",
+        "alt": "Hydra finding admin on http-get and curl returning the Flag page",
+        "caption": "Hydra l:17/p:200, valid pair for admin, then curl -u returning a page titled 'Flag'.",
+        "sha256": "6a4311a1d71ea152457f1f8325161f9070d147a06808e3052aa1eda61cd48f3e",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-login-brute-forcing/13-skills-assessment-part-2/ftp-thomas-flag.jpg",
+        "section": "13-skills-assessment--part-2",
+        "alt": "FTP login as thomas, flag.txt download and cat as satwossh",
+        "caption": "ftp as thomas to [::1]:21 (vsFTPd 3.0.5), 230 Login successful, flag.txt (28 bytes) downloaded, cat flag.txt in a satwossh@…loginbfsatwo… shell.",
+        "sha256": "9293539f5b7f6e5051d0cd934105ad4f65882e0424ce51dde0859f2ce9005d29",
+        "verified": true,
+        "sensitiveReviewed": true
+      }
+    ]
   }
 ]

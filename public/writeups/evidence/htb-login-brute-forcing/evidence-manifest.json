@@ -1,0 +1,57 @@
+[
+  {
+    "alias": "03-brute-force-attacks\\pin-ffuf-curl.jpg",
+    "size": 389794,
+    "sha256": "69b3c1f32f749f2a199c923cd13141676f7be7f89671811bd3b667be1efaf8aa"
+  },
+  {
+    "alias": "04-dictionary-attacks\\dictionary-solver.jpg",
+    "size": 196199,
+    "sha256": "eb2dd3f9de0eca2c9f634b96aab8d46d01bc91c538e1d743cacdbb07c321672f"
+  },
+  {
+    "alias": "07-basic-http-authentication\\basic-auth-flag-page.jpg",
+    "size": 141688,
+    "sha256": "9df388c0adb6ece5d75bca5d027f908eed2f28a25cf68d52aa8a0b6daa585e87"
+  },
+  {
+    "alias": "08-login-forms\\login-form-curl-flag.jpg",
+    "size": 95597,
+    "sha256": "8b76f698e8f837919b37aa60c14a45b4b89f727f0983ad2e8e49d83d0dabcd63"
+  },
+  {
+    "alias": "10-web-services\\ftp-get-flag.jpg",
+    "size": 227587,
+    "sha256": "e1849627ad5a89e9325b41a44a82d143d7c15ebdbee2016af50f29cea8348888"
+  },
+  {
+    "alias": "10-web-services\\medusa-ftp-found.jpg",
+    "size": 261252,
+    "sha256": "15ff1ac3d0c570422f4a3de26d45f2147df55bc5ef5417da471284b35d90a9e9"
+  },
+  {
+    "alias": "11-custom-wordlists\\cupp-jane-txt.jpg",
+    "size": 206932,
+    "sha256": "890d3fe17c2f20136a4f25e5d338985e892e4a1b9cdcef6d20af47f02d75852f"
+  },
+  {
+    "alias": "11-custom-wordlists\\curl-single-quote-flag.jpg",
+    "size": 97970,
+    "sha256": "3ea57de13c3ff06a1fa53059ba1f894f0e791b09412afa856e2a8b360ff07b62"
+  },
+  {
+    "alias": "11-custom-wordlists\\filter-and-hydra-jane.jpg",
+    "size": 359586,
+    "sha256": "1dd4a2e4b2ca5881d66ee1897301b02a84f65ccbf86c63870ae6bcc91422c437"
+  },
+  {
+    "alias": "12-skills-assessment-part-1\\hydra-basic-auth-admin.jpg",
+    "size": 269700,
+    "sha256": "6a4311a1d71ea152457f1f8325161f9070d147a06808e3052aa1eda61cd48f3e"
+  },
+  {
+    "alias": "13-skills-assessment-part-2\\ftp-thomas-flag.jpg",
+    "size": 255686,
+    "sha256": "9293539f5b7f6e5051d0cd934105ad4f65882e0424ce51dde0859f2ce9005d29"
+  }
+]
