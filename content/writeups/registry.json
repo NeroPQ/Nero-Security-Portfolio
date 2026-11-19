@@ -1571,5 +1571,114 @@
         "sensitiveReviewed": true
       }
     ]
+  },
+  {
+    "slug": "htb-sql-injection-fundamentals",
+    "platform": "HTB",
+    "unitType": "module",
+    "unitId": "33",
+    "title": "SQL Injection Fundamentals",
+    "category": "Web Application Security",
+    "summary": "From database primitives in MariaDB to authentication bypass, UNION-based data exfiltration, and INFORMATION_SCHEMA database enumeration against an e-freight application.",
+    "documentationStatus": "Hands-on practice; 9 verified lab screenshots across MySQL basics, query manipulation, and schema enumeration",
+    "evidenceStatus": "pending",
+    "difficulty": "Fundamental",
+    "date": "2026-11-19",
+    "source": "https://academy.hackthebox.com/app/module/33",
+    "tags": [
+      "sql-injection",
+      "mysql",
+      "mariadb",
+      "union-injection",
+      "information-schema",
+      "auth-bypass",
+      "web-security"
+    ],
+    "publication": {
+      "approved": false
+    },
+    "evidence": [
+      {
+        "src": "/writeups/evidence/htb-sql-injection-fundamentals/03-intro-to-mysql/show-databases.jpg",
+        "section": "03-intro-to-mysql",
+        "alt": "MariaDB client showing syntax errors and then the five databases",
+        "caption": "ERROR 1064 for three malformed statements, then show databases; returning 5 rows in 0.160 s.",
+        "sha256": "788afa4024f4ae019d9fd62274f2fe7bbf22c20719dec5bbc88d439f29c05a3f",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-sql-injection-fundamentals/04-sql-statements/departments-development.jpg",
+        "section": "04-sql-statements",
+        "alt": "SELECT on departments returning d005 for Development",
+        "caption": "show databases;, USE employees;, then the departments query returning d005 (1 row in 0.177 s).",
+        "sha256": "ff7f3ab8268cd8ffeb0c45d1d12d9040db4905efa33ab2caccd410b16c492606",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-sql-injection-fundamentals/06-sql-operators/bar-hire-date.jpg",
+        "section": "06-sql-operators",
+        "alt": "Query returning one employee matching both conditions",
+        "caption": "LIKE 'Bar%' AND hire_date = '1990-01-01' returning 1 row.",
+        "sha256": "8f20a7b7cc043644335fbcc47195d833114fc76f3034366fdea6da12edd5f7b3",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-sql-injection-fundamentals/06-sql-operators/titles-count.jpg",
+        "section": "06-sql-operators",
+        "alt": "COUNT(*) query on titles returning 654",
+        "caption": "COUNT(*) with OR and NOT LIKE returning 654.",
+        "sha256": "91d5e03f4f375a5502c4cfb38c0f00060c151f5bd5079a7f26a8ea5a9a2e6502",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-sql-injection-fundamentals/08-subverting-query-logic/tom-login.jpg",
+        "section": "08-subverting-query-logic",
+        "alt": "Admin panel showing the injected query and login success as tom",
+        "caption": "The executed query shows the or '1'='1' fragment; login succeeded as tom. The flag value is visible in the screenshot only.",
+        "sha256": "689a47f04d246ce141319f4c8ad776f3965e9ada05aba4c794362d52717b652d",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-sql-injection-fundamentals/09-using-comments/id5-comment-login.jpg",
+        "section": "09-using-comments",
+        "alt": "Admin panel showing the comment-truncated query and login as superadmin",
+        "caption": "(username='' or id=5)-- - ignores AND id > 1 and the password condition; login as superadmin (id 5). Flag visible in the screenshot only.",
+        "sha256": "45e9bba38d0ac2d1f524da0e2f76be4059aaafd81d8c50a561a24a9abdb58f98",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-sql-injection-fundamentals/10-union-clause/union-663-rows.jpg",
+        "section": "10-union-clause",
+        "alt": "UNION of employees and departments returning 663 rows",
+        "caption": "Last employee rows (10640–10654), then the padded department rows; 663 rows in set (0.315 sec).",
+        "sha256": "c962a9531f9774cc7c7744b2cc7b1ae5080255e696d90ddadd81d7fd0bee3283",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-sql-injection-fundamentals/12-database-enumeration/columns-enum.jpg",
+        "section": "12-database-enumeration",
+        "alt": "Search results listing columns of tables named users in two schemas",
+        "caption": "Column, table and schema shown in the three printed columns; id, username, password belong to ilfreight.",
+        "sha256": "2d3e2a0ed3cb72fcd1c2fdd44fd5330e95e83b2a07a69976790a72a00df7a51d",
+        "verified": true,
+        "sensitiveReviewed": true
+      },
+      {
+        "src": "/writeups/evidence/htb-sql-injection-fundamentals/12-database-enumeration/users-dump.jpg",
+        "section": "12-database-enumeration",
+        "alt": "Results table showing two usernames with password hashes",
+        "caption": "Usernames in the first printed column, hashes in the second, padding 4 in the third. Hash values visible in the screenshot only.",
+        "sha256": "91b711100ca0f35483cd6c509655d12dfd17ede760a0e1e0fe6f3bc844ca81cf",
+        "verified": true,
+        "sensitiveReviewed": true
+      }
+    ]
   }
 ]

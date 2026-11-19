@@ -1,0 +1,47 @@
+[
+  {
+    "alias": "03-intro-to-mysql/show-databases.jpg",
+    "size": 212071,
+    "sha256": "788afa4024f4ae019d9fd62274f2fe7bbf22c20719dec5bbc88d439f29c05a3f"
+  },
+  {
+    "alias": "04-sql-statements/departments-development.jpg",
+    "size": 203744,
+    "sha256": "ff7f3ab8268cd8ffeb0c45d1d12d9040db4905efa33ab2caccd410b16c492606"
+  },
+  {
+    "alias": "06-sql-operators/bar-hire-date.jpg",
+    "size": 219278,
+    "sha256": "8f20a7b7cc043644335fbcc47195d833114fc76f3034366fdea6da12edd5f7b3"
+  },
+  {
+    "alias": "06-sql-operators/titles-count.jpg",
+    "size": 67608,
+    "sha256": "91d5e03f4f375a5502c4cfb38c0f00060c151f5bd5079a7f26a8ea5a9a2e6502"
+  },
+  {
+    "alias": "08-subverting-query-logic/tom-login.jpg",
+    "size": 61373,
+    "sha256": "689a47f04d246ce141319f4c8ad776f3965e9ada05aba4c794362d52717b652d"
+  },
+  {
+    "alias": "09-using-comments/id5-comment-login.jpg",
+    "size": 85173,
+    "sha256": "45e9bba38d0ac2d1f524da0e2f76be4059aaafd81d8c50a561a24a9abdb58f98"
+  },
+  {
+    "alias": "10-union-clause/union-663-rows.jpg",
+    "size": 301848,
+    "sha256": "c962a9531f9774cc7c7744b2cc7b1ae5080255e696d90ddadd81d7fd0bee3283"
+  },
+  {
+    "alias": "12-database-enumeration/columns-enum.jpg",
+    "size": 78864,
+    "sha256": "2d3e2a0ed3cb72fcd1c2fdd44fd5330e95e83b2a07a69976790a72a00df7a51d"
+  },
+  {
+    "alias": "12-database-enumeration/users-dump.jpg",
+    "size": 70381,
+    "sha256": "91b711100ca0f35483cd6c509655d12dfd17ede760a0e1e0fe6f3bc844ca81cf"
+  }
+]
