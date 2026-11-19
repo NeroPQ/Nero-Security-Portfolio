@@ -4,7 +4,7 @@
 **Category:** Web Application Security / Tooling  
 **Coverage:** 15 Sections, including the Skills Assessment  
 **Documentation Status:** Practiced — full module completion not independently verified  
-**Publication Status:** Evidence Pending  
+**Publication Status:** Evidence verified  
 **Official Module:** https://academy.hackthebox.com/app/module/110
 
 ---
