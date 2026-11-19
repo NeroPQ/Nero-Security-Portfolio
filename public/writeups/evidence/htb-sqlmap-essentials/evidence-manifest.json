@@ -1,0 +1,97 @@
+[
+  {
+    "alias": "04-running-sqlmap-on-an-http-request/case2-post-flag2-redacted.jpg",
+    "size": 133788,
+    "sha256": "427db9c6e8a2e7b5d7b181b4be7c58502f3595aebbccd7c79af5a2a6bcc6a37d"
+  },
+  {
+    "alias": "04-running-sqlmap-on-an-http-request/case3-cookie-flag3-redacted.jpg",
+    "size": 187972,
+    "sha256": "22e7c53ba45c738e7958a95eb0cb46332d5a8cc8b21ef6494d44310160ca16d7"
+  },
+  {
+    "alias": "04-running-sqlmap-on-an-http-request/case4-json-flag4-redacted.jpg",
+    "size": 198922,
+    "sha256": "b8e475555742b89cf935e8d399753fbe4babf33bfd25401b34dd2027891f7122"
+  },
+  {
+    "alias": "06-attack-tuning/case5-corrupted-blind-dump-redacted.jpg",
+    "size": 171941,
+    "sha256": "a19978391f444987794046dae28e6a37a142c4916b92b45ae16fcf845134958e"
+  },
+  {
+    "alias": "06-attack-tuning/case5-or-boolean-detection.jpg",
+    "size": 300901,
+    "sha256": "339c9773cc67a1dd4df14d543c963b8e94d301dacbaaadc31f452f6a13146c39"
+  },
+  {
+    "alias": "06-attack-tuning/case6-prefix-flag6-redacted.jpg",
+    "size": 174148,
+    "sha256": "4b7ad0547469ed12bd29f4377b804eff8eadeb46598909c5043a45cdafdae8ff"
+  },
+  {
+    "alias": "06-attack-tuning/case7-union-flag7-redacted.jpg",
+    "size": 120304,
+    "sha256": "1cdee5ee941ab2c35a45169c2950d867dd61ed4f19494bb4c40669cfd23a3c0c"
+  },
+  {
+    "alias": "07-database-enumeration/case1-flag1-redacted.jpg",
+    "size": 163568,
+    "sha256": "2da09a4db0bf27856b55b65210badae562fb0683f3a35b06831676ce0a234f3b"
+  },
+  {
+    "alias": "08-advanced-database-enumeration/search-column-style.jpg",
+    "size": 185153,
+    "sha256": "86b1489cbab89ea0cf9f1ce8b45a47759e34d7e92db16c4fa985ef028d88b721"
+  },
+  {
+    "alias": "08-advanced-database-enumeration/users-dump-cracked-redacted.jpg",
+    "size": 176458,
+    "sha256": "713328ca7edb61af2d85d46380a69850d215e53d6d89274cd1e84f67766eb891"
+  },
+  {
+    "alias": "09-bypassing-web-application-protections/case10-user-agent-flag10-redacted.jpg",
+    "size": 197227,
+    "sha256": "2b14e978709a09637c4534ecaf66a7b78b0dd163d0d2010173f404b848059399"
+  },
+  {
+    "alias": "09-bypassing-web-application-protections/case11-tamper-flag11-redacted.jpg",
+    "size": 215811,
+    "sha256": "f0cf9c4ec25708a7ef54fd0179720aacff53426b208d7c6de4600177f9099d60"
+  },
+  {
+    "alias": "09-bypassing-web-application-protections/case8-csrf-flag8-redacted.jpg",
+    "size": 142369,
+    "sha256": "78fb2572ab88802d4ce4f7daf0f46ee0772cd71fb8ecd96f48d07551e4f9a3d0"
+  },
+  {
+    "alias": "09-bypassing-web-application-protections/case9-randomize-flag9-redacted.jpg",
+    "size": 148055,
+    "sha256": "bb6e22db1bdbc1390306e8dad969d941240df34ed0947968fe99375d8135e9c2"
+  },
+  {
+    "alias": "10-os-exploitation/file-read-flag-txt-redacted.jpg",
+    "size": 182941,
+    "sha256": "44684a900eeceada1f77c616e7516023c308c5f18f653488cf6f7010c2ebedd9"
+  },
+  {
+    "alias": "10-os-exploitation/os-shell-error-based-root-flag-redacted.jpg",
+    "size": 256105,
+    "sha256": "5bdc063e7d9d53209e9bf45ecaf62a527f970fe2d1c4b925662e059f78559efc"
+  },
+  {
+    "alias": "10-os-exploitation/os-shell-webroot-listing-redacted.jpg",
+    "size": 139656,
+    "sha256": "048a0b88a5c47770a0b5ac1adf1ad822c83580ef7834c05a8ef5ebb36c1b92e5"
+  },
+  {
+    "alias": "11-skills-assessment/action-php-json-detection.jpg",
+    "size": 327329,
+    "sha256": "a10c6f220d2ee0344c3c677c85fd4ae1fb1b699d78beead0c6baa90f773bac38"
+  },
+  {
+    "alias": "11-skills-assessment/req-file-missing.jpg",
+    "size": 217944,
+    "sha256": "941e0d7da7167295c9819778f7720719b4d3fa0625ef9ace6a151d2e58c887c5"
+  }
+]
